@@ -4,12 +4,21 @@
     justify-content: space-between;
     padding: 10px 15px;
     color:#fff;
+    max-width: 100%;
 }
 .contacts,.links{
     display: flex;
+    align-items: center;
 }
 .contacts div{
     margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+.contacts div span{
+    display: flex;
+    align-items: center;
+    margin-right: 7px;
 }
 .links div{
     margin-left: 10px;

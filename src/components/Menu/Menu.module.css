@@ -2,20 +2,47 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 25px;
+    background-color: rgba(0,0,0,0.1);
+    max-width: 1280px;
+    width: 100%;
 }
 .logo{
     color: var(--second-color);
+    padding: 0 25px;
 }
 .menu nav{
     display: flex;
+    width: 100%;
+    margin-right: 25px;
 }
-.menu nav div{
+.menu nav .item{
     margin-left: 30px;
     color: var(--second-color);
     transition: all 0.2s ease;
     cursor: pointer;
+    padding: 20px 0;
 }
-.menu nav div:hover{
+.item{
+    position: relative;
+}
+.item:hover  .subMenu{
+    display: block;
+}
+.subMenu{
+    position: absolute;
+    left: 0;
+    top: 60px;
+    display: none;
+    background-color: rgba(250,250,250,0.7);
+}
+.subMenu div{
+    padding: 10px ;
+    white-space: nowrap;
+}
+.subMenu div:hover{
+    background-color: var(--second-color);
+    color: #fff;
+}
+.menu nav .item:hover > span{
     color: var(--main-color);
 }

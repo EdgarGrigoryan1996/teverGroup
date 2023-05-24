@@ -1,19 +1,49 @@
 {
     "menu":{
-        "item1":{
-            "text":"Menu1"
+        "home":{
+            "text":"Home"
         },
-        "item2":{
-            "text":"Menu2"
+        "company":{
+            "text":"Company",
+            "subMenu": {
+                "item1": "About the company",
+                "item2": "Staff",
+                "item3": "Partners"
+            }
         },
-        "item3":{
-            "text":"Menu3"
+        "services":{
+            "text":"Services",
+            "subMenu": {
+                "item1": "Accounting management, restoration of databases",
+                "item2": "Consultancy on Accounting",
+                "item3": "Consultancy on Tax",
+                "item4": "Business consulting and automation",
+                "item5": "HR",
+                "item6": "Courses/Trainings"
+            }
         },
-        "item4":{
-            "text":"Menu4"
+        "resources":{
+            "text":"Useful resources",
+            "subMenu": {
+                "item1": "Links",
+                "item2": "Standards; laws RA",
+                "item3": "Salary calculation"
+            }
         },
-        "item5":{
-            "text":"Menu5"
+        "contacts":{
+            "text":"Contacts",
+            "subMenu": {
+                "item1": "N1hashvapahutyun@gmail.com",
+                "item2": "+374 55 222 302"
+            }
+        },
+        "news": {
+            "text": "News",
+            "subMenu": {
+                "item1": "About the company",
+                "item2": "Staff",
+                "item3": "Partners"
+            }
         }
     }
 }

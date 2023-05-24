@@ -1,0 +1,19 @@
+.sectionTitle{
+    position: relative;
+    font-size: 22px;
+    text-align: center;
+    color: var(--second-color);
+    padding: 25px 0;
+}
+.sectionTitle:after{
+    content:"";
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: var(--main-color);
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+
+
+}
