@@ -1,0 +1,16 @@
+.informationBlock{
+    background-color: var(--second-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    color:#fff;
+}
+.contacts,.links{
+    display: flex;
+}
+.contacts div{
+    margin-right: 20px;
+}
+.links div{
+    margin-left: 10px;
+}

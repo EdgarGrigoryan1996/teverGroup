@@ -1,0 +1,19 @@
+{
+    "menu":{
+        "item1":{
+            "text":"Menu1"
+        },
+        "item2":{
+            "text":"Menu2"
+        },
+        "item3":{
+            "text":"Menu3"
+        },
+        "item4":{
+            "text":"Menu4"
+        },
+        "item5":{
+            "text":"Menu5"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.menuBlock{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+}
+.logo{
+    color: var(--second-color);
+}
+.menu nav{
+    display: flex;
+}
+.menu nav div{
+    margin-left: 30px;
+    color: var(--second-color);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.menu nav div:hover{
+    color: var(--main-color);
+}
