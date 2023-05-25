@@ -6,7 +6,7 @@
     color:#fff;
     max-width: 1280px;
     margin: 0 auto;
-    width: 100%;
+
 }
 .contacts,.links{
     display: flex;
@@ -22,6 +22,27 @@
     align-items: center;
     margin-right: 7px;
 }
-.links div{
-    margin-left: 10px;
+.language{
+    display: flex;
+}
+.language img{
+    width: 40px;
+    height: 22px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 510px){
+    .contacts div{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 420px){
+    .contacts div{
+        font-size: 10px;
+    }
+    .language img{
+        width: 25px;
+        height: 17px;
+        cursor: pointer;
+    }
 }

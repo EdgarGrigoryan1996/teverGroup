@@ -27,10 +27,10 @@ function App() {
   const {t,i18n} = useTranslation()
   return (
     <div className="App">
-      <div className={"fixed"}>
+
         <TopInformationSection />
         <Menu />
-      </div>
+
         
     <div className='content'>
     <Routes>

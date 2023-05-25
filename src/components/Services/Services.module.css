@@ -59,3 +59,29 @@
     color: #fff;
 }
 
+@media screen and (max-width: 800px){
+    .service{
+        flex-basis: 22%;
+    }
+    .servicesSubTitle{
+        font-size: 24px;
+    }
+}
+@media screen and (max-width: 600px){
+    .servicesSubTitle{
+        font-size: 20px;
+    }
+    .service{
+        padding: 15px;
+    }
+    .service svg{
+        font-size: 36px;
+    }
+    .serviceTitle{
+        font-size: 16px;
+    }
+    .serviceDescription{
+        font-size: 10px;
+    }
+}
+
