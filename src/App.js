@@ -27,10 +27,13 @@ function App() {
   const {t,i18n} = useTranslation()
   return (
     <div className="App">
+      <div className={"fixed"}>
         <TopInformationSection />
         <Menu />
-
-            <Routes>
+      </div>
+        
+    <div className='content'>
+    <Routes>
                 <Route path={"/"} element={<Home />}/>
                 <Route path={"/about"} element={<AboutCompany />}/>
                 <Route path={"/partners"} element={<Partners />}/>
@@ -47,6 +50,9 @@ function App() {
                 <Route path={"*"} element={<NotFound />}/>
             </Routes>
             <Footer />
+    </div>
+            
+            
     </div>
   );
 }

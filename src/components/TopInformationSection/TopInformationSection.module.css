@@ -2,9 +2,11 @@
     background-color: var(--second-color);
     display: flex;
     justify-content: space-between;
-    padding: 10px 15px;
+    padding: 10px 0;
     color:#fff;
-    max-width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
 }
 .contacts,.links{
     display: flex;

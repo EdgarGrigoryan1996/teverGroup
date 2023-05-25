@@ -2,4 +2,13 @@
   max-width: 1280px;
   margin: 0 auto;
 }
+.fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.content{
+  margin-top: 105px;
+}
 
