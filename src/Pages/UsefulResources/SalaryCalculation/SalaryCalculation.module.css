@@ -1,0 +1,84 @@
+.calculateBlock{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cleanRegisteredBlock{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+.cleanRegisteredBlock div{
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    flex-basis: 50%;
+    text-align: center;
+    background-color: var(--second-color);
+    color: #fff;
+    cursor: pointer;
+}
+.calculateBlock div.selectedMethod{
+    background-color: var(--main-color);
+}
+
+/* Vcharox */
+.vcharoxBlock{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+.vcharoxBlock div{
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    flex-basis: 50%;
+    text-align: center;
+    background-color: var(--second-color);
+    color: #fff;
+    cursor: pointer;
+}
+/* Enter Salary */
+.enterSalary{
+    width: 100%;
+    padding-top: 15px;
+}
+.enterSalary input{
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    outline: none;
+    border:none;
+    border:1px solid var(--second-color)
+}
+/* resultBlock */
+.resultBlock{
+    display: flex;
+    width: 100%;
+}
+.resultBlock:last-child div:first-child{
+    border-bottom-left-radius: 10px;
+}
+.resultBlock:last-child div:last-child{
+    border-bottom-right-radius: 10px;
+}
+.resultBlock div:first-child{
+    flex-basis: 40%;
+    padding: 15px;
+    margin-top: 5px;
+    background-color: antiquewhite;
+    font-size: 24px;
+}
+.resultBlock div:last-child{
+    flex-basis: 60%;
+    padding: 15px;
+    margin-top: 5px;
+    background-color: #dfdfdf;
+    text-align: right;
+    font-size: 24px;
+}
+.resultWrapper{
+    margin-top: 10px;
+    width: 100%;
+}
