@@ -28,8 +28,11 @@
     cursor: pointer;
     padding: 20px 0;
 }
-.item{
+.itemWrapper {
     position: relative;
+}
+.item{
+    /* position: relative; */
 }
 .item span{
     display: flex;
@@ -38,7 +41,7 @@
 .item svg{
     transform: rotate(90deg);
 }
-.item:hover  .subMenu{
+.itemWrapper:hover > .subMenu{
     display: block;
 }
 .subMenu{
@@ -56,7 +59,7 @@
     background-color: var(--second-color);
     color: #fff;
 }
-.menu nav .item:hover > span{
+.menu nav .itemWrapper:hover > span{
     color: var(--main-color);
 }
 .burgerMenu{
@@ -130,7 +133,7 @@
         overflow: hidden;
         transition: max-height 0.5s ease;
     }
-    .menu nav div.menuItems .item:hover .subMenu{
+    .menu nav div.menuItems .itemWrapper:hover > .subMenu{
         max-height: 500px;
     }
     .menu nav div.burgerMenuActive{

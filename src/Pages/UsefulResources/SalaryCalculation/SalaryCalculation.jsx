@@ -26,7 +26,8 @@ function SalaryCalculation(props) {
                 <div className={s.enterSalary}>
                     <input type="text" value={currentSalary} onChange={(e) => {
                         const currentSymbol = e.target.value
-                        if(currentSymbol.toLowerCase() === currentSymbol.toLocaleUpperCase()){
+                        const regex = /^\d+$/;
+                        if(currentSymbol.match(regex)){
                             setCurrentSalary(e.target.value)
                         }
                     }}/>

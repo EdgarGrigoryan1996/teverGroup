@@ -50,7 +50,16 @@
     border-radius: 10px;
     outline: none;
     border:none;
-    border:1px solid var(--second-color)
+    border:1px solid var(--second-color);
+    appearance: none;
+     -moz-appearance: textfield;
+}
+
+.enterSalary input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 /* resultBlock */
 .resultBlock{
