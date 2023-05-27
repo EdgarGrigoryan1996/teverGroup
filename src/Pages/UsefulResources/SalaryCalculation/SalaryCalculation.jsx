@@ -1,114 +1,218 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import s from "./SalaryCalculation.module.css"
 import g from "../../../globalStyles.module.css"
 function SalaryCalculation(props) {
     const [registeredMethod, setRegisteredMethod] = useState(true)
     const [payMethod, setPayMethod] = useState(true)
-    const [currentSalary, setCurrentSalary] = useState("")
 
+    const [currentSalary, setCurrentSalary] = useState("")
     const [ekamtahark, setEkamtahark] = useState(null)
     const [socialPay, setSocialPay] = useState(null)
     const [droshmanish, setDroshmanish] = useState(null)
     const [result, setResult] = useState(null)
 
-
+    const salaryInfos = {
+        registerPay:`<span>{+currentSalary}</span> դրամ աշխատավարձ գրանցելու դեպքում մաքուր կստանաք <span>{result}</span> դրամ: Եկամտային հարկը կկազմի <span>{ekamtahark}</span> դրամ: Սոցիալական վճարը\` <span>{socialPay}</span> դրամ: Պետության կողմից Ձեր կուտակային հաշվին հավելյալ կփոխանցվի <span>{socialPay}</span> դրամ: Կուտակային հաշվի ամսական համալրումը կկազմի <span>{socialPay * 2}</span> դրամ: Զինծառայողների Ապահովագրության Հիմնադրամի դրոշմանիշային վճարը <span>{droshmanish}</span> դրամ է։`
+    }
+    const inputRef = useRef(null)
 
     let currentResult;
-    if(registeredMethod && payMethod){
-        currentResult = currentSalary ? +currentSalary - ekamtahark - socialPay - droshmanish : 0
-    } else if(registeredMethod && !payMethod){
-        currentResult = "registerNotPay"
-    } else if(!registeredMethod && payMethod){
-        currentResult = currentSalary ? +currentSalary + ekamtahark + socialPay + droshmanish : 0
-    } else if(!registeredMethod && !payMethod){
-        currentResult = "cleanNotPay"
+
+    let droshmanish1,ekamtahark1,socialPay1
+
+    const handleChangeMethod = (setMethod,status) => {
+        setMethod(status)
+        inputRef.current.focus()
     }
-
-
 
     function registerPay(){
             setEkamtahark(Math.round(+currentSalary * 0.2))
+        ekamtahark1 = Math.round(+currentSalary * 0.2)
 
             if(+currentSalary < 500000){
                 setSocialPay(Math.round(+currentSalary * 5 / 100))
+                socialPay1 = Math.round(+currentSalary * 5 / 100)
             } else if(+currentSalary < 1125000){
                 setSocialPay(Math.round(+currentSalary * 10 / 100) - 25000)
+                socialPay1 = Math.round(+currentSalary * 10 / 100) - 25000
             } else{
                 setSocialPay(87500)
+                socialPay1 = 87500
             }
 
             switch (true) {
                 case +currentSalary <= 100000 && currentSalary!== "" :
                     setDroshmanish(1500)
+                    droshmanish1 =1500
                     break;
                 case +currentSalary <= 200000 && currentSalary!== "" :
                     setDroshmanish(3000)
+                    droshmanish1 =3000
                     break;
                 case +currentSalary <= 500000 && currentSalary!== "" :
                     setDroshmanish(5500)
+                    droshmanish1 =5500
                     break;
                 case +currentSalary <= 1000000 && currentSalary!== "" :
                     setDroshmanish(8500)
+                    droshmanish1 =8500
                     break;
                 case +currentSalary > 1000000 && currentSalary!== "" :
                     setDroshmanish(15000)
+                    droshmanish1 =15000
                     break;
                 default:
                     setDroshmanish(0)
-
+                    droshmanish1 = 0
             }
+            currentResult = +currentSalary - ekamtahark1 - socialPay1 - droshmanish1
+            return currentResult
+
     }
-
     function cleanPay(){
-        let numberSalary = +currentSalary
-        let gross;
-        let result;
-        if (numberSalary !== 0) {
-             result = numberSalary;
 
-            if (numberSalary <= 73500) {
-                result += 1500;
-            } else if (numberSalary <= 147000) {
-                result += 3000;
-            } else if (numberSalary <= 369500) {
-                result += 5500;
-            } else if (numberSalary <= 716500) {
-                result += 8500;
+        let salary = +currentSalary
+        console.log(salary)
+
+        if(salary !== 0){
+            // Droshmanish
+            if(salary < 73500 && salary !== ""){
+                setDroshmanish(1500)
+                droshmanish1 = 1500
+            } else if(salary <= 147000 && salary !== ""){
+                setDroshmanish(3000)
+                droshmanish1 = 3000
+            } else if(salary <= 369000 && salary !== ""){
+                setDroshmanish(5500)
+                droshmanish1 = 5500
+            } else if(salary <= 716500 && salary !== ""){
+                setDroshmanish(8500)
+                droshmanish1 = 8500
             } else {
-                result += 15000;
+                setDroshmanish(15000)
+                droshmanish1 = 15000
             }
 
-            if (numberSalary <= 369500) {
-                result += (numberSalary + result) / 0.75 * 0.05;
-            } else if (numberSalary <= 797500) {
-                result += ((numberSalary + result - 25000) / 0.7 * 0.1) - 25000;
+        //     Social
+            if(salary < 369500){
+                setSocialPay(Math.round((salary+droshmanish1) / 0.75 * 0.05))
+                socialPay1 = Math.round((salary+droshmanish1) / 0.75 * 0.05)
+            } else if(salary < 797500){
+                setSocialPay(Math.round((salary+droshmanish1) / 0.7 * 0.1 - 25000))
+                socialPay1 = Math.round((salary+droshmanish1) / 0.7 * 0.1 - 25000)
             } else {
-                result += 87500;
+                setSocialPay(87500)
+                socialPay1 = 87500
             }
 
-            result += (numberSalary <= 369500) ? (numberSalary + result) / 0.75 * 0.05 : (numberSalary <= 797500) ? ((numberSalary + result - 25000) / 0.7 * 0.1) - 25000 : 87500;
-            result += (numberSalary <= 73500) ? 1500 : (numberSalary <= 147000) ? 3000 : (numberSalary <= 369500) ? 5500 : (numberSalary <= 716500) ? 8500 : 15000;
-            result = (result + numberSalary) / 0.8 * 0.2;
+        //     Ekamtahark
+            setEkamtahark(Math.round((salary + droshmanish1 + socialPay1) / 0.8 * 0.2))
+            ekamtahark1 = Math.round((salary + droshmanish1 + socialPay1) / 0.8 * 0.2)
+            currentResult = salary + droshmanish1 + ekamtahark1 + socialPay1
+            return currentResult
+        } else {
+            setSocialPay(0)
+            setEkamtahark(0)
+            setDroshmanish(0)
+            return 0
         }
-        console.log(result)
+    }
+    function registerNotPay(){
+        let salary =  +currentSalary
 
+        if(salary > 0) {
+            setEkamtahark(Math.round(salary * 0.2))
+            ekamtahark1 = Math.round(salary * 0.2)
+            setSocialPay(0)
+            socialPay1 = 0
 
+            switch (true) {
+                case salary <= 100000 && salary !== "" :
+                    setDroshmanish(1500)
+                    droshmanish1 = 1500
+                    break;
+                case salary <= 200000 && salary !== "" :
+                    setDroshmanish(3000)
+                    droshmanish1 = 3000
+                    break;
+                case salary <= 500000 && salary !== "" :
+                    setDroshmanish(5500)
+                    droshmanish1 = 5500
+                    break;
+                case salary <= 1000000 && salary !== "" :
+                    setDroshmanish(8500)
+                    droshmanish1 = 8500
+                    break;
+                case salary > 1000000 && salary !== "" :
+                    setDroshmanish(15000)
+                    droshmanish1 = 15000
+                    break;
+                default:
+                    setDroshmanish(0)
+                    droshmanish1 = 0
+            }
+        } else {
+            setSocialPay(0)
+            setEkamtahark(0)
+            setDroshmanish(0)
+            return 0
+        }
+            currentResult = salary - ekamtahark1 - socialPay1 - droshmanish1
+            return currentResult
+
+    }
+    function cleanNotPay(){
+        let salary = +currentSalary
+
+        if(salary !== 0){
+            // Droshmanish
+            if(salary < 78500){
+                setDroshmanish(1500)
+                droshmanish1 = 1500
+            } else if(salary <= 157000){
+                setDroshmanish(3000)
+                droshmanish1 = 3000
+            } else if(salary <= 394500){
+                setDroshmanish(5500)
+                droshmanish1 = 5500
+            } else if(salary <= 791500){
+                setDroshmanish(8500)
+                droshmanish1 = 8500
+            } else {
+                setDroshmanish(15000)
+                droshmanish1 = 15000
+            }
+
+            //     Social
+            setSocialPay(0)
+            socialPay1 = 0
+            //     Ekamtahark
+            setEkamtahark(Math.round((salary + droshmanish1 + socialPay1) / 0.8 * 0.2))
+            ekamtahark1 = Math.round((salary + droshmanish1 + socialPay1) / 0.8 * 0.2)
+            currentResult = salary + droshmanish1 + ekamtahark1 + socialPay1
+            return currentResult
+        } else {
+            setSocialPay(0)
+            setEkamtahark(0)
+            setDroshmanish(0)
+            return 0
+        }
     }
 
 
     useEffect( () => {
         if(registeredMethod && payMethod){
-            registerPay()
+            setResult(registerPay())
         } else if(registeredMethod && !payMethod){
-
+            setResult(registerNotPay())
         } else if(!registeredMethod && payMethod){
-            cleanPay()
+            setResult(cleanPay())
         } else if(!registeredMethod && !payMethod){
-
+            setResult(cleanNotPay())
         }
 
 
-    },[currentSalary])
+    },[currentSalary,registeredMethod,payMethod])
 
     return (
         <section className={s.salaryCalculate}>
@@ -118,17 +222,17 @@ function SalaryCalculation(props) {
             <div className={s.calculateBlock}>
 
                 <div className={s.cleanRegisteredBlock}>
-                    <div className={(registeredMethod ? s.selectedMethod : "")} onClick={() => setRegisteredMethod(true)}>Գրանցված</div>
-                    <div className={(!registeredMethod ? s.selectedMethod : "")} onClick={() => setRegisteredMethod(false)}>Մաքուր</div>
+                    <div className={(registeredMethod ? s.selectedMethod : "")} onClick={() => handleChangeMethod(setRegisteredMethod,true)}>Գրանցված</div>
+                    <div className={(!registeredMethod ? s.selectedMethod : "")} onClick={() => handleChangeMethod(setRegisteredMethod,false)}>Մաքուր</div>
                 </div>
-
+                <div><p>Մասնակցում եք արդյո՞ք պարտադիր կուտակային կենսաթոշակային համակարգին</p></div>
                 <div className={s.vcharoxBlock}>
-                    <div className={(payMethod ? s.selectedMethod : "")} onClick={() => setPayMethod(true)}>Yes</div>
-                    <div className={(!payMethod ? s.selectedMethod : "")} onClick={() => setPayMethod(false)}>No</div>
+                    <div className={(payMethod ? s.selectedMethod : "")} onClick={() => handleChangeMethod(setPayMethod,true)}>ԱՅՈ, մասնակից եմ</div>
+                    <div className={(!payMethod ? s.selectedMethod : "")} onClick={() => handleChangeMethod(setPayMethod,false)}>ՈՉ, մասնակից չեմ</div>
                 </div>
 
                 <div className={s.enterSalary}>
-                    <input type="number" value={currentSalary} onChange={(e) => {
+                    <input ref={inputRef} type="number" value={currentSalary} onChange={(e) => {
                         const currentSymbol = e.target.value
                         const regex = /^\d+$/;
 
@@ -138,7 +242,7 @@ function SalaryCalculation(props) {
                 </div>
                 <div className={s.resultWrapper}>
                     <div className={s.resultBlock}>
-                        <div>Եկամտահարկ 20% / ՏՏ 10%	</div>
+                        <div>Եկամտահարկ 20%</div>
                         <div>{ekamtahark ? ekamtahark : 0}</div>
                     </div>
                     <div className={s.resultBlock}>
@@ -151,8 +255,14 @@ function SalaryCalculation(props) {
                     </div>
                     <div className={s.resultBlock}>
                         <div>{registeredMethod ? "Մաքուր մնացորդ" : "Պետք է գրանցել"}</div>
-                        <div>{currentResult}</div>
+                        <div>{result}</div>
                     </div>
+                </div>
+
+                <div className={s.salaryInfo}>
+                    <p>
+                        <span>{+currentSalary}</span> դրամ աշխատավարձ գրանցելու դեպքում մաքուր կստանաք <span>{result}</span> դրամ: Եկամտային հարկը կկազմի <span>{ekamtahark}</span> դրամ: Սոցիալական վճարը` <span>{socialPay}</span> դրամ: Պետության կողմից Ձեր կուտակային հաշվին հավելյալ կփոխանցվի <span>{socialPay}</span> դրամ: Կուտակային հաշվի ամսական համալրումը կկազմի <span>{socialPay * 2}</span> դրամ: Զինծառայողների Ապահովագրության Հիմնադրամի դրոշմանիշային վճարը <span>{droshmanish}</span> դրամ է։
+                    </p>
                 </div>
             </div>
         </section>
