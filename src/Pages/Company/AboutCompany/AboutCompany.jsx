@@ -2,7 +2,7 @@ import React from 'react';
 import s from "./AboutCompany.module.css"
 import g from "../../../globalStyles.module.css";
 
-import aboutImage from "../../../assets/images/project1.jpg"
+import aboutImage from "../../../assets/images/project1-min.jpg"
 import {IoIosArrowForward} from "react-icons/io";
 
 function AboutCompany(props) {

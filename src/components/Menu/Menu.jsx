@@ -12,12 +12,11 @@ function Menu() {
     return (
       <div className={s.menuWrapper}>
         <div className={s.menuBlock}>
-        <div className={s.logo}>TEVER GROUP</div>
+        <div className={s.logo}><Link to={"/"}>TEVER GROUP</Link> </div>
             <div className={s.menu}>
                 <nav>
                 <div className={s.burgerMenu + " " + (burgerMenuStatus && s.menuOpened)} onClick={() => setBurgerMenuStatus(!burgerMenuStatus) }><IoIosArrowForward /></div>
                     <div className={s.menuItems + " " + (burgerMenuStatus && s.burgerMenuActive)}>
-                        <Link to={"/"}><div className={s.item}><span>{t("menu.home.text")}</span></div></Link>
                         <div className={s.itemWrapper}>
                             <span className={s.item}><span><IoIosArrowForward />{t("menu.company.text")}</span></span>
                             <div className={s.subMenu}>
@@ -45,8 +44,6 @@ function Menu() {
                             <Link to={"/salaryCalculation"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.resources.subMenu.item3")}</div></Link>
                         </div>
                     </div>
-                    
-                    <div className={s.item}><span>{t("menu.news.text")}</span></div>
                     </div>
                     
                 </nav>
