@@ -16,12 +16,13 @@ import ConsultancyAccounting from "./Pages/Services/ConsultancyAccounting/Consul
 import ConsultancyTax from "./Pages/Services/ConsultancyTax/ConsultancyTax";
 import Courses from "./Pages/Services/Courses/Courses";
 import Hr from "./Pages/Services/Hr/Hr";
-import Management from "./Pages/Services/Management/Management";
+import Accounting from "./Pages/Services/Accounting/Accounting";
 import Links from "./Pages/UsefulResources/Links/Links";
 import SalaryCalculation from "./Pages/UsefulResources/SalaryCalculation/SalaryCalculation";
 import Standards from "./Pages/UsefulResources/Standards/Standards";
 import NotFound from "./Pages/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
+import LoanCalculator from "./Pages/UsefulResources/LoanCalculator/LoanCalculator";
 
 function App() {
   const {t,i18n} = useTranslation()
@@ -43,9 +44,10 @@ function App() {
                 <Route path={"/consultancyTax"} element={<ConsultancyTax />}/>
                 <Route path={"/courses"} element={<Courses />}/>
                 <Route path={"/hr"} element={<Hr />}/>
-                <Route path={"/management"} element={<Management />}/>
+                <Route path={"/management"} element={<Accounting />}/>
                 <Route path={"/links"} element={<Links />}/>
                 <Route path={"/salaryCalculation"} element={<SalaryCalculation />}/>
+                <Route path={"/loanCalculation"} element={<LoanCalculator />}/>
                 <Route path={"/standards"} element={<Standards />}/>
                 <Route path={"*"} element={<NotFound />}/>
             </Routes>

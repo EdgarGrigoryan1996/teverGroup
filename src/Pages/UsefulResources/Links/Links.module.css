@@ -1,0 +1,38 @@
+.linksBlock{
+    margin-top: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    flex-grow: 0;
+    justify-content: center;
+    gap: 25px;
+}
+.linksBlock a{
+    flex-basis: 30%;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 25px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 15px;
+    padding: 25px;
+    transition: all 0.2s linear;
+}
+
+
+.link .imageBlock img{
+    width: 80%;
+    height: 250px;
+}
+.title{
+    color: var(--black);
+    font-weight: 700;
+    font-size: 22px;
+    margin-top: 25px;
+    transition: all 0.2s linear;
+}
+.linksBlock a:hover{
+    background-color:var(--main-color);
+    transform: scale(1.05);
+}
+.linksBlock a:hover  .title{
+    color: var(--white);
+}

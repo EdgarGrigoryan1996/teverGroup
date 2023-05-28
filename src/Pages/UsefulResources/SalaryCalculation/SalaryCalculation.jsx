@@ -1,7 +1,13 @@
 import React, {useEffect, useRef, useState} from 'react';
 import s from "./SalaryCalculation.module.css"
 import g from "../../../globalStyles.module.css"
+import RegisterPayInfo from "./SalaryCalculationInfos/RegisterPayInfo";
+import RegisterNotPay from "./SalaryCalculationInfos/RegisterNotPay";
+import CleanNotPayInfo from "./SalaryCalculationInfos/CleanNotPayInfo";
+import CleanPayInfo from "./SalaryCalculationInfos/CleanPayInfo";
+import {useTranslation} from "react-i18next";
 function SalaryCalculation(props) {
+    const {t} = useTranslation()
     const [registeredMethod, setRegisteredMethod] = useState(true)
     const [payMethod, setPayMethod] = useState(true)
 
@@ -217,7 +223,7 @@ function SalaryCalculation(props) {
     return (
         <section className={s.salaryCalculate}>
             <div className={g.sectionTitle}>
-                <h2>Salary Calculation</h2>
+                <h2>{t("menu.resources.subMenu.item3")}</h2>
             </div>
             <div className={s.calculateBlock}>
 
@@ -260,9 +266,10 @@ function SalaryCalculation(props) {
                 </div>
 
                 <div className={s.salaryInfo}>
-                    <p>
-                        <span>{+currentSalary}</span> դրամ աշխատավարձ գրանցելու դեպքում մաքուր կստանաք <span>{result}</span> դրամ: Եկամտային հարկը կկազմի <span>{ekamtahark}</span> դրամ: Սոցիալական վճարը` <span>{socialPay}</span> դրամ: Պետության կողմից Ձեր կուտակային հաշվին հավելյալ կփոխանցվի <span>{socialPay}</span> դրամ: Կուտակային հաշվի ամսական համալրումը կկազմի <span>{socialPay * 2}</span> դրամ: Զինծառայողների Ապահովագրության Հիմնադրամի դրոշմանիշային վճարը <span>{droshmanish}</span> դրամ է։
-                    </p>
+                    {(registeredMethod && payMethod) && <RegisterPayInfo currentSalary={currentSalary} socialPay={socialPay} droshmanish={droshmanish} ekamtahark={ekamtahark} result={result}/>}
+                    {(registeredMethod && !payMethod) && <RegisterNotPay currentSalary={currentSalary} socialPay={socialPay} droshmanish={droshmanish} ekamtahark={ekamtahark} result={result}/>}
+                    {(!registeredMethod && !payMethod) && <CleanNotPayInfo currentSalary={currentSalary} socialPay={socialPay} droshmanish={droshmanish} ekamtahark={ekamtahark} result={result}/>}
+                    {(!registeredMethod && payMethod) && <CleanPayInfo currentSalary={currentSalary} socialPay={socialPay} droshmanish={droshmanish} ekamtahark={ekamtahark} result={result}/>}
                 </div>
             </div>
         </section>

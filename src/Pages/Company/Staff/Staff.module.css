@@ -1,0 +1,78 @@
+.meet{
+    text-align: center;
+    font-size: 32px;
+    color: var(--black);
+}
+.staffBlock{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-flow: row wrap;
+    flex-grow: 0;
+    gap: 25px;
+    justify-content: center;
+}
+.peopleBlock{
+    flex-basis: 23%;
+    background: linear-gradient(0deg, var(--main-color) 0%, rgba(255,255,255,0.5) 49%);
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.imgBlock{
+    overflow: hidden;
+}
+.imgBlock img{
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: all 0.3s linear;
+    overflow: hidden;
+}
+.imgBlock img:hover{
+    transform: scale(1.1);
+}
+
+.infoBlock{
+    position: relative;
+    padding: 30px 15px;
+    text-transform: uppercase;
+}
+.infoBlock h3{
+    letter-spacing: 1px;
+}
+.infoBlock h6{
+    font-size: 12px;
+    color: var(--second-color);
+}
+.socialBlock{
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.socialItem{
+    background-color: var(--white);
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:var(--second-color);
+    border-bottom: 2px solid var(--second-color);
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+.socialItem a{
+    transition: all 0.2s linear;
+}
+.socialItem:hover{
+    background-color: var(--second-color);
+}
+.socialItem:hover > a{
+    color: var(--white);
+}

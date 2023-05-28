@@ -14,12 +14,12 @@
         "services":{
             "text":"Services",
             "subMenu": {
-                "item1": "Accounting management, restoration of databases",
+                "item1": "Accounting",
                 "item2": "Consultancy on Accounting",
-                "item3": "Consultancy on Tax",
-                "item4": "Business consulting and automation",
+                "item3": "Tax advise",
+                "item4": "Business planning",
                 "item5": "HR",
-                "item6": "Courses/Trainings"
+                "item6": "Trainings/Courses"
             }
         },
         "resources":{
@@ -27,7 +27,8 @@
             "subMenu": {
                 "item1": "Links",
                 "item2": "Standards; laws RA",
-                "item3": "Salary calculation"
+                "item3": "Salary calculator",
+                "item4": "Loan calculator"
             }
         },
         "contacts":{
@@ -45,5 +46,41 @@
                 "item3": "Partners"
             }
         }
+    },
+    "company": {
+        "about": {
+            "title": "Your Financial Partner for Success",
+            "description": "Since its establishment, the company has been providing high-quality professional services to many local organizations as well as foreign companies. One of the primary tasks of the organization is to help businessmen, being law-abiding, to optimize taxes and conduct transparent accounting and financial accounting. By using the company's services, you will be freed from filling the positions of accountant and head of the financial department in your own company's staff list, receiving high-quality services instead."
+        }
+    },
+    "staff": {
+        "owner": {
+            "name": "Ofelia Shahsuvaryan",
+            "position": "Founding director"
+        },
+        "deputyDirector": {
+            "name": "Sargis Shahsuvaryan",
+            "position": "Deputy director - head of audit services"
+        },
+        "headAudit": {
+            "name": "Edgar Grigoryan",
+            "position": "Head of Audit Department"
+        },
+        "taxConsultant": {
+            "name": "Jack Robson",
+            "position": "Tax consultant"
+        }
+    },
+    "partners": {
+        "title": "Get to Know Our Partners",
+        "description": "The company's client list includes such prestigious organizations as: Project LL company (engaged in the construction of apartment buildings and residential districts), the Armenian branch of Galactica LL company (dealing with renovation works of the Nuclear Power Plant), Israeliyan Design Studio LL company (interior design of apartment buildings and residential districts) and exterior design), top IT companies, etc."
+    },
+    "links": {
+        "link1": "NATIONAL ASSEMBLY OF RA",
+        "link2": "THE GOVERNMENT OF THE RA",
+        "link3": "STATE TAX SERVICE AT THE GOVERNMENT OF RA",
+        "link4": "CENTRAL BANK OF RA",
+        "link5": "ASSOCIATION OF ACCOUNTANTS AND AUDITORS OF RA",
+        "link6": "LAW INFORMATION SYSTEM OF RA"
     }
 }

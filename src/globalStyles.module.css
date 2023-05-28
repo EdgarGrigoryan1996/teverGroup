@@ -5,6 +5,8 @@
     color: var(--second-color);
     padding: 25px 0;
     z-index: -1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 .sectionTitle:after{
     content:"";

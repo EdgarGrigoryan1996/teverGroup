@@ -29,7 +29,7 @@ function Menu() {
                         <span className={s.item}><span><IoIosArrowForward />{t("menu.services.text")}</span></span>
                         <div className={s.subMenu}>
                             <Link to={"/management"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item1")}</div></Link>
-                            <Link to={"/consultancyAccounting"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item2")}</div></Link>
+                            {/*<Link to={"/consultancyAccounting"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item2")}</div></Link>*/}
                             <Link to={"/consultancyTax"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item3")}</div></Link>
                             <Link to={"/businessConsulting"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item4")}</div></Link>
                             <Link to={"/hr"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item5")}</div></Link>
@@ -42,6 +42,7 @@ function Menu() {
                             <Link to={"/links"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.resources.subMenu.item1")}</div></Link>
                             <Link to={"/standards"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.resources.subMenu.item2")}</div></Link>
                             <Link to={"/salaryCalculation"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.resources.subMenu.item3")}</div></Link>
+                            <Link to={"/loanCalculation"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.resources.subMenu.item4")}</div></Link>
                         </div>
                     </div>
                     </div>
