@@ -28,7 +28,7 @@ function Footer(props) {
                     <div className={s.footerTitle}>Quick Links</div>
                     <div className={s.lists}>
                         <Link to={"/"}><div>Home</div></Link>
-                        <Link to={"/about"}><div>{t("menu.company.subMenu.item1")}</div></Link>
+                        <Link to={"/about"}>{t("menu.company.subMenu.item1")}</Link>
                         <Link to={"/staff"}><div>{t("menu.company.subMenu.item2")}</div></Link>
                         <Link to={"/partners"}><div>{t("menu.company.subMenu.item3")}</div></Link>
                         <Link to={"/links"}><div>{t("menu.resources.subMenu.item1")}</div></Link>

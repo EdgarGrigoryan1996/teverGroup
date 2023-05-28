@@ -4,7 +4,6 @@
     color: #1e1e1e;
 }
 .projectsBlock{
-    padding: 0 50px;
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
@@ -57,18 +56,35 @@
         justify-content: center;
     }
     .project{
-        flex-basis: 48%;
+        flex-basis: 45%;
     }
 }
 @media screen and (max-width: 725px){
     .projectsBlock{
         justify-content: center;
     }
-    .project{
-        flex-basis: 65%;
+    .projectTitle{
+        font-size: 18px;
+    }
+    .projectDescription p{
+        font-size: 10px;
     }
 }
 @media screen and (max-width: 600px){
+    .subTitle{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 500px){
+    .project{
+        flex-basis: 90%;
+    }
+    .projectTitle{
+        font-size: 22px;
+    }
+    .projectDescription p{
+        font-size: 12px;
+    }
     .subTitle{
         font-size: 20px;
     }

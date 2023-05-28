@@ -4,10 +4,10 @@
     flex-flow: row wrap;
     flex-grow: 0;
     justify-content: center;
-    gap: 25px;
+    gap: 50px;
 }
 .linksBlock a{
-    flex-basis: 30%;
+    flex-basis: 25%;
     text-align: center;
     cursor: pointer;
     margin-bottom: 25px;
@@ -16,16 +16,21 @@
     padding: 25px;
     transition: all 0.2s linear;
 }
-
+.link{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
 
 .link .imageBlock img{
     width: 80%;
-    height: 250px;
+
 }
 .title{
     color: var(--black);
     font-weight: 700;
-    font-size: 22px;
+    font-size: 16px;
     margin-top: 25px;
     transition: all 0.2s linear;
 }
@@ -35,4 +40,30 @@
 }
 .linksBlock a:hover  .title{
     color: var(--white);
+}
+
+@media screen and (max-width: 770px){
+    .linksBlock a{
+        flex-basis: 40%;
+    }
+}
+
+@media screen and (max-width: 530px){
+    .linksBlock{
+        gap: 25px;
+    }
+    .linksBlock a{
+        flex-basis: 45%;
+    }
+    .title{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 440px){
+.linksBlock{
+    gap: 10px;
+}
+    .title{
+        font-size: 7px;
+    }
 }

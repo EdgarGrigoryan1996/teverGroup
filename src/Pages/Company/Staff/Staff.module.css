@@ -10,7 +10,7 @@
     flex-flow: row wrap;
     flex-grow: 0;
     gap: 25px;
-    justify-content: center;
+    justify-content: space-between;
 }
 .peopleBlock{
     flex-basis: 23%;
@@ -75,4 +75,18 @@
 }
 .socialItem:hover > a{
     color: var(--white);
+}
+
+@media screen  and (max-width: 990px){
+    .peopleBlock{
+        flex-basis: 40%;
+    }
+    .staffBlock{
+        justify-content: center;
+    }
+}
+@media screen  and (max-width: 470px){
+    .peopleBlock{
+        flex-basis: 80%;
+    }
 }

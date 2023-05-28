@@ -11,7 +11,7 @@
 }
 .cleanRegisteredBlock div{
     margin-top: 15px;
-    padding: 15px;
+    padding: 15px 0;
     border-radius: 10px;
     flex-basis: 50%;
     text-align: center;
@@ -85,6 +85,8 @@ input::-webkit-inner-spin-button {
     background-color: #dfdfdf;
     text-align: right;
     font-size: 24px;
+    font-weight: 700;
+    color: var(--black);
 }
 .resultWrapper{
     margin-top: 10px;
@@ -98,4 +100,35 @@ input::-webkit-inner-spin-button {
 .salaryInfo span{
     font-weight: 700;
     letter-spacing: 0.5px;
+}
+
+@media screen and (max-width: 630px){
+    .calculateBlock{
+        padding: 25px 0 0 0;
+    }
+   .resultBlock div:first-child{
+       font-size: 12px;
+   }
+}
+
+@media screen and (max-width: 500px){
+    .resultBlock div:first-child{
+        font-size: 9px;
+    }
+    .cleanRegisteredBlock,.vcharoxBlock{
+        font-size: 12px;
+    }
+    .salaryInfo p{
+        font-size: 10px;
+    }
+    .resultBlock div:last-child{
+        font-size: 12px;
+    }
+
+}
+
+@media screen  and (max-width: 400px){
+    .resultBlock div:first-child{
+        font-size: 7px;
+    }
 }

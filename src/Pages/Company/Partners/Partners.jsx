@@ -14,7 +14,6 @@ function Partners(props) {
             <div className={g.sectionTitle}>
                 <h2>{t("menu.company.subMenu.item3")}</h2>
             </div>
-
             <div className={s.partnerContent}>
                 <div className={s.imageBlock}>
                     <img src={partnerImg} alt="Partners"/>

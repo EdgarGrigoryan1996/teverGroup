@@ -24,7 +24,7 @@
 .service{
     border: 1px solid var(--second-color);
     border-radius: 10px;
-    flex-basis: 18%;
+    flex-basis: 22%;
     padding: 25px;
     transition: all 0.2s linear;
     margin-bottom: 25px;
@@ -36,7 +36,7 @@
 
 }
 .serviceTitle{
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 15px;
     color: #1e1e1e;
@@ -58,13 +58,18 @@
 .service:hover .serviceTitle{
     color: #fff;
 }
-
-@media screen and (max-width: 800px){
+@media screen and (max-width: 885px){
     .service{
-        flex-basis: 22%;
+        flex-basis: 30%;
     }
+}
+@media screen and (max-width: 800px){
+
     .servicesSubTitle{
         font-size: 24px;
+    }
+    .service{
+        flex-basis: 45%;
     }
 }
 @media screen and (max-width: 600px){
@@ -82,6 +87,11 @@
     }
     .serviceDescription{
         font-size: 10px;
+    }
+}
+@media screen and (max-width: 405px){
+    .servicesContent{
+        gap:10px
     }
 }
 
