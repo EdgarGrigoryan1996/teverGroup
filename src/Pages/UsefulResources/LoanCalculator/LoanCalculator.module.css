@@ -6,15 +6,16 @@
 }
 .fieldsBlock{
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-around;
     color: var(--white);
     margin: 25px 0;
 }
 .fieldBlock{
+    flex-basis: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 .calculatorBlock input{
     margin-top: 10px;
@@ -25,6 +26,7 @@
     border-radius: 5px;
     outline: none;
     font-size: 18px;
+    width: 100%;
 }
 .calculatorBlock input:focus{
     border: 1px solid var(--second-color);
@@ -73,4 +75,37 @@
 .table tr td span{
     font-weight: 700;
     color: var(--black);
+}
+
+@media screen and (max-width: 850px){
+    .fieldBlock h3{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 650px){
+    .fieldBlock {
+        flex-basis: 75%;
+        margin: 10px 0;
+    }
+    .fieldBlock h3{
+        font-size: 18px;
+    }
+    .table tr td, .table tr th{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 500px){
+    .table tr td, .table tr th{
+        font-size: 10px;
+    }
+    .calculatorBlock{
+        padding: 5px;
+    }
+    .fieldBlock{
+        flex-basis: 55%;
+    }
+    .fieldBlock input{
+        font-size: 12px;
+        padding: 5px;
+    }
 }
