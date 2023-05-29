@@ -49,8 +49,7 @@ function LoanCalculator(props) {
             calcData.marvoxGumar = 546848946
         
             // console.log({vark}, {tokos}, {marvoxGumar}, {mayrGumar})
-console.log(calcData)
-console.log({calcData})
+
             result.push(calcData)    
         }
 
