@@ -1,0 +1,76 @@
+.calculatorBlock{
+    background-color: var(--main-color);
+    margin-top: 25px;
+    padding: 25px 0 1px 0;
+    border-radius: 10px;
+}
+.fieldsBlock{
+    display: flex;
+    justify-content: space-around;
+    color: var(--white);
+    margin: 25px 0;
+}
+.fieldBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.calculatorBlock input{
+    margin-top: 10px;
+    background-color: var(--white);
+    height: 44px;
+    padding: 5px 14px;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    outline: none;
+    font-size: 18px;
+}
+.calculatorBlock input:focus{
+    border: 1px solid var(--second-color);
+}
+.calculatorBlock input::placeholder{
+    font-size: 12px;
+}
+.showResult{
+    max-width: 150px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: var(--second-color);
+    color: var(--white);
+    padding: 10px;
+    margin: 25px auto;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    letter-spacing: 1px;
+}
+.showResult:hover{
+    background-color: var(--black);
+    color: var(--white);
+}
+.table{
+    margin-top: 10px;
+    width: 100%;
+    color: #313131;
+}
+.table tr td{
+    padding: 7px;
+    border:1px solid #d5d5d5;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.table tr th{
+    padding: 7px;
+    border:1px solid #d5d5d5;
+    letter-spacing: 1px;
+}
+.table tr:first-child th:first-child{
+    border-top-left-radius: 10px;
+}
+.table tr:first-child th:last-child{
+    border-top-right-radius: 10px;
+}
+.table tr td span{
+    font-weight: 700;
+    color: var(--black);
+}

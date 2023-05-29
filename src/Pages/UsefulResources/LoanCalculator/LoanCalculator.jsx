@@ -5,27 +5,31 @@ import {useTranslation} from "react-i18next";
 
 function LoanCalculator(props) {
     const {t} = useTranslation()
-    const [money, setMoney] = useState(null)
-    const [percent, setPercent] = useState(null)
-    const [month, setMonth] = useState(null)
+    const [money, setMoney] = useState("")
+    const [percent, setPercent] = useState("")
+    const [month, setMonth] = useState("")
     const [loanList, setLoanList] = useState([])
 
     const renderTable = useCallback((arr) => {
         return(
-            <table>
+            <table className={s.table}>
                 <tr>
-                    <th>MayrGumarMnacord</th><th>Tokos</th><th>Mayr Gumar</th><th>Yndameny</th>
+                    <th>#</th><th>Մայր գումարի մնացորդ</th><th>Տոկոս</th><th>Մայր գումար</th><th>Ընդամենը վճարում</th>
                 </tr>
-                {arr.map(item => (
+                {arr.map((item,i) => (
                     <tr>
+                        <td>{i+1}</td>
                         <td>
-                        {item.tokos}
+                            {item.mnacord} <span>&#x58F;</span>
                         </td>
                         <td>
-                            {item.mayrGumar}
+                        {item.tokos} <span>&#x58F;</span>
                         </td>
                         <td>
-                            {item.marvoxGumar}
+                            {item.mayrGumar} <span>&#x58F;</span>
+                        </td>
+                        <td>
+                            {item.marvoxGumar} <span>&#x58F;</span>
                         </td>
                     </tr>
                 ))}
@@ -39,18 +43,19 @@ function LoanCalculator(props) {
 
         for(let i = 1; i<= month; i++){
             const calcData = {}
-            let tokos = vark * (percent / 100) / 12
-            let marvoxGumar = vark * tokos / (1 - 1 / (1 + tokos) ** month)
-
-            const mayrGumar = marvoxGumar - tokos
-            vark -= marvoxGumar
-            calcData.tokos = 10000
-            calcData.mayrGumar = 564546 
-            calcData.marvoxGumar = 546848946
+            let tokos = Math.round(vark * (percent / 100) / 12)
+            let yndameny = Math.round(money * (percent / 100) / 12 / (1 - 1 / (1 + (percent / 100) / 12) ** month))
+            let mayrGumar = Math.round(yndameny - tokos)
+            let mnacord = Math.round(vark - mayrGumar)
+            calcData.mnacord = mnacord
+            calcData.tokos = tokos
+            calcData.mayrGumar = mayrGumar
+            calcData.marvoxGumar = yndameny
         
             // console.log({vark}, {tokos}, {marvoxGumar}, {mayrGumar})
 
-            result.push(calcData)    
+            result.push(calcData)
+            vark = vark - mayrGumar
         }
 
         setLoanList(result)
@@ -63,23 +68,34 @@ function LoanCalculator(props) {
             </div>
 
             <div className={s.calculatorBlock}>
-                <div><input type="number" placeholder='Money' value={money} onChange={(e) => {
-                    setMoney(e.target.value)
-                }}/></div>
+                <div className={s.fieldsBlock}>
+                    <div className={s.fieldBlock}>
+                        <h3>Վարկի գումար</h3>
+                        <input type="number" placeholder='Վարկի գումար' value={money} onChange={(e) => {
+                            setMoney(e.target.value)
+                        }}/>
+                    </div>
+
+                    <div className={s.fieldBlock}>
+                        <h3>Տարեկան տոկոսադրույք</h3>
+                        <input type="number" placeholder='Տարեկան տոկոսադրույք' value={percent} onChange={(e) => {
+                            setPercent(e.target.value)
+                        }}/>
+                    </div>
+
+                    <div className={s.fieldBlock}>
+                        <h3>Մարման ժամկետ</h3>
+                        <input type="number" placeholder='Մարման ժամկետ' value={month} onChange={(e) => {
+                            setMonth(e.target.value)
+                        }}/>
+                    </div>
+                </div>
+
+                <div className={s.showResult} onClick={handleCalculate}>Հաշվել</div>
             </div>
 
-            <div className={s.calculatorBlock}>
-                <div><input type="number" placeholder='Percent' value={percent} onChange={(e) => {
-                    setPercent(e.target.value)
-                }}/></div>
-            </div>
 
-            <div className={s.calculatorBlock}>
-                <div><input type="number" placeholder='Month' value={month} onChange={(e) => {
-                    setMonth(e.target.value)
-                }}/></div>
-            </div>
-            <div className={s.showResult} onClick={handleCalculate}>Hashvel</div>
+
 
             {!!loanList.length && renderTable(loanList)}
         </section>
