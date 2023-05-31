@@ -2,15 +2,29 @@ import React, { useCallback, useMemo, useState } from 'react';
 import g from "../../../globalStyles.module.css";
 import s from "./LoanCalculator.module.css"
 import {useTranslation} from "react-i18next";
+import Select from 'react-select';
 
 function LoanCalculator(props) {
     const {t} = useTranslation()
     const [money, setMoney] = useState("")
     const [percent, setPercent] = useState("")
     const [month, setMonth] = useState("")
-    const [loanList, setLoanList] = useState([])
 
-    const renderTable = useCallback((arr) => {
+    const [totalTokos, setTotalTokos] = useState("")
+    const [totalMayrGumar, setTotalMayrGumar] = useState("")
+    const [totalYndameny, setTotalYndameny] = useState("")
+
+    const [loanList, setLoanList] = useState([])
+    const [totalList, setTotalList] = useState({})
+
+    const options = [
+        { value: 'year', label: 'Տարի' },
+        { value: 'month', label: 'Ամիս' },
+    ]
+
+    const [selectedOption, setSelectedOption] = useState(options[0]);
+
+    const renderTable = useCallback((arr,total) => {
         return(
             <table className={s.table}>
                 <tr>
@@ -33,33 +47,80 @@ function LoanCalculator(props) {
                         </td>
                     </tr>
                 ))}
+                
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>{total.totalTokos}</td>
+                        <td>{total.totalMayrGumar}</td>
+                        <td>{total.totalYndameny}</td>
+                    </tr>
+                
             </table>
         )
     }, [loanList])
 
     const handleCalculate = useCallback(() =>{
+        console.log(selectedOption);
+        let toMonth = selectedOption.value === "year" ? month * 12 : month;
         let vark = money
+
+        let totalTokos = 0
+        let totalMayrGumar = 0
+        let totalYndameny = 0
+
         const result = []
 
-        for(let i = 1; i<= month; i++){
+        for(let i = 1; i<= toMonth; i++){
+            
             const calcData = {}
-            let tokos = Math.round(vark * (percent / 100) / 12)
-            let yndameny = Math.round(money * (percent / 100) / 12 / (1 - 1 / (1 + (percent / 100) / 12) ** month))
-            let mayrGumar = Math.round(yndameny - tokos)
-            let mnacord = Math.round(vark - mayrGumar)
-            calcData.mnacord = mnacord
-            calcData.tokos = tokos
-            calcData.mayrGumar = mayrGumar
-            calcData.marvoxGumar = yndameny
-        
-            // console.log({vark}, {tokos}, {marvoxGumar}, {mayrGumar})
+            if(i !== toMonth){
+                let tokos = Math.round(vark * (percent / 100) / 12)
+                let yndameny = Math.round(money * (percent / 100) / 12 / (1 - 1 / (1 + (percent / 100) / 12) ** toMonth))
+                let mayrGumar = Math.round(yndameny - tokos)
+                let mnacord = Math.round(vark - mayrGumar)
+                calcData.mnacord = mnacord
+                calcData.tokos = tokos
+                calcData.mayrGumar = mayrGumar
+                calcData.marvoxGumar = yndameny
 
-            result.push(calcData)
-            vark = vark - mayrGumar
+                totalTokos += tokos
+                totalMayrGumar += mayrGumar
+                totalYndameny += yndameny
+            
+                result.push(calcData)
+                vark = vark - mayrGumar
+            } else {
+                let tokos = Math.round(vark * (percent / 100) / 12)
+                let yndameny = Math.round(money * (percent / 100) / 12 / (1 - 1 / (1 + (percent / 100) / 12) ** toMonth))
+                let mayrGumar = Math.round(yndameny - tokos)
+                let mnacord = Math.round(vark - mayrGumar)
+                yndameny += mnacord
+                mayrGumar = mayrGumar + mnacord
+                mnacord = 0
+                calcData.mnacord = mnacord
+                calcData.tokos = tokos
+                calcData.mayrGumar = mayrGumar
+                calcData.marvoxGumar = yndameny
+
+                totalTokos += tokos
+                totalMayrGumar += mayrGumar
+                totalYndameny += yndameny
+            
+                result.push(calcData)
+                vark = vark - mayrGumar
+            }
+            
         }
+        
 
         setLoanList(result)
-    }, [money, percent, month, loanList])
+        setTotalList({
+            totalTokos,
+            totalMayrGumar,
+            totalYndameny
+        })
+    }, [money, percent, month, loanList,selectedOption])
     
     return (
         <section>
@@ -85,9 +146,23 @@ function LoanCalculator(props) {
 
                     <div className={s.fieldBlock}>
                         <h3>Մարման ժամկետ</h3>
-                        <input type="number" placeholder='Մարման ժամկետ' value={month} onChange={(e) => {
-                            setMonth(e.target.value)
-                        }}/>
+                        <div className={s.montBlock}>
+                            <input type="number" placeholder='Մարման ժամկետ' value={month} onChange={(e) => {
+                                    setMonth(e.target.value)
+                                }}
+                            />
+                            <Select 
+                                defaultValue={selectedOption}
+                                onChange={setSelectedOption}
+                                options={options}
+                                styles={{
+                                    control: (baseStyles, state) => ({
+                                      ...baseStyles,
+                                      marginTop:10
+                                    }),
+                                  }}
+                            />
+                        </div>
                     </div>
                 </div>
 
@@ -97,7 +172,7 @@ function LoanCalculator(props) {
 
 
 
-            {!!loanList.length && renderTable(loanList)}
+            {!!loanList.length && renderTable(loanList,totalList)}
         </section>
     );
 }
