@@ -49,7 +49,7 @@ function LoanCalculator(props) {
                 ))}
                 
                     <tr>
-                        <td></td>
+                        <td>Ընդամենը</td>
                         <td></td>
                         <td>{total.totalTokos}</td>
                         <td>{total.totalMayrGumar}</td>
@@ -61,10 +61,9 @@ function LoanCalculator(props) {
     }, [loanList])
 
     const handleCalculate = useCallback(() =>{
-        console.log(selectedOption);
-        let toMonth = selectedOption.value === "year" ? month * 12 : month;
+        let toMonth = selectedOption.value === "year" ? month * 12 : +month;
         let vark = money
-
+        console.log(toMonth);
         let totalTokos = 0
         let totalMayrGumar = 0
         let totalYndameny = 0
@@ -79,6 +78,7 @@ function LoanCalculator(props) {
                 let yndameny = Math.round(money * (percent / 100) / 12 / (1 - 1 / (1 + (percent / 100) / 12) ** toMonth))
                 let mayrGumar = Math.round(yndameny - tokos)
                 let mnacord = Math.round(vark - mayrGumar)
+
                 calcData.mnacord = mnacord
                 calcData.tokos = tokos
                 calcData.mayrGumar = mayrGumar
@@ -98,6 +98,7 @@ function LoanCalculator(props) {
                 yndameny += mnacord
                 mayrGumar = mayrGumar + mnacord
                 mnacord = 0
+
                 calcData.mnacord = mnacord
                 calcData.tokos = tokos
                 calcData.mayrGumar = mayrGumar
