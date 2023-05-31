@@ -49,8 +49,7 @@ function LoanCalculator(props) {
                 ))}
                 
                     <tr>
-                        <td>Ընդամենը</td>
-                        <td></td>
+                        <td colSpan={2}>Ընդամենը</td>
                         <td>{total.totalTokos}</td>
                         <td>{total.totalMayrGumar}</td>
                         <td>{total.totalYndameny}</td>
