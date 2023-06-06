@@ -82,5 +82,45 @@
         "link4": "CENTRAL BANK OF RA",
         "link5": "ASSOCIATION OF ACCOUNTANTS AND AUDITORS OF RA",
         "link6": "LAW INFORMATION SYSTEM OF RA"
+    },
+    "accounting": {
+        "title": "Accounting",
+        "items": {
+            "item1": "Implementation and maintenance of the accounting system, restoration of databases",
+            "item2": "Tax accounting and reporting",
+            "item3": "Support with preparation of compilation of reports to state bodies",
+            "item4": "Management accounting and reporting"
     }
+    },
+    "tax": {
+        "title": "Tax",
+        "items": {
+            "item1":"Calculating taxes and other mandatory payments, verifying and adjusting payments and balances, reporting",
+            "item2":"Consulting on tax legislation",
+            "item3":"Assessment of tax risks and tax consulting in the course of company reorganization"
+    }
+    },
+    "planning": {
+        "title": "Planning",
+        "items": {
+            "item1":"Business planning and strategy development",
+            "item2":"Business performance assessment"
+        }
+    },
+    "hr": {
+        "title": "Hr",
+        "items": {
+            "item1":"Drawing up employment contracts in accordance with the legislation of the Republic of Armenia",
+            "item2":"Maintenance and development of internal legal acts and regulations"
+        }
+    },
+    "trainings": {
+        "title": "TRAININGS/COURSES",
+        "items": {
+           "item1":"Accounting basic knowledge courses",
+           "item2":"AS accountant training",
+           "item3":"Microsoft Excel advanced courses in finance"
+        }
+    }
+
 }

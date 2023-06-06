@@ -1,0 +1,48 @@
+.templateContent{
+    margin-top: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    gap:50px;
+    align-items: center;
+}
+.templateContent > div{
+    flex-basis: 47%;
+}
+.templateContent .imageBlock img{
+    width: 100%;
+    border-radius: 10px;
+}
+.infoTitle{
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+.description{
+    color: var(--grey-color);
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+.item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.item svg{
+    color: #006f93;
+    font-size: 28px;
+    margin-right: 15px;
+}
+
+@media screen and (max-width: 885px){
+    .templateContent{
+        flex-direction: column;
+
+    }
+
+    .InfoBlock{
+        width: 100%;
+        text-align: left;
+    }
+}
