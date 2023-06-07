@@ -34,6 +34,7 @@ function Menu() {
                             <Link to={"/businessConsulting"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item4")}</div></Link>
                             <Link to={"/hr"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item5")}</div></Link>
                             <Link to={"/courses"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item6")}</div></Link>
+                            <Link to={"/price"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item7")}</div></Link>
                         </div>
                     </div>
                     <div className={s.itemWrapper}>

@@ -29,6 +29,7 @@ import taxImg from "./assets/images/services/tax.jpg"
 import planningImg from "./assets/images/services/planning.jpg"
 import trainingsImg from "./assets/images/services/trainings.jpg"
 import hrImg from "./assets/images/services/hr.jpg"
+import Price from './Pages/Services/Price/Price';
 
 
 
@@ -124,6 +125,7 @@ function App() {
                 <Route path={"/courses"} element={<ServicePagesTemplate data={servicePagesData.trainings} image={trainingsImg}/>}/>
                 <Route path={"/hr"} element={<ServicePagesTemplate data={servicePagesData.hr} image={hrImg}/>}/>
                 <Route path={"/management"} element={<ServicePagesTemplate data={servicePagesData.accounting} image={accountingImg}/>}/>
+                <Route path={"/price"} element={<Price />}/>
                 <Route path={"/links"} element={<Links />}/>
                 <Route path={"/salaryCalculation"} element={<SalaryCalculation />}/>
                 <Route path={"/loanCalculation"} element={<LoanCalculator />}/>
