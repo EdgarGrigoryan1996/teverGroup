@@ -122,6 +122,35 @@
            "item2":"AS accountant training",
            "item3":"Microsoft Excel advanced courses in finance"
         }
+    },
+    "price":{
+        "title":"Calculating the cost of accounting services",
+        "companyName":"Company Name",
+        "email":"E-mail",
+        "tax":{
+            "title": "Tax Regime",
+            "item1":"VAT Payer",
+            "item2":"Turnover Taxpayer",
+            "item3":"Other"
+        },
+        "activity":{
+            "title":"Field of Activity",
+            "item1":"Retail",
+            "item2":"Wholesale",
+            "item3":"Production",
+            "item4":"Service Provision",
+            "item5":"Construction",
+            "item6":"Other"
+        },
+        "staffNumber":"Number of Staff",
+        "monthTurnover":"Monthly Average Turnover",
+        "monthAverage":"Monthly Average Import Size",
+        "assetsNumber":"Number of Fixed Assets",
+        "buttonText":"Send",
+        "err":{
+            "empty":"Required",
+            "emailErr":"Invalid E-mail"
+        }
     }
 
 }

@@ -1,39 +1,42 @@
 import { useTranslation } from "react-i18next"
 import g from "../../../globalStyles.module.css"
 import s from "./Price.module.css"
-import {useState } from "react"
+import {useCallback, useEffect, useState } from "react"
 import Select from "react-select"
 import UseAnimations from "react-useanimations";
 import alertCircle from 'react-useanimations/lib/alertCircle'
+import { getSelectedOptionIndex } from "./helpFunctions/getSelectedOptionIndex"
 function Price() {
+    const {t} = useTranslation()
+
     const taxOptions = [
-        {value:"VAT Payer",label:"VAT Payer"},
-        {value:"Tumover Taxpayer",label:"Tumover Taxpayer"},
-        {value:"Other",label:"Other"}
+        {value:"item1",label:t("price.tax.item1")},
+        {value:"item2",label:t("price.tax.item2")},
+        {value:"item3",label:t("price.tax.item3")}
     ]
     const activityOptions = [
-        {value:"Retail",label:"Retail"},
-        {value:"Wholesale",label:"Wholesale"},
-        {value:"Production",label:"Production"},
-        {value:"Service Provision",label:"Service Provision"},
-        {value:"Construction",label:"Construction"},
-        {value:"Other",label:"Other"}
+        {value:"item1",label:t("price.activity.item1")},
+        {value:"item2",label:t("price.activity.item2")},
+        {value:"item3",label:t("price.activity.item3")},
+        {value:"item4",label:t("price.activity.item4")},
+        {value:"item5",label:t("price.activity.item5")},
+        {value:"item6",label:t("price.activity.item6")}
     ]
 
 
-    const {t} = useTranslation()
+    
     const [readyForSend, setReadyForSend] = useState(false)
     const [companyName, setCompanyName] = useState({
         text:"",
         err:{
-            msg:"Company Name is Requared",
+            msg:t("price.err.empty"),
             status:true
         }
     })
     const [email, setEmail] = useState({
         text:"",
         err:{
-            msg:"Email is requared",
+            msg:t("price.err.empty"),
             status:true
         }
     })
@@ -42,28 +45,28 @@ function Price() {
     const [staffNumber, setStaffNumber] = useState({
         text:"",
         err:{
-            msg:"Staff Number is Requared",
+            msg:t("price.err.empty"),
             status:true
         }
     })
     const [monthTurnover, setmonthTurnover] = useState({
         text:"",
         err:{
-            msg:"Month Turnover is Requared",
+            msg:t("price.err.empty"),
             status:true
         }
     })
     const [montAverage, setmontAverage] = useState({
         text:"",
         err:{
-            msg:"Month Average is Requared",
+            msg:t("price.err.empty"),
             status:true
         }
     })
     const [assetsNumber, setAssetsNumber] = useState({
         text:"",
         err:{
-            msg:"Assets Number is Requared",
+            msg:t("price.err.empty"),
             status:true
         }
     })
@@ -84,42 +87,42 @@ function Price() {
             setCompanyName({
                 text:"",
                 err:{
-                    msg:"Company Name is Requared",
+                    msg:t("price.err.empty"),
                     status:true
                 }
             })
             setEmail({
                 text:"",
                 err:{
-                    msg:"Email is requared",
+                    msg:t("price.err.empty"),
                     status:true
                 }
             })
             setStaffNumber({
                 text:"",
                 err:{
-                    msg:"Staff Number is Requared",
+                    msg:t("price.err.empty"),
                     status:true
                 }
             })
             setmonthTurnover({
                 text:"",
                 err:{
-                    msg:"Month Turnover is Requared",
+                    msg:t("price.err.empty"),
                     status:true
                 }
             })
             setmontAverage({
                 text:"",
                 err:{
-                    msg:"Month Average is Requared",
+                    msg:t("price.err.empty"),
                     status:true
                 }
             })
             setAssetsNumber({
                 text:"",
                 err:{
-                    msg:"Assets Number is Requared",
+                    msg:t("price.err.empty"),
                     status:true
                 }
             })
@@ -192,115 +195,108 @@ function Price() {
             sendData()
         }
     }
+    useEffect(() => {
+        const selectedValue = selectedTax.value;
+        const selectedValue2 = selectedActivity.value;
+        let index = getSelectedOptionIndex(taxOptions,selectedValue);
+        let index2 = getSelectedOptionIndex(activityOptions,selectedValue2);
+       
+        setSelectedTax(taxOptions[index])
+        setSelectedActivity(activityOptions[index2])
+        
+    },[window.localStorage.i18nextLng])
 
+    const styles = {
+        valueContainer: (css, state) => ({ ...css, 
+          input: { "height": 0 }
+        })
+      }
+      
+    const renderSelect = useCallback((selectedValue, options, handleChange) => (
+            <Select 
+                isSearchable={false}
+                value={selectedValue}
+                options={options}
+                onChange={handleChange}
+                    styles={{
+                        ...styles,
+                        control: (baseStyles, state) => ({
+                            ...baseStyles,
+                            borderColor: state.isFocused ? 'var(--second-color)' : 'var(--grey-color)',
+                            outline:"none",
+                            padding:"5px",
+                            border: "0",
+                            boxShadow:"none",
+                            transition:"all .5s",
+                            border: state.isFocused ? "1px solid var(--second-color)" : "1px solid #ccc",
+                            '&:hover': {
+                                borderColor:state.isFocused ? "var(--second-color)" : "#ccc"
+                                }
+                            })
+                        }}
+                theme={(theme) => ({
+                    ...theme,
+                    borderRadius: 5,
+                    colors: {
+                    ...theme.colors,
+                        text: '#ccc',
+                        primary25: 'var(--main-color)',
+                        primary: 'var(--second-color)',
+                    },
+                    })}
+            />
+        ), [selectedActivity, selectedTax])
     
     return (
         <section>
             <div className={g.sectionTitle}>
-                <h2>{t("menu.services.subMenu.item7")}</h2>
+                <h2>{t("price.title")}</h2>
             </div>
             <div className={s.formBlock}>
                 <div className={s.fields}>
-                    <div className={s.inputBlock + " " + (!companyName.err.status && s.errorBlock)}><input type="text" value={companyName.text}  placeholder="Company Name" onChange={(e) => changeValue(e,companyName,setCompanyName)}/>
+                    <div className={s.inputBlock + " " + (!companyName.err.status && s.errorBlock)}><input type="text" value={companyName.text}  placeholder={t("price.companyName")} onChange={(e) => changeValue(e,companyName,setCompanyName)}/>
                         {!companyName.err.status && 
                             <span title={companyName.err.msg} className={s.errorMessage}>
                             <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
                         </span>}
                     </div>
-                    <div className={s.inputBlock + " " + (!email.err.status && s.errorBlock)}><input type="email" value={email.text} placeholder="Email" onChange={(e) => changeValue(e,email,setEmail)}/>
+                    <div className={s.inputBlock + " " + (!email.err.status && s.errorBlock)}><input type="email" value={email.text} placeholder={t("price.email")} onChange={(e) => changeValue(e,email,setEmail)}/>
                         {!email.err.status && 
                             <span title={email.err.msg} className={s.errorMessage}>
                             <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
                         </span>}
                     </div>
                     <div className={s.inputBlock + " " + s.selectInputBlock}>
-                        <div className={s.fieldTitle}>Tax Regime</div>
-                        <Select 
-                            value={selectedTax}
-                            options={taxOptions}
-                            onChange={setSelectedTax}
-                             styles={{
-                                control: (baseStyles, state) => ({
-                                ...baseStyles,
-                                borderColor: state.isFocused ? 'var(--second-color)' : 'var(--grey-color)',
-                                outline:"none",
-                                padding:"5px",
-                                border: "0",
-                                boxShadow:"none",
-                                transition:"all .5s",
-                                border: state.isFocused ? "1px solid var(--second-color)" : "1px solid #ccc",
-                                '&:hover': {
-                                    borderColor:state.isFocused ? "var(--second-color)" : "#ccc"
-                                 }
-                                }),
-                            }}
-                            theme={(theme) => ({
-                                ...theme,
-                                borderRadius: 5,
-                                colors: {
-                                ...theme.colors,
-                                  text: '#ccc',
-                                  primary25: 'var(--main-color)',
-                                  primary: 'var(--second-color)',
-                                },
-                              })}
-                        />
+                        <div className={s.fieldTitle}>{t("price.tax.title")}</div>
+                        {renderSelect(selectedTax, taxOptions, setSelectedTax)}
                     </div>
                     <div className={s.inputBlock + " " + s.selectInputBlock}>
-                        <div className={s.fieldTitle}>Field of Activity</div>
-                        <Select 
-                            value={selectedActivity}
-                            options={activityOptions}
-                            onChange={setSelectedActivity}
-                            styles={{
-                                control: (baseStyles, state) => ({
-                                ...baseStyles,
-                                borderColor: state.isFocused ? 'var(--second-color)' : 'var(--grey-color)',
-                                outline:"none",
-                                padding:"5px",
-                                border: "0",
-                                boxShadow:"none",
-                                transition:"all .5s",
-                                border: state.isFocused ? "1px solid var(--second-color)" : "1px solid #ccc",
-                                '&:hover': {
-                                    borderColor:state.isFocused ? "var(--second-color)" : "#ccc"
-                                 }
-                                }),
-                            }}
-                            theme={(theme) => ({
-                                ...theme,
-                                borderRadius: 5,
-                                colors: {
-                                ...theme.colors,
-                                  text: '#ccc',
-                                  primary25: 'var(--main-color)',
-                                  primary: 'var(--second-color)',
-                                },
-                              })}
-                        />
+                        <div className={s.fieldTitle}>{t("price.activity.title")}</div>
+                        {renderSelect(selectedActivity, activityOptions, setSelectedActivity)}
+                        
                     </div>
-                    <div className={s.inputBlock + " " + (!staffNumber.err.status && s.errorBlock)}><input type="number"  placeholder="Number of Staff" value={staffNumber.text} onChange={(e) => changeValue(e,staffNumber,setStaffNumber)}/>
+                    <div className={s.inputBlock + " " + (!staffNumber.err.status && s.errorBlock)}><input type="number"  placeholder={t("price.staffNumber")} value={staffNumber.text} onChange={(e) => changeValue(e,staffNumber,setStaffNumber)}/>
                               {!staffNumber.err.status && 
                                 <span title={staffNumber.err.msg} className={s.errorMessage}>
                                 <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
                             </span>}
                               
                     </div>
-                    <div className={s.inputBlock + " " + (!monthTurnover.err.status && s.errorBlock)}><input type="number"  placeholder="Monthly Average Turnover" value={monthTurnover.text} onChange={(e) => changeValue(e,monthTurnover,setmonthTurnover)}/>
+                    <div className={s.inputBlock + " " + (!monthTurnover.err.status && s.errorBlock)}><input type="number"  placeholder={t("price.monthTurnover")} value={monthTurnover.text} onChange={(e) => changeValue(e,monthTurnover,setmonthTurnover)}/>
                               {!monthTurnover.err.status && 
                                 <span title={monthTurnover.err.msg} className={s.errorMessage}>
                                 <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
                             </span>}
                               
                     </div>
-                    <div className={s.inputBlock + " " + (!montAverage.err.status && s.errorBlock)}><input type="number"  placeholder="Monthly Average import size" value={montAverage.text} onChange={(e) => changeValue(e,montAverage,setmontAverage)}/>
+                    <div className={s.inputBlock + " " + (!montAverage.err.status && s.errorBlock)}><input type="number"  placeholder={t("price.monthAverage")} value={montAverage.text} onChange={(e) => changeValue(e,montAverage,setmontAverage)}/>
                               {!montAverage.err.status && 
                                 <span title={montAverage.err.msg} className={s.errorMessage}>
                                 <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
                             </span>}
                               
                     </div>
-                    <div className={s.inputBlock + " " + (!assetsNumber.err.status && s.errorBlock)}><input type="number"  placeholder="Number of Fixed Assets" value={assetsNumber.text} onChange={(e) => changeValue(e,assetsNumber,setAssetsNumber)}/>
+                    <div className={s.inputBlock + " " + (!assetsNumber.err.status && s.errorBlock)}><input type="number"  placeholder={t("price.assetsNumber")} value={assetsNumber.text} onChange={(e) => changeValue(e,assetsNumber,setAssetsNumber)}/>
                               {!assetsNumber.err.status && 
                                 <span title={assetsNumber.err.msg} className={s.errorMessage}>
                                     
@@ -309,7 +305,7 @@ function Price() {
                               
                     </div>
                 </div>
-                <div className={s.buttonBlock}><button onClick={sendEmail}>Send</button></div>
+                <div className={s.buttonBlock}><button onClick={sendEmail}>{t("price.buttonText")}</button></div>
             </div>
         </section>
     )
