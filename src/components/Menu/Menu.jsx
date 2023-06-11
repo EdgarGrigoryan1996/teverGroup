@@ -7,12 +7,13 @@ import { IoIosArrowForward} from "react-icons/io";
 function Menu() {
     const {t,i18n} = useTranslation()
     const [burgerMenuStatus, setBurgerMenuStatus] = useState(false)
-    const [mobileMenu, setMobileMenu] = useState(window.innerWidth <= 700 )
+    const [mobileMenu, setMobileMenu] = useState(window.innerWidth <= 700 ? true : false)
+
     const item1 = useRef(null)
     const item2 = useRef(null)
     const item3 = useRef(null)
+
     const toggleSubMenu = (ref) => {
-        console.log(ref.current)
         if(ref.current.classList.contains(s.openedMobileMenu)){
             ref.current.classList.remove(s.openedMobileMenu)
         } else {
@@ -26,9 +27,9 @@ function Menu() {
         <div className={s.logo}><Link to={"/"}>TEVER GROUP</Link> </div>
             <div className={s.menu}>
                 <nav>
-                <div className={s.burgerMenu + " " + (burgerMenuStatus && s.menuOpened)} onClick={() => setBurgerMenuStatus(!burgerMenuStatus) }><IoIosArrowForward /></div>
+                <div className={s.burgerMenu + " " + (burgerMenuStatus && s.menuOpened)} onClick={ () => setBurgerMenuStatus(!burgerMenuStatus) }><IoIosArrowForward /></div>
                     <div className={s.menuItems + " " + (burgerMenuStatus && s.burgerMenuActive)}>
-                        <div ref={item1} className={s.itemWrapper} onClick={() => {toggleSubMenu(item1)}}>
+                        <div ref={item1} className={s.itemWrapper} onClick={ mobileMenu ? () => {toggleSubMenu(item1)} : null}>
                             <span className={s.item}><span><IoIosArrowForward />{t("menu.company.text")}</span></span>
                             <div className={s.subMenu}>
                                 <Link to={"/about"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.company.subMenu.item1")}</div></Link>
@@ -36,7 +37,7 @@ function Menu() {
                                 <Link to={"/partners"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.company.subMenu.item3")}</div></Link>
                             </div>
                     </div>
-                    <div ref={item2} className={s.itemWrapper} onClick={() => {toggleSubMenu(item2)}}>
+                    <div ref={item2} className={s.itemWrapper} onClick={ mobileMenu ? () => {toggleSubMenu(item2)} : null}>
                         <span className={s.item}><span><IoIosArrowForward />{t("menu.services.text")}</span></span>
                         <div className={s.subMenu}>
                             <Link to={"/management"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item1")}</div></Link>
@@ -48,7 +49,7 @@ function Menu() {
                             <Link to={"/price"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item7")}</div></Link>
                         </div>
                     </div>
-                    <div ref={item3} className={s.itemWrapper} onClick={() => {toggleSubMenu(item3)}}>
+                    <div ref={item3} className={s.itemWrapper} onClick={ mobileMenu ? () => {toggleSubMenu(item3)} : null}>
                         <span className={s.item}><span><IoIosArrowForward />{t("menu.resources.text")}</span></span>
                         <div className={s.subMenu}>
                             <Link to={"/links"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.resources.subMenu.item1")}</div></Link>
