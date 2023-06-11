@@ -2,7 +2,7 @@
     position: relative;
     font-size: 22px;
     text-align: center;
-    color: var(--second-color);
+    color: #333;
     padding: 25px 0;
     z-index: -1;
     letter-spacing: 2px;
@@ -18,5 +18,15 @@
     left: 50%;
     transform: translate(-50% ,-50%);
     z-index: -1;
+}
 
+@media screen and (max-width: 830px){
+    .sectionTitle{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 630px){
+    .sectionTitle{
+        font-size: 14px;
+    }
 }

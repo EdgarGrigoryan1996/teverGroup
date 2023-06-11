@@ -6,6 +6,9 @@ import Select from "react-select"
 import UseAnimations from "react-useanimations";
 import alertCircle from 'react-useanimations/lib/alertCircle'
 import { getSelectedOptionIndex } from "./helpFunctions/getSelectedOptionIndex"
+import {validateEmail} from "./helpFunctions/validateEmail";
+import {sendEmailData} from "../../../api/sendEmail/sendEmail";
+import SuccessMessagePopup from "./SuccessMessagePopup";
 function Price() {
     const {t} = useTranslation()
 
@@ -24,20 +27,20 @@ function Price() {
     ]
 
 
-    
+    const [successMessageStatus, setSuccessMessageStatus] = useState(false)
     const [readyForSend, setReadyForSend] = useState(false)
     const [companyName, setCompanyName] = useState({
         text:"",
         err:{
             msg:t("price.err.empty"),
-            status:true
+            status:null
         }
     })
     const [email, setEmail] = useState({
         text:"",
         err:{
             msg:t("price.err.empty"),
-            status:true
+            status:null
         }
     })
     const [selectedTax, setSelectedTax] = useState(taxOptions[0])
@@ -46,32 +49,32 @@ function Price() {
         text:"",
         err:{
             msg:t("price.err.empty"),
-            status:true
+            status:null
         }
     })
     const [monthTurnover, setmonthTurnover] = useState({
         text:"",
         err:{
             msg:t("price.err.empty"),
-            status:true
+            status:null
         }
     })
     const [montAverage, setmontAverage] = useState({
         text:"",
         err:{
             msg:t("price.err.empty"),
-            status:true
+            status:null
         }
     })
     const [assetsNumber, setAssetsNumber] = useState({
         text:"",
         err:{
             msg:t("price.err.empty"),
-            status:true
+            status:null
         }
     })
 
-   
+
     function changeValue(event,state,set) {
         set({
             text:event.target.value,
@@ -82,52 +85,55 @@ function Price() {
         })
     }
     function sendData(){
-        if(readyForSend){
-            console.log("success")
+            sendEmailData(companyName,email,selectedTax,selectedActivity,staffNumber,monthTurnover,montAverage,assetsNumber)
             setCompanyName({
                 text:"",
                 err:{
                     msg:t("price.err.empty"),
-                    status:true
+                    status:null
                 }
             })
             setEmail({
                 text:"",
                 err:{
                     msg:t("price.err.empty"),
-                    status:true
+                    status:null
                 }
             })
             setStaffNumber({
                 text:"",
                 err:{
                     msg:t("price.err.empty"),
-                    status:true
+                    status:null
                 }
             })
             setmonthTurnover({
                 text:"",
                 err:{
                     msg:t("price.err.empty"),
-                    status:true
+                    status:null
                 }
             })
             setmontAverage({
                 text:"",
                 err:{
                     msg:t("price.err.empty"),
-                    status:true
+                    status:null
                 }
             })
             setAssetsNumber({
                 text:"",
                 err:{
                     msg:t("price.err.empty"),
-                    status:true
+                    status:null
                 }
             })
+            setSuccessMessageStatus(true)
             setReadyForSend(false)
-        }
+            setTimeout(() => {
+                setSuccessMessageStatus(false)
+            },3000)
+
     }
     function sendEmail(){
         if (companyName.text.trim() === "") {
@@ -140,12 +146,28 @@ function Price() {
             })
         }
 
-        if (email.text.trim() === "") {
+        if(email.text.trim() !== "" && !validateEmail(email.text)){
             setEmail({
                 ...email,
                 err: {
-                    ...email.err,
+                    msg: t("price.err.emailErr"),
                     status: false
+                }
+            })
+        } else if(email.text.trim() === ""){
+            setEmail({
+                ...email,
+                err: {
+                    msg: t("price.err.empty"),
+                    status: false
+                }
+            })
+        } else {
+            setEmail({
+                ...email,
+                err: {
+                    msg: t("price.err.empty"),
+                    status: true
                 }
             })
         }
@@ -191,7 +213,6 @@ function Price() {
         }
        
         if(companyName.err.status && email.err.status && staffNumber.err.status && monthTurnover.err.status && montAverage.err.status && assetsNumber.err.status){
-            setReadyForSend(true)
             sendData()
         }
     }
@@ -207,13 +228,13 @@ function Price() {
     },[window.localStorage.i18nextLng])
 
     const styles = {
-        valueContainer: (css, state) => ({ ...css, 
+        valueContainer: (css, state) => ({ ...css,
           input: { "height": 0 }
         })
       }
-      
-    const renderSelect = useCallback((selectedValue, options, handleChange) => (
-            <Select 
+
+      const renderSelect = useCallback((selectedValue, options, handleChange) => (
+            <Select
                 isSearchable={false}
                 value={selectedValue}
                 options={options}
@@ -225,13 +246,20 @@ function Price() {
                             borderColor: state.isFocused ? 'var(--second-color)' : 'var(--grey-color)',
                             outline:"none",
                             padding:"5px",
-                            border: "0",
                             boxShadow:"none",
                             transition:"all .5s",
                             border: state.isFocused ? "1px solid var(--second-color)" : "1px solid #ccc",
                             '&:hover': {
                                 borderColor:state.isFocused ? "var(--second-color)" : "#ccc"
-                                }
+                                },
+                            "@media only screen and (max-width: 560px)": {
+                                ...styles["@media only screen and (max-width: 560px)"],
+                                fontSize: "12px",
+                            },
+                            "@media only screen and (max-width: 450px)": {
+                                ...styles["@media only screen and (max-width: 450px)"],
+                                fontSize: "10px",
+                            },
                             })
                         }}
                 theme={(theme) => ({
@@ -252,16 +280,17 @@ function Price() {
             <div className={g.sectionTitle}>
                 <h2>{t("price.title")}</h2>
             </div>
+            {successMessageStatus && <SuccessMessagePopup/>}
             <div className={s.formBlock}>
                 <div className={s.fields}>
-                    <div className={s.inputBlock + " " + (!companyName.err.status && s.errorBlock)}><input type="text" value={companyName.text}  placeholder={t("price.companyName")} onChange={(e) => changeValue(e,companyName,setCompanyName)}/>
-                        {!companyName.err.status && 
+                    <div className={s.inputBlock + " " + (companyName.err.status === false && s.errorBlock)}><input type="text" value={companyName.text}  placeholder={t("price.companyName")} onChange={(e) => changeValue(e,companyName,setCompanyName)}/>
+                        {companyName.err.status === false &&
                             <span title={companyName.err.msg} className={s.errorMessage}>
                             <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
                         </span>}
                     </div>
-                    <div className={s.inputBlock + " " + (!email.err.status && s.errorBlock)}><input type="email" value={email.text} placeholder={t("price.email")} onChange={(e) => changeValue(e,email,setEmail)}/>
-                        {!email.err.status && 
+                    <div className={s.inputBlock + " " + (email.err.status === false && s.errorBlock)}><input type="email" value={email.text} placeholder={t("price.email")} onChange={(e) => changeValue(e,email,setEmail)}/>
+                        {email.err.status === false &&
                             <span title={email.err.msg} className={s.errorMessage}>
                             <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
                         </span>}
@@ -275,29 +304,29 @@ function Price() {
                         {renderSelect(selectedActivity, activityOptions, setSelectedActivity)}
                         
                     </div>
-                    <div className={s.inputBlock + " " + (!staffNumber.err.status && s.errorBlock)}><input type="number"  placeholder={t("price.staffNumber")} value={staffNumber.text} onChange={(e) => changeValue(e,staffNumber,setStaffNumber)}/>
-                              {!staffNumber.err.status && 
+                    <div className={s.inputBlock + " " + (staffNumber.err.status === false && s.errorBlock)}><input type="number"  placeholder={t("price.staffNumber")} value={staffNumber.text} onChange={(e) => changeValue(e,staffNumber,setStaffNumber)}/>
+                              {staffNumber.err.status === false &&
                                 <span title={staffNumber.err.msg} className={s.errorMessage}>
                                 <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
                             </span>}
                               
                     </div>
-                    <div className={s.inputBlock + " " + (!monthTurnover.err.status && s.errorBlock)}><input type="number"  placeholder={t("price.monthTurnover")} value={monthTurnover.text} onChange={(e) => changeValue(e,monthTurnover,setmonthTurnover)}/>
-                              {!monthTurnover.err.status && 
+                    <div className={s.inputBlock + " " + (monthTurnover.err.status === false && s.errorBlock)}><input type="number"  placeholder={t("price.monthTurnover")} value={monthTurnover.text} onChange={(e) => changeValue(e,monthTurnover,setmonthTurnover)}/>
+                              {monthTurnover.err.status === false &&
                                 <span title={monthTurnover.err.msg} className={s.errorMessage}>
                                 <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
                             </span>}
                               
                     </div>
-                    <div className={s.inputBlock + " " + (!montAverage.err.status && s.errorBlock)}><input type="number"  placeholder={t("price.monthAverage")} value={montAverage.text} onChange={(e) => changeValue(e,montAverage,setmontAverage)}/>
-                              {!montAverage.err.status && 
+                    <div className={s.inputBlock + " " + (montAverage.err.status === false && s.errorBlock)}><input type="number"  placeholder={t("price.monthAverage")} value={montAverage.text} onChange={(e) => changeValue(e,montAverage,setmontAverage)}/>
+                              {montAverage.err.status === false &&
                                 <span title={montAverage.err.msg} className={s.errorMessage}>
                                 <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
                             </span>}
                               
                     </div>
-                    <div className={s.inputBlock + " " + (!assetsNumber.err.status && s.errorBlock)}><input type="number"  placeholder={t("price.assetsNumber")} value={assetsNumber.text} onChange={(e) => changeValue(e,assetsNumber,setAssetsNumber)}/>
-                              {!assetsNumber.err.status && 
+                    <div className={s.inputBlock + " " + (assetsNumber.err.status === false && s.errorBlock)}><input type="number"  placeholder={t("price.assetsNumber")} value={assetsNumber.text} onChange={(e) => changeValue(e,assetsNumber,setAssetsNumber)}/>
+                              {assetsNumber.err.status === false &&
                                 <span title={assetsNumber.err.msg} className={s.errorMessage}>
                                     
                                     <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>

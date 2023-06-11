@@ -20,15 +20,14 @@ function Footer(props) {
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, ipsum, quidem!
                     </div>
                     <div className={s.social}>
-                        <div className={s.socialItem}><FaLinkedinIn /></div>
-                        <div className={s.socialItem}><FaFacebookF /></div>
+                        <div className={s.socialItem}><Link target={"_blank"} to={"https://www.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"}><FaLinkedinIn /></Link></div>
+                        <div className={s.socialItem}><Link target={"_blank"} to={"https://ru-ru.facebook.com/"}><FaFacebookF /></Link></div>
                     </div>
                 </div>
                 <div className={s.quick}>
                     <div className={s.footerTitle}>Quick Links</div>
                     <div className={s.lists}>
-                        <Link to={"/"}><div>Home</div></Link>
-                        <Link to={"/about"}>{t("menu.company.subMenu.item1")}</Link>
+                        <Link to={"/about"}><div>{t("menu.company.subMenu.item1")}</div></Link>
                         <Link to={"/staff"}><div>{t("menu.company.subMenu.item2")}</div></Link>
                         <Link to={"/partners"}><div>{t("menu.company.subMenu.item3")}</div></Link>
                         <Link to={"/links"}><div>{t("menu.resources.subMenu.item1")}</div></Link>
@@ -40,11 +39,11 @@ function Footer(props) {
                     <div className={s.footerTitle}>Services</div>
                     <div className={s.lists}>
                         <Link to={"/management"}><div>{t("menu.services.subMenu.item1")}</div></Link>
-                        <Link to={"/consultancyAccounting"}><div>{t("menu.services.subMenu.item2")}</div></Link>
                         <Link to={"/consultancyTax"}><div>{t("menu.services.subMenu.item3")}</div></Link>
                         <Link to={"/businessConsulting"}><div>{t("menu.services.subMenu.item4")}</div></Link>
                         <Link to={"/hr"}><div>{t("menu.services.subMenu.item5")}</div></Link>
                         <Link to={"/courses"}><div>{t("menu.services.subMenu.item6")}</div></Link>
+                        <Link to={"/price"}><div>{t("menu.services.subMenu.item7")}</div></Link>
                     </div>
                 </div>
                 <div className={s.information}>
@@ -61,7 +60,7 @@ function Footer(props) {
                             <div><AiOutlineMail /></div>
                             <div>
                                 <h3>Email</h3>
-                                <h4>info@grigoryan.one</h4>
+                                <h4>info@tevergroup.am</h4>
                             </div>
                         </div>
                         <div className={s.infoItem}>

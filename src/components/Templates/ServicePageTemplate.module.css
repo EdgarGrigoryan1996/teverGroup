@@ -34,15 +34,55 @@
     font-size: 28px;
     margin-right: 15px;
 }
+@media screen and (max-width: 1140px){
+    .infoTitle{
+        font-size: 42px;
+    }
+    .description{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 920px){
+    .templateContent > div{
+        flex-basis: 43%;
+    }
+    .infoTitle{
+        font-size: 28px;
+    }
+    .description{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 700px){
 
-@media screen and (max-width: 885px){
+    .infoTitle{
+        font-size: 20px;
+    }
+    .description{
+        font-size: 8px;
+    }
+    .item svg{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 530px){
+    .templateContent{
+        gap: 20px;
+    }
     .templateContent{
         flex-direction: column;
-
     }
-
     .InfoBlock{
         width: 100%;
         text-align: left;
+    }
+    .infoTitle{
+        font-size: 28px;
+    }
+    .description{
+        font-size: 12px;
+    }
+    .item svg{
+        font-size: 24px;
     }
 }

@@ -34,3 +34,9 @@
     margin-top: 15px;
     letter-spacing: 2px;
 }
+@media screen and (max-width: 420px){
+    .headerContentBlock h1{
+        max-width: 100%;
+        font-size: 36px;
+    }
+}

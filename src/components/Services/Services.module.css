@@ -21,13 +21,16 @@
     flex-grow: 0;
     gap: 35px;
 }
-.service{
+.servicesContent a{
+    flex-basis: 30%;
     border: 1px solid var(--second-color);
     border-radius: 10px;
-    flex-basis: 22%;
     padding: 25px;
     transition: all 0.2s linear;
     margin-bottom: 25px;
+}
+.service{
+
 }
 .service svg{
     font-size: 42px;
@@ -45,39 +48,35 @@
     color: var(--grey-color);
     font-size: 14px;
 }
-.service:hover{
+.servicesContent a:hover{
     background: var(--second-color);
 }
-.service:hover .serviceDescription{
+.servicesContent a:hover .serviceDescription{
     color: #fff;
 }
-.service:hover .serviceLogo svg{
+.servicesContent a:hover .serviceLogo svg{
     color: var(--white);
 }
 
-.service:hover .serviceTitle{
+.servicesContent a:hover .serviceTitle{
     color: #fff;
 }
-@media screen and (max-width: 885px){
-    .service{
-        flex-basis: 30%;
-    }
-}
-@media screen and (max-width: 800px){
-
-    .servicesSubTitle{
-        font-size: 24px;
-    }
-    .service{
+@media screen and (max-width: 1000px){
+    .servicesContent a{
         flex-basis: 45%;
     }
 }
-@media screen and (max-width: 600px){
+@media screen and (max-width: 800px){
+    .servicesSubTitle{
+        font-size: 24px;
+    }
+}
+@media screen and (max-width: 620px){
     .servicesSubTitle{
         font-size: 20px;
     }
-    .service{
-        padding: 15px;
+    a{
+        padding: 5px;
     }
     .service svg{
         font-size: 36px;
@@ -89,7 +88,10 @@
         font-size: 10px;
     }
 }
-@media screen and (max-width: 405px){
+@media screen and (max-width: 510px){
+    .servicesContent a{
+        flex-basis: 90%;
+    }
     .servicesContent{
         gap:10px
     }

@@ -7,7 +7,10 @@ import {HiReceiptTax} from "react-icons/hi";
 import {AiOutlineAudit, AiOutlineFileSearch} from "react-icons/ai";
 import {MdQueryStats} from "react-icons/md";
 import {FaChalkboardTeacher} from "react-icons/fa";
+import {useTranslation} from "react-i18next";
+import {Link} from "react-router-dom";
 function Services(props) {
+    const {t} = useTranslation()
     return (
         <section className={s.services}>
             <div className={g.sectionTitle}>
@@ -22,53 +25,50 @@ function Services(props) {
                 </h6>
             </div>
             <div className={s.servicesContent}>
-                <div className={s.service}>
-                    <div className={s.serviceLogo}><BsBook /></div>
-                    <div className={s.serviceTitle}>Bookkeeping</div>
-                    <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
-                </div>
+                <Link to="/management">
+                    <div className={s.service}>
+                        <div className={s.serviceLogo}><BsBook /></div>
+                        <div className={s.serviceTitle}>{t("menu.services.subMenu.item1")}</div>
+                        <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
+                    </div>
+                </Link>
 
-                <div className={s.service}>
-                    <div className={s.serviceLogo}><TbFileDollar /></div>
-                    <div className={s.serviceTitle}>Payroll Services</div>
-                    <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
-                </div>
+                <Link to="/consultancyTax">
+                    <div className={s.service}>
+                        <div className={s.serviceLogo}><TbFileDollar /></div>
+                        <div className={s.serviceTitle}>{t("menu.services.subMenu.item3")}</div>
+                        <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
+                    </div>
+                </Link>
+                <Link to="/businessConsulting">
+                    <div className={s.service}>
+                        <div className={s.serviceLogo}><HiReceiptTax /></div>
+                        <div className={s.serviceTitle}>{t("menu.services.subMenu.item4")}</div>
+                        <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
+                    </div>
+                </Link>
+                <Link to="/hr">
+                    <div className={s.service}>
+                        <div className={s.serviceLogo}><AiOutlineAudit /></div>
+                        <div className={s.serviceTitle}>{t("menu.services.subMenu.item5")}</div>
+                        <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
+                    </div>
+                </Link>
+                <Link to="/courses">
+                    <div className={s.service}>
+                        <div className={s.serviceLogo}><MdQueryStats /></div>
+                        <div className={s.serviceTitle}>{t("menu.services.subMenu.item6")}</div>
+                        <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
+                    </div>
+                </Link>
+                <Link to="/price">
+                    <div className={s.service}>
+                        <div className={s.serviceLogo}><FaChalkboardTeacher /></div>
+                        <div className={s.serviceTitle}>{t("menu.services.subMenu.item7")}</div>
+                        <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
+                    </div>
+                </Link>
 
-                <div className={s.service}>
-                    <div className={s.serviceLogo}><HiReceiptTax /></div>
-                    <div className={s.serviceTitle}>Tax Planning</div>
-                    <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
-                </div>
-
-                <div className={s.service}>
-                    <div className={s.serviceLogo}><AiOutlineAudit /></div>
-                    <div className={s.serviceTitle}>Audit & Assurance</div>
-                    <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
-                </div>
-
-                <div className={s.service}>
-                    <div className={s.serviceLogo}><MdQueryStats /></div>
-                    <div className={s.serviceTitle}>Financial Statement</div>
-                    <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
-                </div>
-
-                <div className={s.service}>
-                    <div className={s.serviceLogo}><FaChalkboardTeacher /></div>
-                    <div className={s.serviceTitle}>Tech Consulting</div>
-                    <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
-                </div>
-
-                <div className={s.service}>
-                    <div className={s.serviceLogo}><TbBusinessplan /></div>
-                    <div className={s.serviceTitle}>Business Advisory</div>
-                    <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
-                </div>
-
-                <div className={s.service}>
-                    <div className={s.serviceLogo}><AiOutlineFileSearch /></div>
-                    <div className={s.serviceTitle}>Outsourced CFO</div>
-                    <div className={s.serviceDescription}><p>Proin laoreet nisi vitae et velunto phare mattis lorem tristiq.</p></div>
-                </div>
             </div>
         </section>
     );

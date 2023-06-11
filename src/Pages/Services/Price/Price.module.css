@@ -55,7 +55,8 @@
 .errorMessage[title]:hover::after {
     content: attr(title);
     position: absolute;
-    max-width: 125px;
+    max-width: 200px;
+    width: auto;
     padding: 15px 10px;
     border-radius: 8px;
     top: -100%;
@@ -66,7 +67,21 @@
     font-size: 18px;
     transition: all .5s;
 }
+/*Popup Styles*/
+.popupWrapper div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background-color: var(--main-color);
+    border-radius: 10px;
+    z-index: 9999;
+    transition: all 3s linear;
+}
 
+.popupWrapper div.popupBlock {
+    transform: translate(-50%, -50%) scale(1);
+}
 @media screen and (max-width:765px){
     .inputBlock input{
         letter-spacing: 0;

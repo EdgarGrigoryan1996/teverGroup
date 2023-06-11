@@ -44,6 +44,7 @@
 }
 .itemWrapper:hover > .subMenu{
     display: block;
+
 }
 .subMenu{
     position: absolute;
@@ -51,6 +52,7 @@
     top: 61px;
     display: none;
     background-color: rgba(250,250,250,0.7);
+    z-index: 9990;
 }
 .subMenu div{
     padding: 10px ;
@@ -67,7 +69,7 @@
     color: var(--second-color);
     display: none;
     font-size: 24px;
-    transition: all 0.2s linear;
+    transition: all 0.2s;
 }
 
 
@@ -77,21 +79,25 @@
         font-size: 14px;
     }
     .subMenu{
-        top:59px
+        top:59px;
+        font-size: 14px;
     }
 }
 @media screen and (max-width:880px)  {
     .menu nav .item{
         font-size: 12px;
-        margin-left: 12px;
+
     }
     .subMenu{
-        top:56px
+        top:56px;
+        font-size: 12px;
     }
 }
 @media screen and (max-width:700px)  {
+
     .menuBlock {
         position: relative;
+
     }
     .subMenu{
         top:56px
@@ -103,7 +109,6 @@
         transform: rotate(90deg);
     }
 
-    
     .menu nav div.menuItems{
         position: absolute;
         left: 0;
@@ -112,35 +117,45 @@
         background-color: var(--second-color);
         display: flex;
         flex-direction: column;
-        align-items: center;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.5s linear;
+        transition: all 0.5s;
+        z-index: 1;
     }
     
     .menu nav div.menuItems .item{
         position: relative;
         color: var(--white);
-        text-align: center;
         display: flex;
-        flex-direction: column;
+        letter-spacing: 1px;
+    }
+    .menu nav div.menuItems .itemWrapper{
+        border-bottom: 1px solid #ddd;
+    }
+    .menu nav div.menuItems .itemWrapper:last-child{
+        border-bottom: none;
     }
     .subMenu{
+        margin-left: 30px;
         position: unset;
         display: block;
         background-color: transparent;
         color: #fff;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.5s ease;
+        transition: all 0.5s;
     }
-    .menu nav div.menuItems .itemWrapper:hover > .subMenu{
-        max-height: 500px;
-    }
+
     .menu nav div.burgerMenuActive{
         max-height: 1200px;
     }
     .subMenu a{
-        color: #fff;
+        color: #eee;
+        letter-spacing: 1px;
+    }
+
+
+    .openedMobileMenu .subMenu{
+        max-height: 500px;
     }
 }

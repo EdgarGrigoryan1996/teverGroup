@@ -2,15 +2,23 @@
     background-color: var(--second-color);
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
-    color:#fff;
+    padding: 10px;
     max-width: 1280px;
     margin: 0 auto;
-
+}
+.contacts{
+    color:#fff;
 }
 .contacts,.links{
     display: flex;
     align-items: center;
+}
+.contacts a{
+    color: white;
+    transition: all .2s;
+}
+.contacts a:hover{
+    color: var(--main-color);
 }
 .contacts div{
     margin-right: 20px;
