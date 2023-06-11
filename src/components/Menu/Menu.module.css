@@ -25,7 +25,9 @@
     align-items: center;
     margin-left: 30px;
     color: var(--second-color);
-
+    -webkit-transition: transform 200ms;
+    -webkit-transition: -webkit-transform 200ms;
+    transition: all 200ms;
     cursor: pointer;
     padding: 20px 0;
 }
@@ -69,6 +71,9 @@
     color: var(--second-color);
     display: none;
     font-size: 24px;
+    -webkit-transition: transform 200ms;
+    -webkit-transition: -webkit-transform 200ms;
+    transition: all 200ms;
 
 }
 
@@ -119,7 +124,9 @@
         flex-direction: column;
         max-height: 0;
         overflow: hidden;
-
+        -webkit-transition: transform 200ms;
+        -webkit-transition: -webkit-transform 200ms;
+        transition: all 0.2s;
         z-index: 1;
     }
     
@@ -143,7 +150,9 @@
         color: #fff;
         max-height: 0;
         overflow: hidden;
-
+        -webkit-transition: transform 200ms;
+        -webkit-transition: -webkit-transform 200ms;
+        transition: all 200ms;
     }
 
     .menu nav div.burgerMenuActive{
