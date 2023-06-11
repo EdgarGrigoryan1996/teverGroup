@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import s from "./ServicePageTemplate.module.css";
 import g from "../../globalStyles.module.css";
 import {MdOutlineDownloadDone} from "react-icons/md";
 
 function ServicePagesTemplate(props) {
-    console.log(props.data)
+    const url = window.location.pathname.split('/').pop()
+    useEffect(() => {
+        window.scrollTo({top: 0, left: 0,});
+    },[url])
     return (
         <section className={s.templatePage}>
             <div>

@@ -30,6 +30,7 @@ import planningImg from "./assets/images/services/planning.jpg"
 import trainingsImg from "./assets/images/services/trainings.jpg"
 import hrImg from "./assets/images/services/hr.jpg"
 import Price from './Pages/Services/Price/Price';
+import WithScrollTop from "./HOC/WithScrollTop";
 
 
 
@@ -116,21 +117,21 @@ function App() {
     <div className='content'>
     <Routes>
                 <Route path={"/"} element={<Home />}/>
-                <Route path={"/about"} element={<AboutCompany />}/>
-                <Route path={"/partners"} element={<Partners />}/>
-                <Route path={"/staff"} element={<Staff />}/>
+                <Route path={"/about"} element={<WithScrollTop Child={AboutCompany} />}/>
+                <Route path={"/partners"} element={<WithScrollTop Child={Partners} /> }/>
+                <Route path={"/staff"} element={<WithScrollTop Child={Staff} />}/>
                 <Route path={"/businessConsulting"} element={<ServicePagesTemplate data={servicePagesData.planning} image={planningImg}/>}/>
-                <Route path={"/consultancyAccounting"} element={<ConsultancyAccounting />}/>
+                {/*<Route path={"/consultancyAccounting"} element={<ConsultancyAccounting />}/>*/}
                 <Route path={"/consultancyTax"} element={<ServicePagesTemplate data={servicePagesData.tax} image={taxImg}/>}/>
                 <Route path={"/courses"} element={<ServicePagesTemplate data={servicePagesData.trainings} image={trainingsImg}/>}/>
                 <Route path={"/hr"} element={<ServicePagesTemplate data={servicePagesData.hr} image={hrImg}/>}/>
                 <Route path={"/management"} element={<ServicePagesTemplate data={servicePagesData.accounting} image={accountingImg}/>}/>
-                <Route path={"/price"} element={<Price />}/>
-                <Route path={"/links"} element={<Links />}/>
-                <Route path={"/salaryCalculation"} element={<SalaryCalculation />}/>
-                <Route path={"/loanCalculation"} element={<LoanCalculator />}/>
-                <Route path={"/standards"} element={<Standards />}/>
-                <Route path={"*"} element={<NotFound />}/>
+                <Route path={"/price"} element={<WithScrollTop Child={Price} />}/>
+                <Route path={"/links"} element={<WithScrollTop Child={Links} />}/>
+                <Route path={"/salaryCalculation"} element={<WithScrollTop Child={SalaryCalculation} />}/>
+                <Route path={"/loanCalculation"} element={<WithScrollTop Child={LoanCalculator} />}/>
+                <Route path={"/standards"} element={<WithScrollTop Child={Standards} />} />
+                <Route path={"*"} element={<WithScrollTop Child={NotFound} />}/>
             </Routes>
             <Footer />
     </div>
