@@ -3,7 +3,7 @@ import s from "./Management.module.css"
 import g from "../../../globalStyles.module.css";
 import {useTranslation} from "react-i18next";
 
-function Accounting(props) {
+function Accounting() {
     const {t} = useTranslation()
     return (
         <section>

@@ -2,14 +2,14 @@ import React from 'react';
 import g from "../../globalStyles.module.css"
 import s from "./Services.module.css"
 import {BsBook} from "react-icons/bs";
-import {TbBusinessplan, TbFileDollar} from "react-icons/tb";
+import {TbFileDollar} from "react-icons/tb";
 import {HiReceiptTax} from "react-icons/hi";
-import {AiOutlineAudit, AiOutlineFileSearch} from "react-icons/ai";
+import {AiOutlineAudit} from "react-icons/ai";
 import {MdQueryStats} from "react-icons/md";
 import {FaChalkboardTeacher} from "react-icons/fa";
 import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
-function Services(props) {
+function Services() {
     const {t} = useTranslation()
     return (
         <section className={s.services}>

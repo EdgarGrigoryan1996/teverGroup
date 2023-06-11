@@ -9,6 +9,7 @@ import { getSelectedOptionIndex } from "./helpFunctions/getSelectedOptionIndex"
 import {validateEmail} from "./helpFunctions/validateEmail";
 import {sendEmailData} from "../../../api/sendEmail/sendEmail";
 import SuccessMessagePopup from "./SuccessMessagePopup";
+
 function Price() {
     const {t} = useTranslation()
 
@@ -28,7 +29,6 @@ function Price() {
 
 
     const [successMessageStatus, setSuccessMessageStatus] = useState(false)
-    const [readyForSend, setReadyForSend] = useState(false)
     const [companyName, setCompanyName] = useState({
         text:"",
         err:{
@@ -129,7 +129,6 @@ function Price() {
                 }
             })
             setSuccessMessageStatus(true)
-            setReadyForSend(false)
             setTimeout(() => {
                 setSuccessMessageStatus(false)
             },3000)

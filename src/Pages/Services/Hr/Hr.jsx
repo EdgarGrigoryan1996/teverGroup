@@ -3,7 +3,7 @@ import s from "./Hr.module.css"
 import g from "../../../globalStyles.module.css";
 import {useTranslation} from "react-i18next";
 
-function Hr(props) {
+function Hr() {
     const {t} = useTranslation()
     return (
         <section>

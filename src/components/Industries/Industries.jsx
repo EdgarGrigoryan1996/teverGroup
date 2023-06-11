@@ -7,7 +7,7 @@ import {SiMicrostrategy} from "react-icons/si";
 import {MdComputer} from "react-icons/md";
 import {BiHealth} from "react-icons/bi";
 
-function Industries(props) {
+function Industries() {
     return (
         <section className={s.industries}>
             <div className={g.sectionTitle}>

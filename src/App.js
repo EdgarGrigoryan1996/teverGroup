@@ -16,11 +16,11 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
 import LoanCalculator from "./Pages/UsefulResources/LoanCalculator/LoanCalculator";
 import ServicePagesTemplate from "./components/Templates/ServicePagesTemplate";
-import accountingImg from "./assets/images/services/accounting.jpg"
-import taxImg from "./assets/images/services/tax.jpg"
-import planningImg from "./assets/images/services/planning.jpg"
-import trainingsImg from "./assets/images/services/trainings.jpg"
-import hrImg from "./assets/images/services/hr.jpg"
+import accountingImg from "./assets/images/services/accounting.webp"
+import taxImg from "./assets/images/services/tax.webp"
+import planningImg from "./assets/images/services/planning.webp"
+import trainingsImg from "./assets/images/services/trainings.webp"
+import hrImg from "./assets/images/services/hr.webp"
 import Price from './Pages/Services/Price/Price';
 import WithScrollTop from "./HOC/WithScrollTop";
 

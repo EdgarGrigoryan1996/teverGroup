@@ -6,7 +6,8 @@ import RegisterNotPay from "./SalaryCalculationInfos/RegisterNotPay";
 import CleanNotPayInfo from "./SalaryCalculationInfos/CleanNotPayInfo";
 import CleanPayInfo from "./SalaryCalculationInfos/CleanPayInfo";
 import {useTranslation} from "react-i18next";
-function SalaryCalculation(props) {
+
+function SalaryCalculation() {
     const {t} = useTranslation()
     const [registeredMethod, setRegisteredMethod] = useState(true)
     const [payMethod, setPayMethod] = useState(true)
@@ -17,9 +18,6 @@ function SalaryCalculation(props) {
     const [droshmanish, setDroshmanish] = useState(null)
     const [result, setResult] = useState(null)
 
-    const salaryInfos = {
-        registerPay:`<span>{+currentSalary}</span> դրամ աշխատավարձ գրանցելու դեպքում մաքուր կստանաք <span>{result}</span> դրամ: Եկամտային հարկը կկազմի <span>{ekamtahark}</span> դրամ: Սոցիալական վճարը\` <span>{socialPay}</span> դրամ: Պետության կողմից Ձեր կուտակային հաշվին հավելյալ կփոխանցվի <span>{socialPay}</span> դրամ: Կուտակային հաշվի ամսական համալրումը կկազմի <span>{socialPay * 2}</span> դրամ: Զինծառայողների Ապահովագրության Հիմնադրամի դրոշմանիշային վճարը <span>{droshmanish}</span> դրամ է։`
-    }
     const inputRef = useRef(null)
 
     let currentResult;
@@ -239,8 +237,8 @@ function SalaryCalculation(props) {
 
                 <div className={s.enterSalary}>
                     <input ref={inputRef} type="number" value={currentSalary} onChange={(e) => {
-                        const currentSymbol = e.target.value
-                        const regex = /^\d+$/;
+                        // const currentSymbol = e.target.value
+                        // const regex = /^\d+$/;
 
                             setCurrentSalary(e.target.value)
 

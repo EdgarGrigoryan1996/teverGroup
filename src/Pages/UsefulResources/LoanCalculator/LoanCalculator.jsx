@@ -4,15 +4,11 @@ import s from "./LoanCalculator.module.css"
 import {useTranslation} from "react-i18next";
 import Select from 'react-select';
 
-function LoanCalculator(props) {
+function LoanCalculator() {
     const {t} = useTranslation()
     const [money, setMoney] = useState("")
     const [percent, setPercent] = useState("")
     const [month, setMonth] = useState("")
-
-    const [totalTokos, setTotalTokos] = useState("")
-    const [totalMayrGumar, setTotalMayrGumar] = useState("")
-    const [totalYndameny, setTotalYndameny] = useState("")
 
     const [loanList, setLoanList] = useState([])
     const [totalList, setTotalList] = useState({})

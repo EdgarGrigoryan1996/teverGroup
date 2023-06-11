@@ -1,8 +1,8 @@
 import React from 'react';
 import s from "./Projects.module.css"
 import g from "../../globalStyles.module.css";
-import project1Img from "../../assets/images/project1-min.jpg"
-function Projects(props) {
+import project1Img from "../../assets/images/project1-min.webp"
+function Projects() {
     return (
         <section className={s.projects}>
             <div className={g.sectionTitle}>

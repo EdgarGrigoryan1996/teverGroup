@@ -3,7 +3,7 @@ import s from "./Standards.module.css"
 import g from "../../../globalStyles.module.css";
 import {useTranslation} from "react-i18next";
 
-function Standards(props) {
+function Standards() {
     const {t} = useTranslation()
     return (
         <section>

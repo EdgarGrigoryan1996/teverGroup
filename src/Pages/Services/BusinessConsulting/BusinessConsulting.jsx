@@ -3,7 +3,7 @@ import s from "./BusinessConsulting.module.css"
 import g from "../../../globalStyles.module.css";
 import {useTranslation} from "react-i18next";
 
-function BusinessConsulting(props) {
+function BusinessConsulting() {
     const {t} = useTranslation()
     return (
         <section>

@@ -2,12 +2,11 @@ import React from 'react';
 import s from "./Partners.module.css"
 import g from "../../../globalStyles.module.css";
 import {useTranslation} from "react-i18next";
-import partnerImg from "../../../assets/images/partners/partners.jpg";
+import partnerImg from "../../../assets/images/partners/partners.webp";
 import onexLogo from "../../../assets/images/partners/onex.svg"
 import globbingLogo from "../../../assets/images/partners/globbing.png"
 
-
-function Partners(props) {
+function Partners() {
     const {t} = useTranslation()
     return (
         <section>

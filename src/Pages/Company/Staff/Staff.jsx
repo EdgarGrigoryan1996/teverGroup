@@ -2,13 +2,13 @@ import React from 'react';
 import s from "./Staff.module.css"
 import g from "../../../globalStyles.module.css";
 import {useTranslation} from "react-i18next";
-import ownerImg from "../../../assets/images/staff/owner.jpg"
-import headAuditImg from "../../../assets/images/staff/headAudit.jpg"
-import deputyDirectorImg from "../../../assets/images/staff/deputyDirector.jpg"
+import ownerImg from "../../../assets/images/staff/owner.webp"
+import headAuditImg from "../../../assets/images/staff/headAudit.webp"
+import deputyDirectorImg from "../../../assets/images/staff/deputyDirector.webp"
 import {FaFacebookF, FaLinkedinIn, FaTwitter} from "react-icons/fa";
 import {Link} from "react-router-dom";
 
-function Staff(props) {
+function Staff() {
     const {t} = useTranslation()
     return (
         <section className={s.staff}>

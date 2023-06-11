@@ -1,12 +1,11 @@
 import React from 'react';
 import s from "./AboutCompany.module.css"
 import g from "../../../globalStyles.module.css";
-
-import aboutImage from "../../../assets/images/about.jpg"
+import aboutImage from "../../../assets/images/about.webp"
 import {IoIosArrowForward} from "react-icons/io";
 import {useTranslation} from "react-i18next";
 
-function AboutCompany(props) {
+function AboutCompany() {
     const {t} = useTranslation()
     return (
         <section className={s.aboutPage}>
@@ -46,7 +45,6 @@ function AboutCompany(props) {
                     </div>
                 </div>
             </div>
-
         </section>
 
     );

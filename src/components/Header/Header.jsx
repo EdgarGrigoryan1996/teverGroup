@@ -1,6 +1,6 @@
 import React from 'react';
 import s from "./Header.module.css"
-function Header(props) {
+function Header() {
     return (
         <div className={s.headerWrapper}>
             <div className={s.background}>

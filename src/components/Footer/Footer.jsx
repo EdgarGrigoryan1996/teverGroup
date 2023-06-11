@@ -7,7 +7,7 @@ import {AiOutlineMail} from "react-icons/ai";
 import {ImLocation} from "react-icons/im";
 import {FaFacebookF, FaLinkedinIn} from "react-icons/fa";
 
-function Footer(props) {
+function Footer() {
     const {t} = useTranslation()
     return (
         <footer>

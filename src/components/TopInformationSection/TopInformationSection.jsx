@@ -1,11 +1,8 @@
 import s from "./TopInformationSection.module.css"
 import {useTranslation} from "react-i18next";
 import {FaLinkedinIn,FaFacebookF} from "react-icons/fa"
-import {BsFillBuildingsFill} from "react-icons/bs";
 import {AiFillPhone} from "react-icons/ai";
 import {MdEmail} from "react-icons/md";
-import armFlag from "../../assets/icons/am.svg"
-import usFlag from "../../assets/icons/us.svg"
 import Select from "react-select";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
@@ -17,7 +14,7 @@ const langOptions = [
 ]
 
 const TopInformationSection = () => {
-    const {t, i18n} = useTranslation()
+    const {i18n} = useTranslation()
     const [selectedLang, setSelectedLang] = useState(langOptions[0])
 
     const changeLang = (lang) => {
