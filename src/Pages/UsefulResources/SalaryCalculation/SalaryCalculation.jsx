@@ -76,7 +76,7 @@ function SalaryCalculation() {
     function cleanPay(){
 
         let salary = +currentSalary
-        console.log(salary)
+        
 
         if(salary !== 0){
             // Droshmanish
@@ -102,8 +102,8 @@ function SalaryCalculation() {
                 setSocialPay(Math.round((salary+droshmanish1) / 0.75 * 0.05))
                 socialPay1 = Math.round((salary+droshmanish1) / 0.75 * 0.05)
             } else if(salary < 797500){
-                setSocialPay(Math.round((salary+droshmanish1) / 0.7 * 0.1 - 25000))
-                socialPay1 = Math.round((salary+droshmanish1) / 0.7 * 0.1 - 25000)
+                setSocialPay(Math.round((salary+droshmanish1 - 25000) / 0.7 * 0.1 - 25000))
+                socialPay1 = Math.round((salary+droshmanish1 - 25000) / 0.7 * 0.1 - 25000)
             } else {
                 setSocialPay(87500)
                 socialPay1 = 87500
