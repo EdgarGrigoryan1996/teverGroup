@@ -24,13 +24,49 @@ const TopInformationSection = () => {
         changeLang(selectedLang.value)
     },[selectedLang])
 
+    const styles = {
+        // this one works
+        dropdownIndicator: (provided) => ({
+            ...provided,
+            padding: "3px",
+          }),
+          menu: (provided,state) => ({
+            ...provided,
+            zIndex:9999,
+          }),
+          option: (provided, state) => ({
+            ...provided,
+            zIndex:9999,
+            "@media only screen and (max-width: 700px)":{
+                fontSize: '14px', // Здесь можно указать нужный размер шрифта
+            },
+            "@media only screen and (max-width: 450px)":{
+                fontSize: '10px', // Здесь можно указать нужный размер шрифта
+            }
+            
+          }),
+            control: (baseStyles, state) => ({
+                ...baseStyles,
+                "@media only screen and (max-width: 700px)": {
+                    fontSize: "12px",
+                },
+                "@media only screen and (max-width: 450px)": {
+                    fontSize: "10px",
+                    width:"85px",
+                    padding:0,
+                    height:"28px",
+                    minHeight:"28px",
+                    
+                },
+            })
+        }
+        
+    
     return (
         <div className={s.informationBlock}>
             <div className={s.contacts}>
                 <div><span><MdEmail/></span>info@tevergroup.am</div>
                 <div><span><AiFillPhone /></span>+37455439311</div>
-                <div><Link target="_blank" to="https://www.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"><FaLinkedinIn /></Link></div>
-                <div><Link target="_blank" to="https://ru-ru.facebook.com/"><FaFacebookF /></Link></div>
             </div>
             <div className={s.language}>
 
@@ -39,19 +75,7 @@ const TopInformationSection = () => {
                     onChange={setSelectedLang}
                     value={selectedLang}
                     options={langOptions}
-                    styles={{
-                        control: (baseStyles, state) => ({
-                            ...baseStyles,
-                            menuPortal: provided => ({ ...provided, zIndex: 9999,fontSize:"6px" }),
-                            menu: provided => ({ ...provided, zIndex: 9999,fontSize:"6px" }),
-                            "@media only screen and (max-width: 700px)": {
-                                fontSize: "12px",
-                            },
-                            "@media only screen and (max-width: 450px)": {
-                                fontSize: "10px",
-                            },
-                        })
-                    }}
+                    styles={styles}
                     theme={(theme) => ({
                         ...theme,
                         borderRadius: 5,
