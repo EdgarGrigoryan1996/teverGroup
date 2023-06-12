@@ -52,21 +52,20 @@ function Footer() {
                         <div className={s.infoItem}>
                             <div><BsFillTelephoneForwardFill /></div>
                             <div>
-                                <h3>Phone</h3>
                                 <h4>+37455439311</h4>
                             </div>
                         </div>
                         <div className={s.infoItem}>
                             <div><AiOutlineMail /></div>
                             <div>
-                                <h3>Email</h3>
+
                                 <h4>info@tevergroup.am</h4>
                             </div>
                         </div>
                         <div className={s.infoItem}>
                             <div><ImLocation/></div>
                             <div>
-                                <h3>Address</h3>
+
                                 <h4>Los Angeles</h4>
                             </div>
                         </div>

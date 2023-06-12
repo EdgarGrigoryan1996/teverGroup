@@ -31,12 +31,13 @@
     cursor: pointer;
     padding: 20px 0;
 }
+.subMenuOpenArrow{
+    margin-left: 5px;
+}
 .itemWrapper {
     position: relative;
 }
-.item{
-    /* position: relative; */
-}
+
 .item span{
     display: flex;
     align-items: center;
@@ -135,7 +136,17 @@
         color: var(--white);
         display: flex;
         letter-spacing: 1px;
+        justify-content: space-between;
+        margin-right: 30px;
     }
+    .subMenuOpenArrow{
+        transform: rotate(-90deg);
+        transition: all 200ms;
+    }
+    .openedMobileMenu .subMenuOpenArrow{
+        transform: rotate(0);
+    }
+
     .menu nav div.menuItems .itemWrapper{
         border-bottom: 1px solid #ddd;
     }

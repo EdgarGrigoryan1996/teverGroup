@@ -14,21 +14,22 @@ function Price() {
     const {t} = useTranslation()
 
     const taxOptions = [
-        {value:"item1",label:t("price.tax.item1")},
-        {value:"item2",label:t("price.tax.item2")},
-        {value:"item3",label:t("price.tax.item3")}
+        {value:"ԱԱՀ",label:t("price.tax.item1")},
+        {value:"Շրջանաության հարկ",label:t("price.tax.item2")},
+        {value:"Այլ",label:t("price.tax.item3")}
     ]
     const activityOptions = [
-        {value:"item1",label:t("price.activity.item1")},
-        {value:"item2",label:t("price.activity.item2")},
-        {value:"item3",label:t("price.activity.item3")},
-        {value:"item4",label:t("price.activity.item4")},
-        {value:"item5",label:t("price.activity.item5")},
-        {value:"item6",label:t("price.activity.item6")}
+        {value:"Մանրածախ առևտուր",label:t("price.activity.item1")},
+        {value:"Մեծածախ առևտուր",label:t("price.activity.item2")},
+        {value:"Արտադրություն",label:t("price.activity.item3")},
+        {value:"Ծառայությունների մատուցում",label:t("price.activity.item4")},
+        {value:"Շինարարություն",label:t("price.activity.item5")},
+        {value:"Այլ",label:t("price.activity.item6")}
     ]
 
 
     const [successMessageStatus, setSuccessMessageStatus] = useState(false)
+    const [readyForCheck, setReadyForCheck] = useState(false)
     const [companyName, setCompanyName] = useState({
         text:"",
         err:{
@@ -37,6 +38,13 @@ function Price() {
         }
     })
     const [email, setEmail] = useState({
+        text:"",
+        err:{
+            msg:t("price.err.empty"),
+            status:null
+        }
+    })
+    const [phone, setPhone] = useState({
         text:"",
         err:{
             msg:t("price.err.empty"),
@@ -74,18 +82,22 @@ function Price() {
         }
     })
 
-
+    function checkFields(){
+        if(companyName.err.status && email.err.status && phone.err.status && staffNumber.err.status && monthTurnover.err.status && assetsNumber.err.status){
+            sendData()
+        }
+    }
     function changeValue(event,state,set) {
         set({
             text:event.target.value,
             err:{
                 ...state.err,
-                status:true
+                status:null
             }
         })
     }
     function sendData(){
-            sendEmailData(companyName,email,selectedTax,selectedActivity,staffNumber,monthTurnover,montAverage,assetsNumber)
+            sendEmailData(companyName,email,phone,selectedTax,selectedActivity,staffNumber,monthTurnover,montAverage,assetsNumber)
             setCompanyName({
                 text:"",
                 err:{
@@ -94,6 +106,13 @@ function Price() {
                 }
             })
             setEmail({
+                text:"",
+                err:{
+                    msg:t("price.err.empty"),
+                    status:null
+                }
+            })
+            setPhone({
                 text:"",
                 err:{
                     msg:t("price.err.empty"),
@@ -143,6 +162,14 @@ function Price() {
                     status: false
                 }
             })
+        } else {
+            setCompanyName({
+                ...companyName,
+                err: {
+                    ...companyName.err,
+                    status: true
+                }
+            })
         }
 
         if(email.text.trim() !== "" && !validateEmail(email.text)){
@@ -171,6 +198,24 @@ function Price() {
             })
         }
 
+        if (phone.text.trim() === "") {
+            setPhone({
+                ...phone,
+                err: {
+                    ...phone.err,
+                    status: false
+                }
+            })
+        } else {
+            setPhone({
+                ...phone,
+                err: {
+                    ...phone.err,
+                    status: true
+                }
+            })
+        }
+
         if (monthTurnover.text.trim() === "") {
             setmonthTurnover({
                 ...monthTurnover,
@@ -179,14 +224,12 @@ function Price() {
                     status: false
                 }
             })
-        }
-
-        if (montAverage.text.trim() === "") {
-            setmontAverage({
-                ...montAverage,
+        } else {
+            setmonthTurnover({
+                ...monthTurnover,
                 err: {
-                    ...montAverage.err,
-                    status: false
+                    ...monthTurnover.err,
+                    status: true
                 }
             })
         }
@@ -199,6 +242,14 @@ function Price() {
                     status: false
                 }
             })
+        } else {
+            setStaffNumber({
+                ...staffNumber,
+                err: {
+                    ...staffNumber.err,
+                    status: true
+                }
+            })
         }
 
         if (assetsNumber.text.trim() === "") {
@@ -209,11 +260,19 @@ function Price() {
                     status: false
                 }
             })
+        } else {
+            setAssetsNumber({
+                ...assetsNumber,
+                err: {
+                    ...assetsNumber.err,
+                    status: true
+                }
+            })
         }
+
+        setReadyForCheck(!readyForCheck)
        
-        if(companyName.err.status && email.err.status && staffNumber.err.status && monthTurnover.err.status && montAverage.err.status && assetsNumber.err.status){
-            sendData()
-        }
+
     }
     useEffect(() => {
         const selectedValue = selectedTax.value;
@@ -225,6 +284,10 @@ function Price() {
         setSelectedActivity(activityOptions[index2])
         
     },[window.localStorage.i18nextLng])
+
+    useEffect(() => {
+        checkFields()
+    },[readyForCheck])
 
     const styles = {
         valueContainer: (css, state) => ({ ...css,
@@ -291,6 +354,12 @@ function Price() {
                     <div className={s.inputBlock + " " + (email.err.status === false && s.errorBlock)}><input type="email" value={email.text} placeholder={t("price.email")} onChange={(e) => changeValue(e,email,setEmail)}/>
                         {email.err.status === false &&
                             <span title={email.err.msg} className={s.errorMessage}>
+                            <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
+                        </span>}
+                    </div>
+                    <div className={s.inputBlock + " " + (phone.err.status === false && s.errorBlock)}><input type="number" value={phone.text} placeholder={t("price.phone")} onChange={(e) => changeValue(e,phone,setPhone)}/>
+                        {phone.err.status === false &&
+                            <span title={phone.err.msg} className={s.errorMessage}>
                             <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
                         </span>}
                     </div>

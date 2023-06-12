@@ -20,9 +20,7 @@ function Services() {
                 <h2>Real Accounting Services for You</h2>
             </div>
             <div className={s.titleParagraph}>
-                <h6>
-                    Sed tincidunt accumsan lacus nec bibendum sapien aliquet ut suspendisse pharetra. Finibus condimentum aenean lacinia sem metus Integer.
-                </h6>
+
             </div>
             <div className={s.servicesContent}>
                 <Link to="/management">

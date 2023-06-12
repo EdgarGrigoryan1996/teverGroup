@@ -30,7 +30,7 @@ function Menu() {
                 <div className={s.burgerMenu + " " + (burgerMenuStatus && s.menuOpened)} onClick={ () => setBurgerMenuStatus(!burgerMenuStatus) }><IoIosArrowForward /></div>
                     <div className={s.menuItems + " " + (burgerMenuStatus && s.burgerMenuActive)}>
                         <div ref={item1} className={s.itemWrapper} onClick={ mobileMenu ? (e) => {toggleSubMenu(item1)} : null}>
-                            <span className={s.item}><span><IoIosArrowForward />{t("menu.company.text")}</span></span>
+                            <span className={s.item}><span>{t("menu.company.text")}</span><span className={s.subMenuOpenArrow}><IoIosArrowForward /></span></span>
                             <div className={s.subMenu}>
                                 <Link to={"/about"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.company.subMenu.item1")}</div></Link>
                                 <Link to={"/staff"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.company.subMenu.item2")}</div></Link>
@@ -38,7 +38,7 @@ function Menu() {
                             </div>
                     </div>
                     <div ref={item2} className={s.itemWrapper} onClick={ mobileMenu ? (e) => {toggleSubMenu(item2)} : null}>
-                        <span className={s.item}><span><IoIosArrowForward />{t("menu.services.text")}</span></span>
+                        <span className={s.item}><span>{t("menu.services.text")}</span><span className={s.subMenuOpenArrow}><IoIosArrowForward /></span></span>
                         <div className={s.subMenu}>
                             <Link to={"/management"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item1")}</div></Link>
                             {/*<Link to={"/consultancyAccounting"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item2")}</div></Link>*/}
@@ -50,7 +50,7 @@ function Menu() {
                         </div>
                     </div>
                     <div ref={item3} className={s.itemWrapper} onClick={ mobileMenu ? (e) => {toggleSubMenu(item3)} : null}>
-                        <span className={s.item}><span><IoIosArrowForward />{t("menu.resources.text")}</span></span>
+                        <span className={s.item}><span>{t("menu.resources.text")}</span><span className={s.subMenuOpenArrow}><IoIosArrowForward /></span></span>
                         <div className={s.subMenu}>
                             <Link to={"/links"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.resources.subMenu.item1")}</div></Link>
                             <Link to={"/standards"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.resources.subMenu.item2")}</div></Link>

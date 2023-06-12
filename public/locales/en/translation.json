@@ -127,6 +127,7 @@
         "title":"Calculating the cost of accounting services",
         "companyName":"Company Name",
         "email":"E-mail",
+        "phone": "Phone Number",
         "tax":{
             "title": "Tax Regime",
             "item1":"VAT Payer",
@@ -152,5 +153,6 @@
             "emailErr":"Invalid E-mail"
         }
     }
+
 
 }

@@ -1,12 +1,16 @@
 .fields{
     display: flex;
     flex-flow: row wrap;
-    gap: 25px;
-    justify-content: center;
+    gap: 25px 10px;
+    justify-content: space-between;
     margin-top: 25px;
 }
+.inputBlock:first-child{
+    flex-basis: 100%;
+    margin: 0 calc(100% - 12.5);
+}
 .inputBlock{
-    flex-basis: 48%;
+    flex-basis: 48.5%;
     position: relative;
 }
 .fieldTitle{
