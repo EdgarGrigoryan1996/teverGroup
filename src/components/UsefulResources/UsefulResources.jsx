@@ -12,7 +12,7 @@ function UsefulResources() {
     return (
         <section className={s.useful}>
             <div className={g.sectionTitle}>
-                <h2>Useful Resources</h2>
+                <h2>{t("menu.resources.text")}</h2>
             </div>
             <div className={s.usefulContent}>
                 <LinkCard to="/salaryCalculation" cardIcon={<CiCalculator2/>} cardTitle={t("menu.resources.subMenu.item3")} cardDescription="Proin laoreet nisi vitae et velunto phare mattis lorem tristiq."/>

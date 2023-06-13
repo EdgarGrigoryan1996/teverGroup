@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Select from "react-select";
 import Standard from "./Standard/Standard";
 import Excel from "./Excel/Excel";
 import s from "./EmailSendMethods.module.css"
 import g from "../../globalStyles.module.css";
 import {useTranslation} from "react-i18next";
+import {getSelectedOptionIndex} from "./helpFunctions/getSelectedOptionIndex";
 
 
 function EmailSendMethods(props) {
@@ -20,6 +21,15 @@ function EmailSendMethods(props) {
             input: { "height": 0 }
         })
     }
+    useEffect(() => {
+        const selectedValue = selectedMethod.value;
+        let index = getSelectedOptionIndex(methods,selectedValue);
+
+
+        setSelectedMethod(methods[index])
+
+
+    },[window.localStorage.lng])
 
     return (
         <div className={s.sendEmailBlock}>

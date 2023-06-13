@@ -283,7 +283,7 @@ function Price() {
         setSelectedTax(taxOptions[index])
         setSelectedActivity(activityOptions[index2])
 
-    },[window.localStorage.i18nextLng])
+    },[window.localStorage.lng])
 
     useEffect(() => {
         checkFields()

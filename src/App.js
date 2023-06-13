@@ -23,6 +23,7 @@ import trainingsImg from "./assets/images/services/trainings.webp"
 import hrImg from "./assets/images/services/hr.webp"
 import Price from './Pages/Services/Price/Price';
 import WithScrollTop from "./HOC/WithScrollTop";
+import EmailSendMethods from "./components/EmailSendMethods/EmailSendMethods";
 
 function App() {
   const {t} = useTranslation()
@@ -129,7 +130,7 @@ function App() {
                     <Route path={"/courses"} element={<ServicePagesTemplate data={servicePagesData.trainings} image={trainingsImg}/>}/>
                     <Route path={"/hr"} element={<ServicePagesTemplate data={servicePagesData.hr} image={hrImg}/>}/>
                     <Route path={"/management"} element={<ServicePagesTemplate data={servicePagesData.accounting} image={accountingImg}/>}/>
-                    <Route path={"/price"} element={<WithScrollTop Child={Price} />}/>
+                    <Route path={"/price"} element={<WithScrollTop Child={EmailSendMethods} />}/>
                     <Route path={"/links"} element={<WithScrollTop Child={Links} />}/>
                     <Route path={"/salaryCalculation"} element={<WithScrollTop Child={SalaryCalculation} />}/>
                     <Route path={"/loanCalculation"} element={<WithScrollTop Child={LoanCalculator} />}/>
