@@ -30,6 +30,9 @@ function App() {
     const servicePagesData = {
         "accounting": {
             "title": t("accounting.title"),
+            "description":t("accounting.description"),
+            "description2":t("accounting.description2"),
+            "offer":t("accounting.offer"),
             "items":[
                 {
                     "item": t("accounting.items.item1"),
@@ -47,6 +50,10 @@ function App() {
         },
         "tax": {
             "title":  t("tax.title"),
+            "description":t("tax.description"),
+            "description2":t("tax.description2"),
+            "description3":t("tax.description3"),
+            "offer":t("tax.offer"),
             "items": [
                 {
                     "item": t("tax.items.item1"),
@@ -61,6 +68,10 @@ function App() {
         },
         "planning": {
             "title":  t("planning.title"),
+            "description":t("planning.description"),
+            "description2":t("planning.description2"),
+            "description3":t("planning.description3"),
+            "offer":t("planning.offer"),
             "items": [
                 {
                     "item": t("planning.items.item1"),
@@ -72,12 +83,17 @@ function App() {
         },
         "hr": {
             "title":  t("hr.title"),
+            "description":t("hr.description"),
+            "offer":t("hr.offer"),
             "items": [
                 {
                     "item": t("hr.items.item1"),
                 },
                 {
                     "item": t("hr.items.item2"),
+                },
+                {
+                    "item": t("hr.items.item3"),
                 },
             ]
         },
@@ -120,8 +136,8 @@ function App() {
                     <Route path={"/standards"} element={<WithScrollTop Child={Standards} />} />
                     <Route path={"*"} element={<WithScrollTop Child={NotFound} />}/>
                 </Routes>
-                <Footer />
         </div>
+        <Footer />
     </div>
   );
 }

@@ -1,24 +1,37 @@
 import s from "./TopInformationSection.module.css"
 import {useTranslation} from "react-i18next";
-import {FaLinkedinIn,FaFacebookF} from "react-icons/fa"
 import {AiFillPhone} from "react-icons/ai";
 import {MdEmail} from "react-icons/md";
 import Select from "react-select";
 import {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
 
 
 const langOptions = [
-    {value:"en",label: "English"},
-    {value:"am",label: "Հայերեն"}
+    {value:"am",label: "Հայերեն"},
+    {value:"en",label: "English"}
+    
 ]
+function getStorageLang(options){
+    console.log(localStorage.getItem("lng"))
+    const currentStorageLang = localStorage.getItem("lng")
+    if(currentStorageLang){
+       let test = options.filter((option) => {
+            return option.value === currentStorageLang
+        })[0]
+        console.log(test)
+        return test
+    } else {
+        return options[0]
+    }
+}
 
 const TopInformationSection = () => {
     const {i18n} = useTranslation()
-    const [selectedLang, setSelectedLang] = useState(langOptions[0])
+    const [selectedLang, setSelectedLang] =  useState(getStorageLang(langOptions))
 
     const changeLang = (lang) => {
         i18n.changeLanguage(lang)
+        localStorage.setItem("lng",lang)
     }
     useEffect(() => {
         changeLang(selectedLang.value)
@@ -66,7 +79,7 @@ const TopInformationSection = () => {
         <div className={s.informationBlock}>
             <div className={s.contacts}>
                 <div><span><MdEmail/></span>info@tevergroup.am</div>
-                <div><span><AiFillPhone /></span>+37455439311</div>
+                <div><span><AiFillPhone /></span>+374-93-25-33-33</div>
             </div>
             <div className={s.language}>
 

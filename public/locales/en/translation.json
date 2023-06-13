@@ -86,6 +86,9 @@
     },
     "accounting": {
         "title": "Accounting",
+        "description": "All organizations (including those in the process of liquidation or insolvency) are obliged to keep accounting records, starting from the registration date till its end in the manner prescribed by the legislation.",
+        "description2": "The accounting of the organization is carried out in compliance with the requirements of the Law 'On Combating Money Laundering and Terrorist Financing':",
+        "offer" : "Our professional team offers:",
         "items": {
             "item1": "Implementation and maintenance of the accounting system, restoration of databases",
             "item2": "Tax accounting and reporting",
@@ -94,7 +97,11 @@
     }
     },
     "tax": {
-        "title": "Tax",
+        "title": "Tax Advice",
+        "description": "Tax is a compulsory and gratuitous payment for the purpose of meeting state and public needs, which is collected from individuals and legal entities (including non-resident individuals, institutions of foreign legal entities, branches of foreign legal entities, representative offices), institutions, local self-government bodies. in accordance with the procedure, in the amounts and within the specified time periods provided by the legislation",
+        "description2": "Tax agent: a tax agent is a legal entity that pays (allocates or provides in kind) income to taxpayers (including an establishment of a foreign legal entity, a branch or representative office of a foreign legal entity), an individual entrepreneur, a notary, an institution, a local self-government body, on which the law in accordance with the law, when paying (allocating or providing) income to taxpayers, the obligation to calculate, keep (collect) taxes from their income (including indirect) and pay to the budgets of the Republic of Armenia and municipalities",
+        "description3": "State taxes are state taxes: profit tax, income tax, excise tax, value added tax. Fixed fees or franchise fees may be established by law to replace the aforementioned types of taxesLocal taxes are property tax, land tax, hotel tax. Other local taxes may be imposed by other laws",
+        "offer" : "Our professional team offers:",
         "items": {
             "item1":"Calculating taxes and other mandatory payments, verifying and adjusting payments and balances, reporting",
             "item2":"Consulting on tax legislation",
@@ -102,7 +109,11 @@
     }
     },
     "planning": {
-        "title": "Planning",
+        "title": "Business Planning",
+        "description": "Basic principles of business plan \n As in any business, the most important condition before starting a business is an accurate assessment of demand and supply and the identification of customer needs, therefore the main principles are a detailed market study and the preparation of a financial plan.",
+        "description2": "Must be based on research and factual data \n Be more realistic than idealistic. too often business plans focus too much on what the product or service could be, rather than what it actually is. Although having a vision is important, your plan should be based on research data, as this stage can be pivotal for future activities, it is advisable to consult with experienced professionals in this matter.",
+        "description3": "You need to register the business and choose the right type of tax \n Legalize your business idea. this way you avoid wasting time or money by leaving the business idea on paper. Business registration is also available online through e-register.am.",
+        "offer" : "Our professional team offers:",
         "items": {
             "item1":"Business planning and strategy development",
             "item2":"Business performance assessment"
@@ -110,9 +121,12 @@
     },
     "hr": {
         "title": "Hr",
+        "description": "Human resources management, as an important element of the company’s management, targets the work process in its broadest sense, including recruitment up to evaluation of work results, investment of human capital, promotion of personnel.", 
+        "offer" : "Our professional team offers:",
         "items": {
             "item1":"Drawing up employment contracts in accordance with the legislation of the Republic of Armenia",
-            "item2":"Maintenance and development of internal legal acts and regulations"
+            "item2":"Maintenance and development of internal legal acts and regulations",
+            "item3":"Coordinate your company's human resources"
         }
     },
     "trainings": {
@@ -152,6 +166,9 @@
             "empty":"Required",
             "emailErr":"Invalid E-mail"
         }
+    },
+    "footer":{
+        "address":"Yerevan, Avan, Isahakyan str 3/3"
     }
 
 

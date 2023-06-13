@@ -52,7 +52,7 @@ function Footer() {
                         <div className={s.infoItem}>
                             <div><BsFillTelephoneForwardFill /></div>
                             <div>
-                                <h4>+37455439311</h4>
+                                <h4>+374-93-25-33-33</h4>
                             </div>
                         </div>
                         <div className={s.infoItem}>
@@ -66,7 +66,7 @@ function Footer() {
                             <div><ImLocation/></div>
                             <div>
 
-                                <h4>Los Angeles</h4>
+                                <h4>{t("footer.address")}</h4>
                             </div>
                         </div>
                     </div>

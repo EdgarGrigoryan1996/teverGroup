@@ -13,16 +13,30 @@
     border-radius: 10px;
 }
 .infoTitle{
-    font-size: 56px;
+    font-size: 46px;
     font-weight: 700;
     color: var(--black);
     margin-bottom: 25px;
     letter-spacing: 1px;
 }
+.info{
+    margin-bottom: 15px;
+}
+.info p {
+    margin: 5px 0;
+    line-height: 18px;
+    letter-spacing: 1px;
+    color: var(--second-color);
+}
 .description{
     color: var(--grey-color);
     margin-bottom: 50px;
     letter-spacing: 1px;
+}
+.description p{
+    color: var(--black);
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 .item{
     display: flex;

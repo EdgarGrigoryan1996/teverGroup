@@ -1,8 +1,9 @@
 .App {
-  max-width: 1280px;
-  margin: 0 auto;
+ 
 }
 .content{
   padding: 0 25px;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 

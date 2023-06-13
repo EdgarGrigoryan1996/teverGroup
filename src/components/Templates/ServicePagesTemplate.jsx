@@ -20,7 +20,13 @@ function ServicePagesTemplate(props) {
                     </div>
                     <div className={s.InfoBlock}>
                         <div className={s.infoTitle}>{props.data.title}</div>
+                        <div className={s.info}>
+                            <p>{props.data.description}</p>
+                            <p>{props.data.description2}</p>
+                            {props.data.description3 && <p>{props.data.description3}</p>}
+                        </div>
                         <div className={s.description}>
+                            <p>{props.data.offer}</p>
                             {props.data.items.map((item) => {
                                 return (
                                     <div className={s.item}>
