@@ -1,0 +1,22 @@
+.usefulContent{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    flex-grow: 0;
+    gap: 10px;
+}
+.usefulContent a {
+    flex-basis: 24%;
+}
+@media screen and (max-width: 1010px){
+    .usefulContent a {
+        flex-basis: 48%;
+    }
+}
+@media screen and (max-width: 430px){
+    .usefulContent a {
+        flex-basis: 95%;
+        padding: 12px;
+    }
+}

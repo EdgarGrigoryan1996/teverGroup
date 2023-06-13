@@ -13,3 +13,13 @@ export const sendEmailData = (companyName,email,phone,selectedTax,selectedActivi
         assetsNumber:assetsNumber.text
     }, "nYElHgybvs9dD1R_-");
 }
+
+export const sendExcelEmailData = (companyName,email,phone, students) => {
+    emailjs.send("service_4q2eefe", "template_3bsp0qf", {
+        companyName:companyName.text,
+        email:email.text,
+        phone:phone.text,
+        students:students.text
+    }, "nYElHgybvs9dD1R_-");
+}
+

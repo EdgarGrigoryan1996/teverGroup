@@ -2,8 +2,9 @@ import React from 'react';
 import Header from "../../components/Header/Header";
 import HeartbeatMiniSection from "../../components/HeartbeatMiniSection/HeartbeatMiniSection";
 import Services from "../../components/Services/Services";
-import Projects from "../../components/Projects/Projects";
-import SalaryCalculation from "../UsefulResources/SalaryCalculation/SalaryCalculation";
+import UsefulResources from "../../components/UsefulResources/UsefulResources";
+import Price from "../Services/Price/Price";
+import EmailSendMethods from "../../components/EmailSendMethods/EmailSendMethods";
 
 function Home() {
     return (
@@ -12,7 +13,9 @@ function Home() {
             <Services />
             <HeartbeatMiniSection />
             {/*<Projects />*/}
-            <SalaryCalculation />
+            <UsefulResources />
+            {/*<Price />*/}
+            <EmailSendMethods />
         </>
     );
 }

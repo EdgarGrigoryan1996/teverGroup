@@ -21,46 +21,7 @@
     flex-grow: 0;
     gap: 35px;
 }
-.servicesContent a{
-    flex-basis: 30%;
-    border: 1px solid var(--second-color);
-    border-radius: 10px;
-    padding: 25px;
-    transition: all 0.2s linear;
-    margin-bottom: 25px;
-}
-.service{
 
-}
-.service svg{
-    font-size: 42px;
-    margin-bottom: 15px;
-    color: var(--main-color);
-
-}
-.serviceTitle{
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #1e1e1e;
-}
-.serviceDescription{
-    color: var(--grey-color);
-    font-size: 14px;
-}
-.servicesContent a:hover{
-    background: var(--second-color);
-}
-.servicesContent a:hover .serviceDescription{
-    color: #fff;
-}
-.servicesContent a:hover .serviceLogo svg{
-    color: var(--white);
-}
-
-.servicesContent a:hover .serviceTitle{
-    color: #fff;
-}
 @media screen and (max-width: 1000px){
     .servicesContent a{
         flex-basis: 45%;
@@ -75,16 +36,16 @@
     .servicesSubTitle{
         font-size: 20px;
     }
-    a{
+    .cardLink{
         padding: 5px;
     }
     .service svg{
         font-size: 36px;
     }
-    .serviceTitle{
+    .cardTitle{
         font-size: 16px;
     }
-    .serviceDescription{
+    .cardDescription{
         font-size: 10px;
     }
 }

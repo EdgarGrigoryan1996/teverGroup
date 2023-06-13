@@ -11,9 +11,9 @@ function ServicePagesTemplate(props) {
     return (
         <section className={s.templatePage}>
             <div>
-                <div className={g.sectionTitle}>
-                    <h2>{props.data.title}</h2>
-                </div>
+                {/*<div className={g.sectionTitle}>*/}
+                {/*    <h2>{props.data.title}</h2>*/}
+                {/*</div>*/}
                 <div className={s.templateContent}>
                     <div className={s.imageBlock}>
                         <img src={props.image} alt=""/>

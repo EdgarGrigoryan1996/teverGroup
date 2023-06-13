@@ -1,0 +1,48 @@
+ .cardLink{
+    flex-basis: 30%;
+    border: 1px solid var(--second-color);
+    border-radius: 10px;
+    padding: 25px;
+    transition: all 0.2s linear;
+    margin-bottom: 25px;
+}
+ .card svg{
+     font-size: 42px;
+     margin-bottom: 15px;
+     color: var(--main-color);
+ }
+ .cardTitle{
+     font-size: 22px;
+     font-weight: 700;
+     margin-bottom: 15px;
+     color: #1e1e1e;
+ }
+ .cardDescription{
+     color: var(--grey-color);
+     font-size: 14px;
+ }
+  .cardLink:hover{
+     background: var(--second-color);
+ }
+  .cardLink:hover .cardDescription{
+     color: #fff;
+ }
+  .cardLink:hover .card svg{
+     color: var(--white);
+ }
+
+  .cardLink:hover .cardTitle{
+     color: #fff;
+ }
+
+ @media screen and (max-width: 620px){
+     .cardLink svg{
+         font-size: 36px;
+     }
+     .cardTitle{
+         font-size: 16px;
+     }
+     .cardDescription{
+         font-size: 10px;
+     }
+ }

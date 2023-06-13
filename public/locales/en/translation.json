@@ -139,6 +139,7 @@
     },
     "price":{
         "title":"Calculating the cost of accounting services",
+        "excelTitle": "Price for courses",
         "companyName":"Company Name",
         "email":"E-mail",
         "phone": "Phone Number",
@@ -161,6 +162,7 @@
         "monthTurnover":"Monthly Average Turnover",
         "monthAverage":"Monthly Average Import Size",
         "assetsNumber":"Number of Fixed Assets",
+        "students": "Number of participants",
         "buttonText":"Send",
         "err":{
             "empty":"Required",

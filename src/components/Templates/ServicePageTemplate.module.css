@@ -13,18 +13,18 @@
     border-radius: 10px;
 }
 .infoTitle{
-    font-size: 46px;
+    font-size: 36px;
     font-weight: 700;
     color: var(--black);
     margin-bottom: 25px;
     letter-spacing: 1px;
 }
 .info{
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 .info p {
     margin: 5px 0;
-    line-height: 18px;
+    text-align: justify;
     letter-spacing: 1px;
     color: var(--second-color);
 }
@@ -49,40 +49,66 @@
     margin-right: 15px;
 }
 @media screen and (max-width: 1140px){
-    .infoTitle{
-        font-size: 42px;
-    }
+
     .description{
         font-size: 14px;
     }
 }
 @media screen and (max-width: 920px){
     .templateContent > div{
-        flex-basis: 43%;
+        flex-basis: 45%;
     }
     .infoTitle{
         font-size: 28px;
+    }
+    .info p{
+        font-size: 12px;
     }
     .description{
         font-size: 10px;
     }
 }
-@media screen and (max-width: 700px){
-
+@media screen and (max-width: 780px){
     .infoTitle{
-        font-size: 20px;
+        font-size: 24px;
+    }
+    .info p {
+        font-size: 10px;
     }
     .description{
         font-size: 8px;
+    }
+    .item{
+        margin-bottom: 5px;
     }
     .item svg{
         font-size: 20px;
     }
 }
-@media screen and (max-width: 530px){
+@media screen and (max-width: 620px){
     .templateContent{
         gap: 20px;
     }
+    .infoTitle{
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    .info{
+        margin-bottom: 10px;
+    }
+    .info p {
+        font-size: 8px;
+    }
+    .description{
+        font-size: 7px;
+    }
+    .item svg{
+        font-size: 16px;
+        margin-right: 5px;
+    }
+}
+@media screen and (max-width: 530px){
+
     .templateContent{
         flex-direction: column;
     }
@@ -90,13 +116,23 @@
         width: 100%;
         text-align: left;
     }
+    .info{
+        margin-bottom: 25px;
+    }
     .infoTitle{
         font-size: 28px;
+        margin-bottom: 25px;
     }
     .description{
-        font-size: 12px;
+        font-size: 10px;
+        margin-bottom: 0;
     }
     .item svg{
         font-size: 24px;
+    }
+}
+@media screen and (max-width: 470px){
+    .infoTitle{
+        font-size: 22px;
     }
 }
