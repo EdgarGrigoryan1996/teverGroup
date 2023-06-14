@@ -24,7 +24,7 @@ function Menu() {
     return (
       <div className={s.menuWrapper}>
         <div className={s.menuBlock}>
-        <div className={s.logo}><Link to={"/"}><img src={logo} alt="Tever-Group"/>TEVER LLC</Link> </div>
+        {/*<div className={s.logo}><Link to={"/"}><img src={logo} alt="Tever-Group"/>TEVER LLC</Link> </div>*/}
             <div className={s.menu}>
                 <nav>
                 <div className={s.burgerMenu + " " + (burgerMenuStatus && s.menuOpened)} onClick={ () => setBurgerMenuStatus(!burgerMenuStatus) }><IoIosArrowForward /></div>
