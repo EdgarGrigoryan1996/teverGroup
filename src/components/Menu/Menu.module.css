@@ -135,7 +135,7 @@
     .menu nav div.menuItems{
         position: absolute;
         left: 0;
-        top: 85px;
+        top: 120px;
         width: 100%;
         background-color: var(--second-color);
         display: flex;
