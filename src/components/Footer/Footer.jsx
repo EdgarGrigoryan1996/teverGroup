@@ -6,7 +6,7 @@ import {BsFillTelephoneForwardFill} from "react-icons/bs";
 import {AiOutlineMail} from "react-icons/ai";
 import {ImLocation} from "react-icons/im";
 import {FaFacebookF, FaLinkedinIn} from "react-icons/fa";
-import logo from "../../assets/icons/logo.svg"
+import logo from "../../assets/icons/logo.png"
 
 function Footer() {
     const {t} = useTranslation()
