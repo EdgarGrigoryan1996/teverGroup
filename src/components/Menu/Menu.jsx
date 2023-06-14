@@ -3,7 +3,7 @@ import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 import { useRef, useState} from "react"
 import { IoIosArrowForward} from "react-icons/io";
-import logo from "../../assets/icons/logo.svg"
+import logo from "../../assets/icons/logo.webp"
 function Menu() {
     const {t} = useTranslation()
     const [burgerMenuStatus, setBurgerMenuStatus] = useState(false)
