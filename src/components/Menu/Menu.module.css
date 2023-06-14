@@ -199,7 +199,7 @@
 
 @media screen and (max-width: 576px){
     .menu nav div.menuItems{
-        top: 75px;
+        top: 150px;
     }
     .logo a img{
         width: 35px;
