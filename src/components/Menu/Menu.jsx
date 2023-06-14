@@ -3,7 +3,7 @@ import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 import { useRef, useState} from "react"
 import { IoIosArrowForward} from "react-icons/io";
-import logo from "../../assets/icons/logo.webp"
+import logo from "../../assets/icons/logo.png"
 function Menu() {
     const {t} = useTranslation()
     const [burgerMenuStatus, setBurgerMenuStatus] = useState(false)
@@ -24,7 +24,7 @@ function Menu() {
     return (
       <div className={s.menuWrapper}>
         <div className={s.menuBlock}>
-        <div className={s.logo}><Link to={"/"}>TEVER LLC</Link> </div>
+        <div className={s.logo}><Link to={"/"}><img src={logo} alt="Tever-Group"/>TEVER LLC</Link> </div>
             <div className={s.menu}>
                 <nav>
                 <div className={s.burgerMenu + " " + (burgerMenuStatus && s.menuOpened)} onClick={ () => setBurgerMenuStatus(!burgerMenuStatus) }><IoIosArrowForward /></div>
