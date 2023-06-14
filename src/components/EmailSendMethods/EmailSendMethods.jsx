@@ -34,7 +34,7 @@ function EmailSendMethods(props) {
     return (
         <div className={s.sendEmailBlock}>
             <div className={g.sectionTitle}>
-                <h2>Methods</h2>
+                <h2>{t("price.topTitle")}</h2>
             </div>
             <Select
                 isSearchable={false}

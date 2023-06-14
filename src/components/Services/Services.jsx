@@ -15,10 +15,10 @@ function Services() {
     return (
         <section className={s.services}>
             <div className={g.sectionTitle}>
-                <h2>Our Services</h2>
+                <h2>{t("ourServices")}</h2>
             </div>
             <div className={s.servicesSubTitle}>
-                <h2>Real Accounting Services for You</h2>
+                <h2>{t("servicesList")}</h2>
             </div>
             <div className={s.titleParagraph}>
 

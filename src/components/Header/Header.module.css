@@ -29,15 +29,37 @@
     font-size: 56px;
     color: var(--white);
     padding: 5px 0;
+
 }
 .headerContentBlock p{
     color: #fff;
     margin-top: 15px;
     letter-spacing: 2px;
 }
-@media screen and (max-width: 420px){
+@media screen and (max-width: 640px){
     .headerContentBlock h1{
         max-width: 100%;
-        font-size: 36px;
+        font-size: 32px;
+    }
+}
+@media screen and (max-width: 420px){
+    .headerWrapper{
+        max-height: 400px;
+    }
+    .headerContentBlock h1{
+        max-width: 100%;
+        font-size: 24px;
+    }
+    .headerContentBlock p{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 365px){
+
+    .headerContentBlock h1{
+        font-size: 18px;
+    }
+    .headerContentBlock p{
+        font-size: 10px;
     }
 }

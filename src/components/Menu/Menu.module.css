@@ -7,8 +7,19 @@
     width: 100%;
 }
 .logo{
-    color: var(--second-color);
     padding: 20px 25px;
+}
+.logo a{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+}
+.logo a img{
+    margin-right: 5px;
+    width: 45px;
+    height: 45px;
 }
 
 .menu nav{
@@ -29,6 +40,7 @@
     transition: all 200ms;
     cursor: pointer;
     padding: 20px 0;
+
 }
 .subMenuOpenArrow{
     margin-left: 5px;
@@ -74,7 +86,6 @@
     -webkit-transition: max-height 200ms;
     -webkit-transition: -webkit-max-height 200ms;
     transition: all 200ms;
-
 }
 
 
@@ -99,7 +110,13 @@
     }
 }
 @media screen and (max-width:700px)  {
+    .logo a{
 
+        font-size: 20px;
+    }
+    .logo a img{
+
+    }
     .menuBlock {
         position: relative;
 
@@ -117,7 +134,7 @@
     .menu nav div.menuItems{
         position: absolute;
         left: 0;
-        top: 60px;
+        top: 85px;
         width: 100%;
         background-color: var(--second-color);
         display: flex;
@@ -176,5 +193,18 @@
 
     .openedMobileMenu .subMenu{
         max-height: 500px;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .menu nav div.menuItems{
+        top: 75px;
+    }
+    .logo a img{
+        width: 35px;
+        height: 35px;
+    }
+    .logo a{
+        font-size: 16px;
     }
 }

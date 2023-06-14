@@ -239,27 +239,26 @@ function SalaryCalculation() {
                     <input ref={inputRef} type="number" value={currentSalary} onChange={(e) => {
                         // const currentSymbol = e.target.value
                         // const regex = /^\d+$/;
-
-                            setCurrentSalary(e.target.value)
+                            setCurrentSalary(e.target.value )
 
                     }}/>
                 </div>
                 <div className={s.resultWrapper}>
                     <div className={s.resultBlock}>
                         <div>Եկամտահարկ 20%</div>
-                        <div>{ekamtahark ? ekamtahark : 0}</div>
+                        <div>{ekamtahark ? new Intl.NumberFormat("am-AM").format(+ekamtahark) : 0}</div>
                     </div>
                     <div className={s.resultBlock}>
                         <div>Սոցիալական վճար</div>
-                        <div>{socialPay ? socialPay : 0}</div>
+                        <div>{socialPay ? new Intl.NumberFormat("am-AM").format(+socialPay) : 0}</div>
                     </div>
                     <div className={s.resultBlock}>
                         <div>Դրոշմանիշային վճար</div>
-                        <div>{droshmanish ? droshmanish : 0}</div>
+                        <div>{droshmanish ? new Intl.NumberFormat("am-AM").format(+droshmanish) : 0}</div>
                     </div>
                     <div className={s.resultBlock}>
                         <div>{registeredMethod ? "Մաքուր մնացորդ" : "Պետք է գրանցել"}</div>
-                        <div>{result}</div>
+                        <div>{new Intl.NumberFormat("am-AM").format(+result)}</div>
                     </div>
                 </div>
 

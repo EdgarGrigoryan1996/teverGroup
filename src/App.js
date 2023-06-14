@@ -16,18 +16,22 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
 import LoanCalculator from "./Pages/UsefulResources/LoanCalculator/LoanCalculator";
 import ServicePagesTemplate from "./components/Templates/ServicePagesTemplate";
+import aboutImage from "./assets/images/about.webp"
 import accountingImg from "./assets/images/services/accounting.webp"
 import taxImg from "./assets/images/services/tax.webp"
 import planningImg from "./assets/images/services/planning.webp"
 import trainingsImg from "./assets/images/services/trainings.webp"
 import hrImg from "./assets/images/services/hr.webp"
-import Price from './Pages/Services/Price/Price';
 import WithScrollTop from "./HOC/WithScrollTop";
 import EmailSendMethods from "./components/EmailSendMethods/EmailSendMethods";
+import {useEffect, useState} from "react";
 
 function App() {
   const {t} = useTranslation()
-
+    const aboutPageData = {
+        "title": t("company.about.title"),
+        "description": t("company.about.description")
+    }
     const servicePagesData = {
         "accounting": {
             "title": t("accounting.title"),
@@ -113,15 +117,23 @@ function App() {
             ]
         }
     }
+    const [montserat, setMontserat] = useState(false)
+    useEffect(() => {
+        if(localStorage.getItem("lng") === "en"){
+            setMontserat(true)
+        } else {
+            setMontserat(false)
+        }
+    },[window.localStorage.lng])
 
   return (
-    <div className="App">
+    <div className={montserat ? "App" + " " + "montserat" : "App"}>
         <TopInformationSection />
         <Menu />
         <div className='content'>
         <Routes>
                     <Route path={"/"} element={<Home />}/>
-                    <Route path={"/about"} element={<WithScrollTop Child={AboutCompany} />}/>
+                    <Route path={"/about"} element={<ServicePagesTemplate data={aboutPageData} image={aboutImage} />}/>
                     <Route path={"/partners"} element={<WithScrollTop Child={Partners} /> }/>
                     <Route path={"/staff"} element={<WithScrollTop Child={Staff} />}/>
                     <Route path={"/businessConsulting"} element={<ServicePagesTemplate data={servicePagesData.planning} image={planningImg}/>}/>

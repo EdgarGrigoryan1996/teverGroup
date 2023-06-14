@@ -30,25 +30,25 @@ function LoanCalculator() {
                     <tr>
                         <td>{i+1}</td>
                         <td>
-                            {item.mnacord} <span>&#x58F;</span>
+                            {new Intl.NumberFormat("am-AM").format(+item.mnacord)}
                         </td>
                         <td>
-                        {item.tokos} <span>&#x58F;</span>
+                        {new Intl.NumberFormat("am-AM").format(+item.tokos)}
                         </td>
                         <td>
-                            {item.mayrGumar} <span>&#x58F;</span>
+                            {new Intl.NumberFormat("am-AM").format(+item.mayrGumar)}
                         </td>
                         <td>
-                            {item.marvoxGumar} <span>&#x58F;</span>
+                            {new Intl.NumberFormat("am-AM").format(+item.marvoxGumar)}
                         </td>
                     </tr>
                 ))}
                 
                     <tr>
                         <td colSpan={2}>Ընդամենը</td>
-                        <td>{total.totalTokos}</td>
-                        <td>{total.totalMayrGumar}</td>
-                        <td>{total.totalYndameny}</td>
+                        <td>{new Intl.NumberFormat("am-AM").format(+total.totalTokos)}</td>
+                        <td>{new Intl.NumberFormat("am-AM").format(+total.totalMayrGumar)}</td>
+                        <td>{new Intl.NumberFormat("am-AM").format(+total.totalYndameny)}</td>
                     </tr>
                 
             </table>

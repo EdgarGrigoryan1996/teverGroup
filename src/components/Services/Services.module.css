@@ -1,20 +1,13 @@
 .servicesSubTitle{
     text-align: center;
-    font-size: 28px;
-    letter-spacing: 1px;
-    color: #1e1e1e;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: var(--main-color);
+    margin-top: 15px;
 }
-.titleParagraph{
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-    color: var(--grey-color);
-    padding: 15px 0;
-    font-size: 20px;
-    letter-spacing: 1px;
-}
+
 .servicesContent{
-    margin-top: 50px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
@@ -29,12 +22,12 @@
 }
 @media screen and (max-width: 800px){
     .servicesSubTitle{
-        font-size: 24px;
+        font-size: 14px;
     }
 }
 @media screen and (max-width: 620px){
     .servicesSubTitle{
-        font-size: 20px;
+        font-size: 10px;
     }
     .cardLink{
         padding: 5px;

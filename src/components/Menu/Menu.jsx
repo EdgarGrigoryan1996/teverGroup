@@ -3,7 +3,7 @@ import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 import { useRef, useState} from "react"
 import { IoIosArrowForward} from "react-icons/io";
-
+import logo from "../../assets/icons/logo.svg"
 function Menu() {
     const {t} = useTranslation()
     const [burgerMenuStatus, setBurgerMenuStatus] = useState(false)
@@ -24,7 +24,7 @@ function Menu() {
     return (
       <div className={s.menuWrapper}>
         <div className={s.menuBlock}>
-        <div className={s.logo}><Link to={"/"}>TEVER GROUP</Link> </div>
+        <div className={s.logo}><Link to={"/"}><img src={logo} alt="Tever-Group"/>TEVER LLC</Link> </div>
             <div className={s.menu}>
                 <nav>
                 <div className={s.burgerMenu + " " + (burgerMenuStatus && s.menuOpened)} onClick={ () => setBurgerMenuStatus(!burgerMenuStatus) }><IoIosArrowForward /></div>
@@ -46,7 +46,7 @@ function Menu() {
                             <Link to={"/businessConsulting"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item4")}</div></Link>
                             <Link to={"/hr"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item5")}</div></Link>
                             <Link to={"/courses"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item6")}</div></Link>
-                            <Link to={"/price"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.services.subMenu.item7")}</div></Link>
+                            <Link to={"/price"}><div onClick={() => setBurgerMenuStatus(false)}>{t("price.topTitle")}</div></Link>
                         </div>
                     </div>
                     <div ref={item3} className={s.itemWrapper} onClick={ mobileMenu ? (e) => {toggleSubMenu(item3)} : null}>

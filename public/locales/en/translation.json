@@ -48,6 +48,12 @@
             }
         }
     },
+    "header": {
+        "title": "Accounting & Finances",
+        "subTitle": "However big the scale of your business operations"
+    },
+    "ourServices": "Our Services",
+    "servicesList": "The list of provided services",
     "company": {
         "about": {
             "title": "Your Financial Partner for Success",
@@ -138,6 +144,7 @@
         }
     },
     "price":{
+        "topTitle": "Get a Price",
         "title":"Calculating the cost of accounting services",
         "excelTitle": "Price for courses",
         "companyName":"Company Name",

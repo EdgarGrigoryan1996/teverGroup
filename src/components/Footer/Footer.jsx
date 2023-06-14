@@ -6,6 +6,7 @@ import {BsFillTelephoneForwardFill} from "react-icons/bs";
 import {AiOutlineMail} from "react-icons/ai";
 import {ImLocation} from "react-icons/im";
 import {FaFacebookF, FaLinkedinIn} from "react-icons/fa";
+import logo from "../../assets/icons/logo.svg"
 
 function Footer() {
     const {t} = useTranslation()
@@ -14,11 +15,9 @@ function Footer() {
             <div className={s.footerWrapper}>
                 <div className={s.logo}>
                     <div>
-                        <h2>Tever Group</h2>
+                        <img src={logo} alt="Tever Group"/>
                     </div>
-                    <div>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, ipsum, quidem!
-                    </div>
+
                     <div className={s.social}>
                         <div className={s.socialItem}><Link target={"_blank"} to={"https://www.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"}><FaLinkedinIn /></Link></div>
                         <div className={s.socialItem}><Link target={"_blank"} to={"https://ru-ru.facebook.com/"}><FaFacebookF /></Link></div>
@@ -52,7 +51,7 @@ function Footer() {
                         <div className={s.infoItem}>
                             <div><BsFillTelephoneForwardFill /></div>
                             <div>
-                                <h4>+374-93-25-33-33</h4>
+                                <h4>+ 374 (93) 25 33 33</h4>
                             </div>
                         </div>
                         <div className={s.infoItem}>

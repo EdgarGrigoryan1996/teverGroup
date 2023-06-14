@@ -27,7 +27,7 @@ function ServicePagesTemplate(props) {
                         </div>
                         <div className={s.description}>
                             <p>{props.data.offer}</p>
-                            {props.data.items.map((item) => {
+                            {props.data?.items?.map((item) => {
                                 return (
                                     <div className={s.item}>
                                         <div><MdOutlineDownloadDone /></div>
