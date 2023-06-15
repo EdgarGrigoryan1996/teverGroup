@@ -15,7 +15,7 @@ function Footer() {
             <div className={s.footerWrapper}>
                 <div className={s.logo}>
                     <div>
-                        {/*<img src={logo} alt="Tever Group"/>*/}
+                        <img src={logo} alt="Tever Group"/>
                     </div>
 
                     <div className={s.social}>
