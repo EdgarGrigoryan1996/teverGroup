@@ -43,9 +43,9 @@
     }
 }
 @media screen and (max-width: 420px){
-    .headerWrapper{
-        max-height: 400px;
-    }
+    /*.headerWrapper{*/
+    /*    max-height: 400px;*/
+    /*}*/
     .headerContentBlock h1{
         max-width: 100%;
         font-size: 24px;
