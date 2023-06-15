@@ -144,7 +144,7 @@
         -webkit-transition: max-height 200ms;
         -webkit-transition: -webkit-max-height 200ms;
         transition: all 0.2s;
-        z-index: 1;
+        z-index: 9999;
     }
     
     .menu nav div.menuItems .item{
