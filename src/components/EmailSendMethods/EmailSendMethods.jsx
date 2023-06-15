@@ -29,7 +29,7 @@ function EmailSendMethods(props) {
         setSelectedMethod(methods[index])
 
 
-    },[window.localStorage.lng])
+    },[window.localStorage.lng,t])
 
     return (
         <div className={s.sendEmailBlock}>

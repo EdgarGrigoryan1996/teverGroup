@@ -158,7 +158,7 @@ function Price() {
             setCompanyName({
                 ...companyName,
                 err: {
-                    ...companyName.err,
+                    msg: t("price.err.empty"),
                     status: false
                 }
             })
@@ -166,7 +166,7 @@ function Price() {
             setCompanyName({
                 ...companyName,
                 err: {
-                    ...companyName.err,
+                    msg: t("price.err.empty"),
                     status: true
                 }
             })
@@ -202,7 +202,7 @@ function Price() {
             setPhone({
                 ...phone,
                 err: {
-                    ...phone.err,
+                    msg: t("price.err.empty"),
                     status: false
                 }
             })
@@ -210,7 +210,7 @@ function Price() {
             setPhone({
                 ...phone,
                 err: {
-                    ...phone.err,
+                    msg: t("price.err.empty"),
                     status: true
                 }
             })
@@ -220,7 +220,7 @@ function Price() {
             setmonthTurnover({
                 ...monthTurnover,
                 err: {
-                    ...monthTurnover.err,
+                    msg: t("price.err.empty"),
                     status: false
                 }
             })
@@ -228,7 +228,7 @@ function Price() {
             setmonthTurnover({
                 ...monthTurnover,
                 err: {
-                    ...monthTurnover.err,
+                    msg: t("price.err.empty"),
                     status: true
                 }
             })
@@ -238,7 +238,7 @@ function Price() {
             setStaffNumber({
                 ...staffNumber,
                 err: {
-                    ...staffNumber.err,
+                    msg: t("price.err.empty"),
                     status: false
                 }
             })
@@ -246,7 +246,7 @@ function Price() {
             setStaffNumber({
                 ...staffNumber,
                 err: {
-                    ...staffNumber.err,
+                    msg: t("price.err.empty"),
                     status: true
                 }
             })
@@ -256,7 +256,7 @@ function Price() {
             setAssetsNumber({
                 ...assetsNumber,
                 err: {
-                    ...assetsNumber.err,
+                    msg: t("price.err.empty"),
                     status: false
                 }
             })
@@ -264,7 +264,7 @@ function Price() {
             setAssetsNumber({
                 ...assetsNumber,
                 err: {
-                    ...assetsNumber.err,
+                    msg: t("price.err.empty"),
                     status: true
                 }
             })
@@ -275,6 +275,7 @@ function Price() {
 
     }
     useEffect(() => {
+
         const selectedValue = selectedTax.value;
         const selectedValue2 = selectedActivity.value;
         let index = getSelectedOptionIndex(taxOptions,selectedValue);
@@ -282,8 +283,8 @@ function Price() {
 
         setSelectedTax(taxOptions[index])
         setSelectedActivity(activityOptions[index2])
-
-    },[window.localStorage.lng])
+        console.log("test")
+    },[window.localStorage.lng,t])
 
     useEffect(() => {
         checkFields()

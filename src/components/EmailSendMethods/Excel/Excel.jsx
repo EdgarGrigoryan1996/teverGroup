@@ -104,7 +104,7 @@ function Price() {
             setCompanyName({
                 ...companyName,
                 err: {
-                    ...companyName.err,
+                    msg: t("price.err.empty"),
                     status: false
                 }
             })
@@ -112,7 +112,7 @@ function Price() {
             setCompanyName({
                 ...companyName,
                 err: {
-                    ...companyName.err,
+                    msg: t("price.err.empty"),
                     status: true
                 }
             })
@@ -148,7 +148,7 @@ function Price() {
             setPhone({
                 ...phone,
                 err: {
-                    ...phone.err,
+                    msg: t("price.err.empty"),
                     status: false
                 }
             })
@@ -156,7 +156,7 @@ function Price() {
             setPhone({
                 ...phone,
                 err: {
-                    ...phone.err,
+                    msg: t("price.err.empty"),
                     status: true
                 }
             })
@@ -166,7 +166,7 @@ function Price() {
             setStudents({
                 ...students,
                 err: {
-                    ...students.err,
+                    msg: t("price.err.empty"),
                     status: false
                 }
             })
@@ -174,7 +174,7 @@ function Price() {
             setStudents({
                 ...students,
                 err: {
-                    ...students.err,
+                    msg: t("price.err.empty"),
                     status: true
                 }
             })

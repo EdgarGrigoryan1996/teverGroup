@@ -135,8 +135,11 @@ function LoanCalculator() {
 
                     <div className={s.fieldBlock}>
                         <h3>Տարեկան տոկոսադրույք</h3>
-                        <input type="number" placeholder='Տարեկան տոկոսադրույք' value={percent} onChange={(e) => {
-                            setPercent(e.target.value)
+                        <input type="number" placeholder='Տարեկան տոկոսադրույք (0 - 100)' min={0} max={100} value={percent} onChange={(e) => {
+                            if(+e.target.value <=100){
+                                setPercent(e.target.value)
+                            }
+
                         }}/>
                     </div>
 

@@ -1,6 +1,6 @@
 .headerWrapper{
     height: 600px;
-
+    overflow: hidden;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -37,10 +37,14 @@
     letter-spacing: 2px;
 }
 @media screen and (max-width: 640px){
+    .headerWrapper{
+        height: 450px;
+    }
     .headerContentBlock h1{
         max-width: 100%;
         font-size: 32px;
     }
+
 }
 @media screen and (max-width: 420px){
     .headerWrapper{
