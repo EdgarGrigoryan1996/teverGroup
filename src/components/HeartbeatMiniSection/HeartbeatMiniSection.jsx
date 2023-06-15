@@ -2,7 +2,11 @@ import React from 'react';
 import s from "./HeartbeatMiniSection.module.css"
 function HeartbeatMiniSection() {
     return (
-        <div></div>
+        <div className={s.heartbeatWrapper}>
+            <div className={s.background}>
+
+            </div>
+        </div>
     );
 }
 
