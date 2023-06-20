@@ -90,6 +90,31 @@
         "link5": "ASSOCIATION OF ACCOUNTANTS AND AUDITORS OF RA",
         "link6": "LAW INFORMATION SYSTEM OF RA"
     },
+    "salary": {
+        "net": "NET",
+        "gross": "GROSS",
+        "question": "Do you participate in a mandatory funded pension scheme?",
+        "yes": "Yes, I'm participant",
+        "no": "No, I'm not participant",
+        "ekamtahark": "Income Tax",
+        "social": "Social Fee",
+        "droshmanish": "Stamp Duty",
+        "result": "Clean Balance",
+        "netResult": "Must Register"
+    },
+    "loan": {
+        "loanAmount": "Loan Amount",
+        "rate": "Annual Interest Rate",
+        "term": "Maturity",
+        "calculate": "Calculate",
+        "year": "Year",
+        "month": "Month",
+        "mayrGumarMnacord": "Principal balance",
+        "tokos": "Percent",
+        "mayrGumar": "Parent Amount",
+        "yndamenyVchar": "Pay Only",
+        "yndameny": "That's All"
+    },
     "accounting": {
         "title": "Accounting",
         "description": "All organizations (including those in the process of liquidation or insolvency) are obliged to keep accounting records, starting from the registration date till its end in the manner prescribed by the legislation.",
@@ -178,6 +203,176 @@
     },
     "footer":{
         "address":"Yerevan, Avan, Isahakyan str 3/3"
+    },
+    "pdfAcc": {
+        "title": "International Accounting Standarts",
+        "item1": {
+            "code": "IAS 1",
+            "text": "Presentation of Financial Statements"
+        },
+        "item2": {
+            "code": "IAS 2",
+            "text": "Inventories"
+        },
+        "item3": {
+            "code": "IAS 7",
+            "text": "Statement of Cash Flows"
+        },
+        "item4": {
+            "code": "IAS 8",
+            "text": "Accounting Policies, Changes in Accounting Estimates and Errors"
+        },
+        "item5": {
+            "code": "IAS 10",
+            "text": "Events after the Reporting Period"
+        },
+        "item6": {
+            "code": "IAS 12",
+            "text": "Income Taxes"
+        },
+        "item7": {
+            "code": "IAS 16",
+            "text": "Property, Plant and Equipment"
+        },
+        "item8": {
+            "code": "IAS 19",
+            "text": "Employee Benefits"
+        },
+        "item9": {
+            "code": "IAS 20",
+            "text": "Accounting for Government Grants and Disclosure of Government Assistance"
+        },
+        "item10": {
+            "code": "IAS 21",
+            "text": "The Effects of Changes in Foreign Exchange Rates"
+        },
+        "item11": {
+            "code": "IAS 23",
+            "text": "Borrowing Costs"
+        },
+        "item12": {
+            "code": "IAS 24",
+            "text": "Related Party Disclosures"
+        },
+        "item13": {
+            "code": "IAS 26",
+            "text": "Accounting and Reporting by Retirement Benefit Plans"
+        },
+        "item14": {
+            "code": "IAS 27",
+            "text": "Consolidated and Separate Financial Statements"
+        },
+        "item15": {
+            "code": "IAS 28",
+            "text": "Investments in Associates"
+        },
+        "item16": {
+            "code": "IAS 29",
+            "text": "Financial Reporting in Hyperinflationary Economies"
+        },
+        "item17": {
+            "code": "IAS 32",
+            "text": "Financial Instruments: Presentation"
+        },
+        "item18": {
+            "code": "IAS 33",
+            "text": "Earnings per Share"
+        },
+        "item19": {
+            "code": "IAS 34",
+            "text": "Interim Financial Reporting"
+        },
+        "item20": {
+            "code": "IAS 36",
+            "text": "Impairment of Assets"
+        },
+        "item21": {
+            "code": "IAS 37",
+            "text": "Provisions, Contingent Liabilities and Contingent Assets"
+        },
+        "item22": {
+            "code": "IAS 38",
+            "text": "Intangible Assets"
+        },
+        "item23": {
+            "code": "IAS 39",
+            "text": "Financial Instruments: Recognition and Measurement"
+        },
+        "item24": {
+            "code": "IAS 40",
+            "text": "Investment Property"
+        },
+        "item25": {
+            "code": "IAS 41",
+            "text": "AgricultureAgriculture"
+        }
+    },
+    "pdfFin": {
+        "title": "International Financial Reporting Standarts: IFRSs",
+        "item1":{
+            "code": "IFRS 1",
+            "text": "First-time Adoption of International Financial Reporting Standards"
+        },
+        "item2":{
+            "code": "IFRS 2",
+            "text": "Share based Payment"
+        },
+        "item3":{
+            "code": "IFRS 3",
+            "text": "Business Combinations"
+        },
+        "item4":{
+            "code": "IFRS 5",
+            "text": "Non current Assets Held for Sale and Discontinued Operations"
+        },
+        "item5":{
+            "code": "IFRS 6",
+            "text": "Exploration for and Evaluation of Mineral Resources"
+        },
+        "item6":{
+            "code": "IFRS 7",
+            "text": "Financial Instruments: Disclosures"
+        },
+        "item7":{
+            "code": "IFRS 8",
+            "text": "Operating Segments"
+        },
+        "item8":{
+            "code": "IFRS 9",
+            "text": "Financial Instruments"
+        },
+        "item9":{
+            "code": "IFRS 10",
+            "text": "Consolidated Financial Statements"
+        },
+        "item10":{
+            "code": "IFRS 11",
+            "text": "Joint Arrangements"
+        },
+        "item11":{
+            "code": "IFRS 12",
+            "text": "Disclosure of Interests in Other Entities"
+        },
+        "item12":{
+            "code": "IFRS 13",
+            "text": "Fair Value Measurement"
+        },
+        "item13":{
+            "code": "IFRS 14",
+            "text": "Adjustable deferred accounts"
+        },
+        "item14":{
+            "code": "IFRS 15",
+            "text": "Revenue from contracts with buyers"
+        },
+        "item15":{
+            "code": "IFRS 16",
+            "text": "Leases"
+        },
+        "item16":{
+            "code": "IFRS 17",
+            "text": "Insurance contracts"
+        }
     }
 
 

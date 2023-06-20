@@ -15,9 +15,7 @@ function Staff() {
             <div className={g.sectionTitle}>
                 <h2>{t("menu.company.subMenu.item2")}</h2>
             </div>
-            <div className={s.meet}>
-                <h2>Meet Our Staff</h2>
-            </div>
+
             <div className={s.staffBlock}>
                 <div className={s.peopleBlock}>
                     <div className={s.imgBlock}>

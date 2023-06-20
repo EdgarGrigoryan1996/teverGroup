@@ -283,7 +283,6 @@ function Price() {
 
         setSelectedTax(taxOptions[index])
         setSelectedActivity(activityOptions[index2])
-        console.log("test")
     },[window.localStorage.lng,t])
 
     useEffect(() => {

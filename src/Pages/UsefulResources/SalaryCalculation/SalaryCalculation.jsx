@@ -226,13 +226,13 @@ function SalaryCalculation() {
             <div className={s.calculateBlock}>
 
                 <div className={s.cleanRegisteredBlock}>
-                    <div className={(registeredMethod ? s.selectedMethod : "")} onClick={() => handleChangeMethod(setRegisteredMethod,true)}>Գրանցված</div>
-                    <div className={(!registeredMethod ? s.selectedMethod : "")} onClick={() => handleChangeMethod(setRegisteredMethod,false)}>Մաքուր</div>
+                    <div className={(registeredMethod ? s.selectedMethod : "")} onClick={() => handleChangeMethod(setRegisteredMethod,true)}>{t("salary.gross")}</div>
+                    <div className={(!registeredMethod ? s.selectedMethod : "")} onClick={() => handleChangeMethod(setRegisteredMethod,false)}>{t("salary.net")}</div>
                 </div>
-                <div><p>Մասնակցում եք արդյո՞ք պարտադիր կուտակային կենսաթոշակային համակարգին</p></div>
+                <div><p>{t("salary.question")}</p></div>
                 <div className={s.vcharoxBlock}>
-                    <div className={(payMethod ? s.selectedMethod : "")} onClick={() => handleChangeMethod(setPayMethod,true)}>ԱՅՈ, մասնակից եմ</div>
-                    <div className={(!payMethod ? s.selectedMethod : "")} onClick={() => handleChangeMethod(setPayMethod,false)}>ՈՉ, մասնակից չեմ</div>
+                    <div className={(payMethod ? s.selectedMethod : "")} onClick={() => handleChangeMethod(setPayMethod,true)}>{t("salary.yes")}</div>
+                    <div className={(!payMethod ? s.selectedMethod : "")} onClick={() => handleChangeMethod(setPayMethod,false)}>{t("salary.no")}</div>
                 </div>
 
                 <div className={s.enterSalary}>
@@ -245,19 +245,19 @@ function SalaryCalculation() {
                 </div>
                 <div className={s.resultWrapper}>
                     <div className={s.resultBlock}>
-                        <div>Եկամտահարկ 20%</div>
+                        <div>{t("salary.ekamtahark")} 20%</div>
                         <div>{ekamtahark ? new Intl.NumberFormat("am-AM").format(+ekamtahark) : 0}</div>
                     </div>
                     <div className={s.resultBlock}>
-                        <div>Սոցիալական վճար</div>
+                        <div>{t("salary.social")}</div>
                         <div>{socialPay ? new Intl.NumberFormat("am-AM").format(+socialPay) : 0}</div>
                     </div>
                     <div className={s.resultBlock}>
-                        <div>Դրոշմանիշային վճար</div>
+                        <div>{t("salary.droshmanish")}</div>
                         <div>{droshmanish ? new Intl.NumberFormat("am-AM").format(+droshmanish) : 0}</div>
                     </div>
                     <div className={s.resultBlock}>
-                        <div>{registeredMethod ? "Մաքուր մնացորդ" : "Պետք է գրանցել"}</div>
+                        <div>{registeredMethod ? t("salary.result") : t("salary.netResult")}</div>
                         <div>{new Intl.NumberFormat("am-AM").format(+result)}</div>
                     </div>
                 </div>

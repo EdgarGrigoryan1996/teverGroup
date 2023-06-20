@@ -1,0 +1,97 @@
+.pdfBlock {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    margin-top: 50px;
+    gap: 15px;
+}
+.pdfBlock > div{
+    flex-basis: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.pdfBlock h3{
+    margin-bottom: 15px;
+    height: 50px;
+    color: var(--second-color);
+}
+/*download Button*/
+.buttonBlock{
+    display: flex;
+    margin-bottom: 5px;
+}
+.buttonBlock div{
+    display: flex;
+    align-items: flex-start;
+}
+.buttonBlock div:first-child{
+    min-width: 95px;
+}
+.buttonBlock {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--black);
+    transition: all 100ms linear;
+    text-align: left;
+    font-size: 14px;
+}
+.buttonBlock:hover{
+    color: var(--second-color);
+}
+.buttonBlock svg{
+    margin-right: 5px;
+    color: var(--main-color);
+    font-size: 20px;
+}
+
+@media screen and (max-width: 900px){
+    .pdfBlock h3{
+        font-size: 14px;
+    }
+    .buttonBlock div:first-child{
+        min-width: 75px;
+    }
+    .buttonBlock{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 700px){
+    .buttonBlock{
+        margin-bottom: 1px;
+    }
+    .pdfBlock h3{
+        font-size: 12px;
+    }
+    .buttonBlock svg{
+        font-size: 14px;
+    }
+    .buttonBlock div:first-child{
+        min-width: 60px;
+    }
+    .buttonBlock{
+        font-size: 8px;
+    }
+}
+@media screen and (max-width: 510px){
+    .pdfBlock > div{
+        flex-basis: 100%;
+    }
+    .buttonBlock{
+        margin-bottom: 5px;
+    }
+    .pdfBlock h3{
+        font-size: 14px;
+        height: auto;
+    }
+    .buttonBlock svg{
+        font-size: 16px;
+    }
+    .buttonBlock div:first-child{
+        min-width: 60px;
+    }
+    .buttonBlock{
+        font-size: 8px;
+    }
+}

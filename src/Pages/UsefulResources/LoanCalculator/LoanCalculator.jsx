@@ -1,8 +1,9 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import g from "../../../globalStyles.module.css";
 import s from "./LoanCalculator.module.css"
 import {useTranslation} from "react-i18next";
 import Select from 'react-select';
+import {getSelectedOptionIndex} from "../../../components/EmailSendMethods/helpFunctions/getSelectedOptionIndex";
 
 function LoanCalculator() {
     const {t} = useTranslation()
@@ -14,17 +15,27 @@ function LoanCalculator() {
     const [totalList, setTotalList] = useState({})
 
     const options = [
-        { value: 'year', label: 'Տարի' },
-        { value: 'month', label: 'Ամիս' },
+        { value: 'year', label: t("loan.year") },
+        { value: 'month', label: t("loan.month") },
     ]
 
     const [selectedOption, setSelectedOption] = useState(options[0]);
+
+    useEffect(() => {
+
+        const selectedValue = selectedOption.value;
+
+        let index = getSelectedOptionIndex(options,selectedValue);
+
+        console.log(index)
+        setSelectedOption(options[index])
+    },[window.localStorage.lng,t])
 
     const renderTable = useCallback((arr,total) => {
         return(
             <table className={s.table}>
                 <tr>
-                    <th>#</th><th>Մայր գումարի մնացորդ</th><th>Տոկոս</th><th>Մայր գումար</th><th>Ընդամենը վճարում</th>
+                    <th>#</th><th>{t("loan.mayrGumarMnacord")}</th><th>{t("loan.tokos")}</th><th>{t("loan.mayrGumar")}</th><th>{t("loan.yndamenyVchar")}</th>
                 </tr>
                 {arr.map((item,i) => (
                     <tr>
@@ -45,7 +56,7 @@ function LoanCalculator() {
                 ))}
                 
                     <tr>
-                        <td colSpan={2}>Ընդամենը</td>
+                        <td colSpan={2}>{t("loan.yndameny")}</td>
                         <td>{new Intl.NumberFormat("am-AM").format(+total.totalTokos)}</td>
                         <td>{new Intl.NumberFormat("am-AM").format(+total.totalMayrGumar)}</td>
                         <td>{new Intl.NumberFormat("am-AM").format(+total.totalYndameny)}</td>
@@ -117,6 +128,12 @@ function LoanCalculator() {
             totalYndameny
         })
     }, [money, percent, month, loanList,selectedOption])
+
+    const styles = {
+        valueContainer: (css, state) => ({ ...css,
+            input: { "height": 0 }
+        })
+    }
     
     return (
         <section>
@@ -127,15 +144,15 @@ function LoanCalculator() {
             <div className={s.calculatorBlock}>
                 <div className={s.fieldsBlock}>
                     <div className={s.fieldBlock}>
-                        <h3>Վարկի գումար</h3>
-                        <input type="number" placeholder='Վարկի գումար' value={money} onChange={(e) => {
+                        <h3>{t("loan.loanAmount")}</h3>
+                        <input type="number" placeholder={t("loan.loanAmount")} value={money} onChange={(e) => {
                             setMoney(e.target.value)
                         }}/>
                     </div>
 
                     <div className={s.fieldBlock}>
-                        <h3>Տարեկան տոկոսադրույք</h3>
-                        <input type="number" placeholder='Տարեկան տոկոսադրույք (0 - 100)' min={0} max={100} value={percent} onChange={(e) => {
+                        <h3>{t("loan.rate")}</h3>
+                        <input type="number" placeholder={t("loan.rate") + " (0 - 100)"} min={0} max={100} value={percent} onChange={(e) => {
                             if(+e.target.value <=100){
                                 setPercent(e.target.value)
                             }
@@ -144,28 +161,56 @@ function LoanCalculator() {
                     </div>
 
                     <div className={s.fieldBlock}>
-                        <h3>Մարման ժամկետ</h3>
+                        <h3>{t("loan.term")}</h3>
                         <div className={s.montBlock}>
-                            <input type="number" placeholder='Մարման ժամկետ' value={month} onChange={(e) => {
+                            <input type="number" placeholder={t("loan.term")} value={month} onChange={(e) => {
                                     setMonth(e.target.value)
                                 }}
                             />
                             <Select 
-                                defaultValue={selectedOption}
+                                value={selectedOption}
                                 onChange={setSelectedOption}
                                 options={options}
                                 styles={{
+                                    ...styles,
                                     control: (baseStyles, state) => ({
-                                      ...baseStyles,
-                                      marginTop:10
-                                    }),
-                                  }}
+                                        ...baseStyles,
+                                        borderColor: state.isFocused ? 'var(--second-color)' : 'var(--grey-color)',
+                                        outline:"none",
+                                        padding:"5px",
+                                        marginTop:"10px",
+                                        boxShadow:"none",
+                                        transition:"all .5s",
+                                        border: state.isFocused ? "1px solid var(--second-color)" : "1px solid #ccc",
+                                        '&:hover': {
+                                            borderColor:state.isFocused ? "var(--second-color)" : "#ccc"
+                                        },
+                                        "@media only screen and (max-width: 560px)": {
+                                            ...styles["@media only screen and (max-width: 560px)"],
+                                            fontSize: "12px",
+                                        },
+                                        "@media only screen and (max-width: 450px)": {
+                                            ...styles["@media only screen and (max-width: 450px)"],
+                                            fontSize: "10px",
+                                        },
+                                    })
+                                }}
+                                theme={(theme) => ({
+                                    ...theme,
+                                    borderRadius: 5,
+                                    colors: {
+                                        ...theme.colors,
+                                        text: '#ccc',
+                                        primary25: 'var(--main-color)',
+                                        primary: 'var(--second-color)',
+                                    },
+                                })}
                             />
                         </div>
                     </div>
                 </div>
 
-                <div className={s.showResult} onClick={handleCalculate}>Հաշվել</div>
+                <div className={s.showResult} onClick={handleCalculate}>{t("loan.calculate")}</div>
             </div>
 
 
