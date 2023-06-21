@@ -27,18 +27,12 @@
             "text":"Useful resources",
             "subMenu": {
                 "item1": "Links",
-                "item2": "Standards; laws RA",
+                "item2": "Standards",
                 "item3": "Salary calculator",
                 "item4": "Loan calculator"
             }
         },
-        "contacts":{
-            "text":"Contacts",
-            "subMenu": {
-                "item1": "N1hashvapahutyun@gmail.com",
-                "item2": "+374 55 222 302"
-            }
-        },
+
         "news": {
             "text": "News",
             "subMenu": {
@@ -49,11 +43,11 @@
         }
     },
     "header": {
-        "title": "Accounting & Finances",
-        "subTitle": "However big the scale of your business operations"
+        "title": "Accounting & Finances"
     },
     "ourServices": "Our Services",
     "servicesList": "The list of provided services",
+    "miniSection": "The partner for your financial success",
     "company": {
         "about": {
             "title": "Your Financial Partner for Success",
@@ -80,7 +74,14 @@
     },
     "partners": {
         "title": "Get to Know Our Partners",
-        "description": "The company's client list includes such prestigious organizations as: Project LL company (engaged in the construction of apartment buildings and residential districts), the Armenian branch of Galactica LL company (dealing with renovation works of the Nuclear Power Plant), Israeliyan Design Studio LL company (interior design of apartment buildings and residential districts) and exterior design), top IT companies, etc."
+        "description": "The list of the company's clients includes prestigious organizations operating in various fields.",
+        "listText": "Areas of activity that trust us:",
+        "item1": "IT",
+        "item2": "Mining",
+        "item3": "Wholesale and retail trade",
+        "item4": "Agriculture",
+        "item5": "Imports and exports with different customs regimes",
+        "item6": "Production"
     },
     "links": {
         "link1": "NATIONAL ASSEMBLY OF RA",
@@ -130,8 +131,7 @@
     "tax": {
         "title": "Tax Advice",
         "description": "Tax is a compulsory and gratuitous payment for the purpose of meeting state and public needs, which is collected from individuals and legal entities (including non-resident individuals, institutions of foreign legal entities, branches of foreign legal entities, representative offices), institutions, local self-government bodies. in accordance with the procedure, in the amounts and within the specified time periods provided by the legislation",
-        "description2": "Tax agent: a tax agent is a legal entity that pays (allocates or provides in kind) income to taxpayers (including an establishment of a foreign legal entity, a branch or representative office of a foreign legal entity), an individual entrepreneur, a notary, an institution, a local self-government body, on which the law in accordance with the law, when paying (allocating or providing) income to taxpayers, the obligation to calculate, keep (collect) taxes from their income (including indirect) and pay to the budgets of the Republic of Armenia and municipalities",
-        "description3": "State taxes are state taxes: profit tax, income tax, excise tax, value added tax. Fixed fees or franchise fees may be established by law to replace the aforementioned types of taxesLocal taxes are property tax, land tax, hotel tax. Other local taxes may be imposed by other laws",
+        "description2": "State taxes are state taxes: profit tax, income tax, excise tax, value added tax. Fixed fees or franchise fees may be established by law to replace the aforementioned types of taxesLocal taxes are property tax, land tax, hotel tax. Other local taxes may be imposed by other laws",
         "offer" : "Our professional team offers:",
         "items": {
             "item1":"Calculating taxes and other mandatory payments, verifying and adjusting payments and balances, reporting",
@@ -165,7 +165,7 @@
         "items": {
            "item1":"Accounting basic knowledge courses",
            "item2":"AS accountant training",
-           "item3":"Microsoft Excel advanced courses in finance"
+           "item3":"Microsoft Excel advanced courses"
         }
     },
     "price":{
@@ -202,7 +202,8 @@
         }
     },
     "footer":{
-        "address":"Yerevan, Avan, Isahakyan str 3/3"
+        "address":"Yerevan, Avan, Isahakyan str 3/3",
+        "info": "Contacts"
     },
     "pdfAcc": {
         "title": "International Accounting Standarts",

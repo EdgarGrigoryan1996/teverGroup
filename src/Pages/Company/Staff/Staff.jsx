@@ -25,9 +25,9 @@ function Staff() {
                     <div className={s.infoBlock}>
 
                         <div className={s.socialBlock}>
-                            <div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaFacebookF /></Link> </div>
+                            {/*<div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaFacebookF /></Link> </div>*/}
                             <div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaLinkedinIn /></Link> </div>
-                            <div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaTwitter /></Link> </div>
+                            {/*<div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaTwitter /></Link> </div>*/}
                         </div>
 
                         <div><h3> {t("staff.owner.name")}</h3></div>
@@ -43,9 +43,9 @@ function Staff() {
                     <div className={s.infoBlock}>
 
                         <div className={s.socialBlock}>
-                            <div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaFacebookF /></Link> </div>
+                            {/*<div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaFacebookF /></Link> </div>*/}
                             <div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaLinkedinIn /></Link> </div>
-                            <div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaTwitter /></Link> </div>
+                            {/*<div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaTwitter /></Link> </div>*/}
                         </div>
 
                         <div><h3> {t("staff.deputyDirector.name")}</h3></div>
@@ -61,9 +61,9 @@ function Staff() {
                     <div className={s.infoBlock}>
 
                         <div className={s.socialBlock}>
-                            <div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaFacebookF /></Link> </div>
+                            {/*<div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaFacebookF /></Link> </div>*/}
                             <div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaLinkedinIn /></Link> </div>
-                            <div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaTwitter /></Link> </div>
+                            {/*<div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaTwitter /></Link> </div>*/}
                         </div>
 
                         <div><h3> {t("staff.headAudit.name")}</h3></div>
@@ -79,9 +79,9 @@ function Staff() {
                     <div className={s.infoBlock}>
 
                         <div className={s.socialBlock}>
-                            <div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaFacebookF /></Link> </div>
+                            {/*<div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaFacebookF /></Link> </div>*/}
                             <div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaLinkedinIn /></Link> </div>
-                            <div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaTwitter /></Link> </div>
+                            {/*<div className={s.socialItem}><Link to={"https://ru-ru.facebook.com/"}><FaTwitter /></Link> </div>*/}
                         </div>
 
                         <div><h3> {t("staff.taxConsultant.name")}</h3></div>

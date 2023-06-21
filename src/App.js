@@ -3,10 +3,8 @@ import './App.css';
 import {useTranslation} from "react-i18next";
 import TopInformationSection from './components/TopInformationSection/TopInformationSection';
 import Menu from './components/Menu/Menu';
-
 import Home from "./Pages/Home/Home";
 import {Route, Routes} from "react-router-dom";
-import AboutCompany from "./Pages/Company/AboutCompany/AboutCompany";
 import Partners from "./Pages/Company/Partners/Partners";
 import Staff from "./Pages/Company/Staff/Staff";
 import Links from "./Pages/UsefulResources/Links/Links";
@@ -29,7 +27,7 @@ import {useEffect, useState} from "react";
 function App() {
   const {t} = useTranslation()
     const aboutPageData = {
-        "title": t("company.about.title"),
+        "title": t("menu.company.subMenu.item1"),
         "description": t("company.about.description")
     }
     const servicePagesData = {
@@ -57,7 +55,6 @@ function App() {
             "title":  t("tax.title"),
             "description":t("tax.description"),
             "description2":t("tax.description2"),
-            "description3":t("tax.description3"),
             "offer":t("tax.offer"),
             "items": [
                 {

@@ -24,7 +24,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className={s.quick}>
-                    <div className={s.footerTitle}>Quick Links</div>
+                    <div className={s.footerTitle}>{t("menu.company.text")}</div>
                     <div className={s.lists}>
                         <Link to={"/about"}><div>{t("menu.company.subMenu.item1")}</div></Link>
                         <Link to={"/staff"}><div>{t("menu.company.subMenu.item2")}</div></Link>
@@ -35,7 +35,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className={s.services}>
-                    <div className={s.footerTitle}>Services</div>
+                    <div className={s.footerTitle}>{t("menu.services.text")}</div>
                     <div className={s.lists}>
                         <Link to={"/management"}><div>{t("menu.services.subMenu.item1")}</div></Link>
                         <Link to={"/consultancyTax"}><div>{t("menu.services.subMenu.item3")}</div></Link>
@@ -46,7 +46,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className={s.information}>
-                    <div className={s.footerTitle}>Information</div>
+                    <div className={s.footerTitle}>{t("footer.info")}</div>
                     <div className={s.lists}>
                         <div className={s.infoItem}>
                             <div><BsFillTelephoneForwardFill /></div>

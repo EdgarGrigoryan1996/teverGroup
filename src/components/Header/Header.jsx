@@ -9,7 +9,6 @@ function Header() {
             <img src={headerImg} alt=""/>
             <div className={s.headerContentBlock}>
                 <div><h1>{t("header.title")}</h1></div>
-                <div><p>{t("header.subTitle")}</p></div>
             </div>
             <div className={s.background}>
 
