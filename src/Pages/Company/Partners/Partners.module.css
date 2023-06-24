@@ -25,20 +25,34 @@
     margin-bottom: 50px;
     letter-spacing: 1px;
 }
+.trust{
+    color: var(--grey-color);
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
 
 .partner{
     font-size: 13px;
-    font-weight: 700;
     letter-spacing: 1px;
     color: var(--black);
     margin-bottom: 5px;
+    display: flex;
+    align-items: flex-start;
+}
+.partner span {
+    margin-right: 9px;
+    color: var(--main-color);
+    font-size: 20px;
+}
+.partner b{
+
 }
 
 @media screen and (max-width: 890px){
     .infoTitle{
         font-size: 36px;
     }
-    .description{
+    .description,.trust{
         font-size: 14px;
     }
     .partnerContent{
@@ -62,5 +76,8 @@
 @media screen and (max-width: 500px){
     .partner{
         flex-basis: 35%;
+    }
+    .partner b{
+        font-size: 10px;
     }
 }

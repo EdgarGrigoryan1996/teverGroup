@@ -12,7 +12,6 @@ import SuccessMessagePopup from "../SuccessMessagePopup";
 
 function Price() {
     const {t} = useTranslation()
-
     const taxOptions = [
         {value:"ԱԱՀ",label:t("price.tax.item1")},
         {value:"Շրջանաության հարկ",label:t("price.tax.item2")},
@@ -322,6 +321,17 @@ function Price() {
                         ...styles["@media only screen and (max-width: 450px)"],
                         fontSize: "10px",
                     },
+                }),
+                option: (provided, state) => ({
+                    ...provided,
+                    zIndex:9999,
+                    "@media only screen and (max-width: 700px)":{
+                        fontSize: '14px', // Здесь можно указать нужный размер шрифта
+                    },
+                    "@media only screen and (max-width: 450px)":{
+                        fontSize: '10px', // Здесь можно указать нужный размер шрифта
+                    }
+
                 })
             }}
             theme={(theme) => ({

@@ -62,6 +62,17 @@ function EmailSendMethods(props) {
                             ...styles["@media only screen and (max-width: 450px)"],
                             fontSize: "10px",
                         },
+                    }),
+                    option: (provided, state) => ({
+                        ...provided,
+                        zIndex:9999,
+                        "@media only screen and (max-width: 700px)":{
+                            fontSize: '14px', // Здесь можно указать нужный размер шрифта
+                        },
+                        "@media only screen and (max-width: 450px)":{
+                            fontSize: '10px', // Здесь можно указать нужный размер шрифта
+                        }
+
                     })
                 }}
                 theme={(theme) => ({

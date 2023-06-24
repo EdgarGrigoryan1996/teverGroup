@@ -33,7 +33,7 @@ function Menu() {
                             <span className={s.item}><span>{t("menu.company.text")}</span><span className={s.subMenuOpenArrow}><IoIosArrowForward /></span></span>
                             <div className={s.subMenu}>
                                 <Link to={"/about"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.company.subMenu.item1")}</div></Link>
-                                <Link to={"/staff"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.company.subMenu.item2")}</div></Link>
+                                {/*<Link to={"/staff"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.company.subMenu.item2")}</div></Link>*/}
                                 <Link to={"/partners"}><div onClick={() => setBurgerMenuStatus(false)}>{t("menu.company.subMenu.item3")}</div></Link>
                             </div>
                     </div>

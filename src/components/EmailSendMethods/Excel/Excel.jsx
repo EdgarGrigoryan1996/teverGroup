@@ -13,9 +13,13 @@ import SuccessMessagePopup from "../SuccessMessagePopup";
 function Price() {
     const {t} = useTranslation()
 
+    const courseOptions = [
+        {value:"Հաշվապահական հաշվառման բազային գիտելիքների դասընթացներ",label:t("trainings.items.item1")},
+        {value:"ՀԾ հաշվապահ ծրագրի ուսուցում",label:t(t("trainings.items.item2"))},
+        {value:"Microsoft Excel խորացված դասընթացներ",label:t(t("trainings.items.item3"))}
+    ]
 
-
-
+    const [selectedCourse, setSelectedCourse] = useState(courseOptions[0])
     const [successMessageStatus, setSuccessMessageStatus] = useState(false)
     const [readyForCheck, setReadyForCheck] = useState(false)
     const [companyName, setCompanyName] = useState({
@@ -63,7 +67,7 @@ function Price() {
         })
     }
     function sendData(){
-        sendExcelEmailData(companyName,email,phone,students)
+        sendExcelEmailData(companyName,email,phone,students,selectedCourse)
         setCompanyName({
             text:"",
             err:{
@@ -185,6 +189,73 @@ function Price() {
 
     }
 
+    const styles = {
+        valueContainer: (css, state) => ({ ...css,
+            input: { "height": 0 }
+        })
+    }
+
+    const renderSelect = useCallback((selectedValue, options, handleChange) => (
+        <Select
+            isSearchable={false}
+            value={selectedValue}
+            options={options}
+            onChange={handleChange}
+            styles={{
+                ...styles,
+                control: (baseStyles, state) => ({
+                    ...baseStyles,
+                    borderColor: state.isFocused ? 'var(--second-color)' : 'var(--grey-color)',
+                    outline:"none",
+                    padding:"5px",
+                    boxShadow:"none",
+                    transition:"all .5s",
+                    border: state.isFocused ? "1px solid var(--second-color)" : "1px solid #ccc",
+                    '&:hover': {
+                        borderColor:state.isFocused ? "var(--second-color)" : "#ccc"
+                    },
+                    "@media only screen and (max-width: 560px)": {
+                        ...styles["@media only screen and (max-width: 560px)"],
+                        fontSize: "12px",
+                    },
+                    "@media only screen and (max-width: 450px)": {
+                        ...styles["@media only screen and (max-width: 450px)"],
+                        fontSize: "10px",
+                    },
+                }),
+                option: (provided, state) => ({
+                    ...provided,
+                    zIndex:9999,
+                    "@media only screen and (max-width: 700px)":{
+                        fontSize: '14px', // Здесь можно указать нужный размер шрифта
+                    },
+                    "@media only screen and (max-width: 450px)":{
+                        fontSize: '10px', // Здесь можно указать нужный размер шрифта
+                    }
+
+                })
+            }}
+            theme={(theme) => ({
+                ...theme,
+                borderRadius: 5,
+                colors: {
+                    ...theme.colors,
+                    text: '#ccc',
+                    primary25: 'var(--main-color)',
+                    primary: 'var(--second-color)',
+                },
+            })}
+        />
+    ), [selectedCourse])
+
+    useEffect(() => {
+
+        const selectedValue = selectedCourse.value;
+        let index = getSelectedOptionIndex(courseOptions,selectedValue);
+        setSelectedCourse(courseOptions[index])
+
+    },[window.localStorage.lng,t])
+
     useEffect(() => {
         checkFields()
     },[readyForCheck])
@@ -220,6 +291,11 @@ function Price() {
                                     <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
                                 </span>}
                     </div>
+                    <div className={s.excelInputBlock}>
+                        <div className={s.fieldTitle}>{t("price.excelCourseName")}</div>
+                        {renderSelect(selectedCourse, courseOptions, setSelectedCourse)}
+                    </div>
+
                 </div>
                 <div className={s.buttonBlock}><button onClick={sendEmail}>{t("price.buttonText")}</button></div>
             </div>

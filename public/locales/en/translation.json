@@ -94,14 +94,16 @@
     "salary": {
         "net": "NET",
         "gross": "GROSS",
-        "question": "Do you participate in a mandatory funded pension scheme?",
+        "question": "Do you participate in the accumulative pension system?",
         "yes": "Yes, I'm participant",
         "no": "No, I'm not participant",
         "ekamtahark": "Income Tax",
         "social": "Social Fee",
         "droshmanish": "Stamp Duty",
         "result": "Clean Balance",
-        "netResult": "Must Register"
+        "netResult": "Must Register",
+        "grossPlaceholder": "Registered salary",
+        "netPlaceholder": "NET salary"
     },
     "loan": {
         "loanAmount": "Loan Amount",
@@ -170,8 +172,9 @@
     },
     "price":{
         "topTitle": "Get a Price",
-        "title":"Calculating the cost of accounting services",
+        "title":"Price for accounting",
         "excelTitle": "Price for courses",
+        "excelCourseName": "Select course",
         "companyName":"Company Name",
         "email":"E-mail",
         "phone": "Phone Number",

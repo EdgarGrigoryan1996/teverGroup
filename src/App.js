@@ -132,7 +132,7 @@ function App() {
                     <Route path={"/"} element={<Home />}/>
                     <Route path={"/about"} element={<ServicePagesTemplate data={aboutPageData} image={aboutImage} />}/>
                     <Route path={"/partners"} element={<WithScrollTop Child={Partners} /> }/>
-                    <Route path={"/staff"} element={<WithScrollTop Child={Staff} />}/>
+                    {/*<Route path={"/staff"} element={<WithScrollTop Child={Staff} />}/>*/}
                     <Route path={"/businessConsulting"} element={<ServicePagesTemplate data={servicePagesData.planning} image={planningImg}/>}/>
                     {/*<Route path={"/consultancyAccounting"} element={<ConsultancyAccounting />}/>*/}
                     <Route path={"/consultancyTax"} element={<ServicePagesTemplate data={servicePagesData.tax} image={taxImg}/>}/>

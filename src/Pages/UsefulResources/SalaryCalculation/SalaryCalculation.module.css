@@ -56,6 +56,13 @@
     border:1px solid var(--second-color);
     appearance: none;
      -moz-appearance: textfield;
+    font-size: 40px;
+    color: var(--black);
+}
+.enterSalary input::placeholder{
+    font-size: 22px;
+    color: var(--grey-color);
+    letter-spacing: 1px;
 }
 
 .enterSalary input::-webkit-outer-spin-button,
@@ -115,6 +122,12 @@ input::-webkit-inner-spin-button {
    .resultBlock div:first-child{
        font-size: 12px;
    }
+    .enterSalary input{
+        font-size: 24px;
+    }
+    .enterSalary input::placeholder{
+        font-size: 18px;
+    }
 }
 
 @media screen and (max-width: 500px){
@@ -129,6 +142,12 @@ input::-webkit-inner-spin-button {
     }
     .resultBlock div:last-child{
         font-size: 12px;
+    }
+    .enterSalary input{
+        font-size: 20px;
+    }
+    .enterSalary input::placeholder{
+        font-size: 16px;
     }
 
 }

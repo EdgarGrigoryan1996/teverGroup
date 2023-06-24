@@ -24,6 +24,9 @@
     flex-basis: 48.5%;
     position: relative;
 }
+.excelInputBlock{
+    flex-basis: 100%;
+}
 .fieldTitle{
     color: var(--second-color);
     margin-bottom: 5px;
