@@ -27,11 +27,12 @@ function Footer() {
                     <div className={s.footerTitle}>{t("menu.company.text")}</div>
                     <div className={s.lists}>
                         <Link to={"/about"}><div>{t("menu.company.subMenu.item1")}</div></Link>
-                        <Link to={"/staff"}><div>{t("menu.company.subMenu.item2")}</div></Link>
+                        {/*<Link to={"/staff"}><div>{t("menu.company.subMenu.item2")}</div></Link>*/}
                         <Link to={"/partners"}><div>{t("menu.company.subMenu.item3")}</div></Link>
                         <Link to={"/links"}><div>{t("menu.resources.subMenu.item1")}</div></Link>
                         <Link to={"/standards"}><div>{t("menu.resources.subMenu.item2")}</div></Link>
                         <Link to={"/salaryCalculation"}><div>{t("menu.resources.subMenu.item3")}</div></Link>
+                        <Link to={"/loanCalculation"}><div>{t("menu.resources.subMenu.item4")}</div></Link>
                     </div>
                 </div>
                 <div className={s.services}>

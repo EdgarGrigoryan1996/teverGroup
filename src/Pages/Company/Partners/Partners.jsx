@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./Partners.module.css"
 import {useTranslation} from "react-i18next";
-import partnerImg from "../../../assets/images/partners/partners.webp";
+import partnerImg from "../../../assets/images/partners/partnersImg.webp";
 import {FaHandsHelping} from "react-icons/fa";
 
 function Partners() {

@@ -15,11 +15,11 @@ import Footer from "./components/Footer/Footer";
 import LoanCalculator from "./Pages/UsefulResources/LoanCalculator/LoanCalculator";
 import ServicePagesTemplate from "./components/Templates/ServicePagesTemplate";
 import aboutImage from "./assets/images/about.webp"
-import accountingImg from "./assets/images/services/accounting.webp"
-import taxImg from "./assets/images/services/tax.webp"
-import planningImg from "./assets/images/services/planning.webp"
-import trainingsImg from "./assets/images/services/trainings.webp"
-import hrImg from "./assets/images/services/hr.webp"
+import accountingImg from "./assets/images/services/accountingImg.webp"
+import taxImg from "./assets/images/services/taxImg.webp"
+import planningImg from "./assets/images/services/planningImg.webp"
+import trainingsImg from "./assets/images/services/trainingsImg.webp"
+import hrImg from "./assets/images/services/hrImg.webp"
 import WithScrollTop from "./HOC/WithScrollTop";
 import EmailSendMethods from "./components/EmailSendMethods/EmailSendMethods";
 import {useEffect, useState} from "react";

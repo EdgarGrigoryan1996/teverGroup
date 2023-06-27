@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./Header.module.css"
 import {useTranslation} from "react-i18next";
-import headerImg from "../../assets/images/headerImg-min.webp"
+import headerImg from "../../assets/images/headerImg4.webp"
 function Header() {
     const {t} = useTranslation()
     return (
