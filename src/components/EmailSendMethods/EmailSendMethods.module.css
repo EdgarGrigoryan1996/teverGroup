@@ -25,6 +25,7 @@
     position: relative;
 }
 .excelInputBlock{
+    margin-top: 15px;
     flex-basis: 100%;
 }
 .fieldTitle{
@@ -113,9 +114,7 @@
     .inputBlock input::placeholder{
         letter-spacing: 0;
     }
-    .methodsContent h2{
-        font-size: 18px;
-    }
+
 }
 @media screen and (max-width:680px){
     .fields{
@@ -133,6 +132,9 @@
 @media screen and (max-width:560px){
     div.selectInputBlock{
         flex-basis: 100%;
+    }
+    .fieldTitle{
+        font-size: 12px;
     }
     .inputBlock input{
         font-size: 14px;

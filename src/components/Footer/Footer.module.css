@@ -32,6 +32,7 @@ footer{
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 25px;
+    color: #00E2F6;
 }
 .social{
     display: flex;
@@ -86,6 +87,11 @@ footer{
  .infoItem h4{
      color: #d3d3d3;
      font-size: 12px;
+ }
+ @media screen and (max-width: 970px){
+     .footerTitle{
+         font-size: 16px;
+     }
  }
  @media screen and (max-width: 795px){
 

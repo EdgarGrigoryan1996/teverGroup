@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next"
-import g from "../../../globalStyles.module.css"
 import s from "../EmailSendMethods.module.css"
 import {useCallback, useEffect, useState } from "react"
 import Select from "react-select"
@@ -7,14 +6,14 @@ import UseAnimations from "react-useanimations";
 import alertCircle from 'react-useanimations/lib/alertCircle'
 import { getSelectedOptionIndex } from "../helpFunctions/getSelectedOptionIndex"
 import {validateEmail} from "../helpFunctions/validateEmail";
-import {sendEmailData, sendExcelEmailData} from "../../../api/sendEmail/sendEmail";
+import {sendExcelEmailData} from "../../../api/sendEmail/sendEmail";
 import SuccessMessagePopup from "../SuccessMessagePopup";
 
 function Price() {
     const {t} = useTranslation()
 
     const courseOptions = [
-        {value:"Հաշվապահական հաշվառման բազային գիտելիքների դասընթացներ",label:t("trainings.items.item1")},
+        {value:"Հաշվապահության դասընթացներ",label:t("trainings.items.item4")},
         {value:"ՀԾ հաշվապահ ծրագրի ուսուցում",label:t(t("trainings.items.item2"))},
         {value:"Microsoft Excel խորացված դասընթացներ",label:t(t("trainings.items.item3"))}
     ]
@@ -266,6 +265,10 @@ function Price() {
             {successMessageStatus && <SuccessMessagePopup/>}
             <div className={s.excelMethod}>
                 <div className={s.fields}>
+                    <div className={s.excelInputBlock}>
+                        <div className={s.fieldTitle}>{t("price.excelCourseName")}</div>
+                        {renderSelect(selectedCourse, courseOptions, setSelectedCourse)}
+                    </div>
                     <div className={s.inputBlock + " " + (companyName.err.status === false && s.errorBlock)}><input type="text" value={companyName.text}  placeholder={t("price.companyName")} onChange={(e) => changeValue(e,companyName,setCompanyName)}/>
                         {companyName.err.status === false &&
                             <span title={companyName.err.msg} className={s.errorMessage}>
@@ -290,10 +293,6 @@ function Price() {
                             <span title={students.err.msg} className={s.errorMessage}>
                                     <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
                                 </span>}
-                    </div>
-                    <div className={s.excelInputBlock}>
-                        <div className={s.fieldTitle}>{t("price.excelCourseName")}</div>
-                        {renderSelect(selectedCourse, courseOptions, setSelectedCourse)}
                     </div>
 
                 </div>

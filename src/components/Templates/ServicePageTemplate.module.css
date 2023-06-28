@@ -9,6 +9,8 @@
     flex-basis: 47%;
 }
 .templateContent .imageBlock img{
+    object-fit: cover;
+    max-height: 700px;
     width: 100%;
     border-radius: 10px;
 }

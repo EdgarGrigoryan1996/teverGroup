@@ -1,8 +1,8 @@
 import React from 'react';
 import s from "./Links.module.css"
 import g from "../../../globalStyles.module.css";
-import gerb from "../../../assets/images/links/gerb.png"
-import bank from "../../../assets/images/links/bank.png"
+import gerb from "../../../assets/images/links/gerb.webp"
+import bank from "../../../assets/images/links/bank.webp"
 import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 
