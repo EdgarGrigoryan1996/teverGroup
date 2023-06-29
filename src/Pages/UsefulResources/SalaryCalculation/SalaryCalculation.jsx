@@ -236,11 +236,16 @@ function SalaryCalculation() {
                 </div>
 
                 <div className={s.enterSalary}>
-                    <input ref={inputRef} placeholder={registeredMethod ? t("salary.grossPlaceholder") + "..." : t("salary.netPlaceholder") + "..."} type="number" value={currentSalary} onChange={(e) => {
-                        // const currentSymbol = e.target.value
-                        // const regex = /^\d+$/;
-                            setCurrentSalary(e.target.value )
+                    <input ref={inputRef} placeholder={registeredMethod ? t("salary.grossPlaceholder") + "..." : t("salary.netPlaceholder") + "..."} type="text" value={currentSalary} onChange={(e) => {
+                        let currentSymbol = e.target.value
+                        currentSymbol = currentSymbol.split("")
+                        currentSymbol = currentSymbol[currentSymbol.length-1]
 
+                        let reg = new RegExp('^[0-9]+$');
+
+                        if(reg.test(currentSymbol) || currentSymbol == undefined) {
+                            setCurrentSalary(e.target.value)
+                        }
                     }}/>
                 </div>
                 <div className={s.resultWrapper}>

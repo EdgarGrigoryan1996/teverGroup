@@ -6,7 +6,7 @@
         "company":{
             "text":"Company",
             "subMenu": {
-                "item1": "About the company",
+                "item1": "About us",
                 "item2": "Staff",
                 "item3": "Partners"
             }
@@ -109,6 +109,9 @@
         "loanAmount": "Loan Amount",
         "rate": "Annual Interest Rate",
         "term": "Maturity",
+        "monthInfo": "Maximum 240 months",
+        "yearInfo": "Maximum 20 years",
+        "calculateErr": "Fill in all fields",
         "calculate": "Calculate",
         "year": "Year",
         "month": "Month",

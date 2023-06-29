@@ -2,7 +2,7 @@
     background-color: var(--second-color);
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 10px 20px 10px 25px;
     margin: 0 auto;
     font-family: 'Montserrat', sans-serif;
 }
@@ -39,12 +39,12 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 510px){
+@media screen and (max-width: 576px){
     .contacts div{
         font-size: 12px;
     }
 }
-@media screen and (max-width: 420px){
+@media screen and (max-width: 430px){
     .contacts div{
         font-size: 8px;
     }

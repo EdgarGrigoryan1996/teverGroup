@@ -20,6 +20,8 @@ function LoanCalculator() {
     ]
 
     const [selectedOption, setSelectedOption] = useState(options[0]);
+    const [err, setErr] = useState(null)
+    const [calculateErr, setCalculateErr] = useState(null)
 
     useEffect(() => {
 
@@ -30,6 +32,10 @@ function LoanCalculator() {
         console.log(index)
         setSelectedOption(options[index])
     },[window.localStorage.lng,t])
+    useEffect(() => {
+        setMonth("")
+        setErr(null)
+    },[selectedOption])
 
     const renderTable = useCallback((arr,total) => {
         return(
@@ -67,66 +73,70 @@ function LoanCalculator() {
     }, [loanList])
 
     const handleCalculate = useCallback(() =>{
-        let toMonth = selectedOption.value === "year" ? month * 12 : +month;
-        let vark = money
-        console.log(toMonth);
-        let totalTokos = 0
-        let totalMayrGumar = 0
-        let totalYndameny = 0
+        if(money !== "" && percent !== "" && month !== ""){
+            setCalculateErr(null)
+            let toMonth = selectedOption.value === "year" ? month * 12 : +month;
+            let vark = money
+            let totalTokos = 0
+            let totalMayrGumar = 0
+            let totalYndameny = 0
 
-        const result = []
+            const result = []
 
-        for(let i = 1; i<= toMonth; i++){
-            
-            const calcData = {}
-            if(i !== toMonth){
-                let tokos = Math.round(vark * (percent / 100) / 12)
-                let yndameny = Math.round(money * (percent / 100) / 12 / (1 - 1 / (1 + (percent / 100) / 12) ** toMonth))
-                let mayrGumar = Math.round(yndameny - tokos)
-                let mnacord = Math.round(vark - mayrGumar)
+            for(let i = 1; i<= toMonth; i++){
+                const calcData = {}
+                if(i !== toMonth){
+                    let tokos = Math.round(vark * (percent / 100) / 12)
+                    let yndameny = Math.round(money * (percent / 100) / 12 / (1 - 1 / (1 + (percent / 100) / 12) ** toMonth))
+                    let mayrGumar = Math.round(yndameny - tokos)
+                    let mnacord = Math.round(vark - mayrGumar)
 
-                calcData.mnacord = mnacord
-                calcData.tokos = tokos
-                calcData.mayrGumar = mayrGumar
-                calcData.marvoxGumar = yndameny
+                    calcData.mnacord = mnacord
+                    calcData.tokos = tokos
+                    calcData.mayrGumar = mayrGumar
+                    calcData.marvoxGumar = yndameny
 
-                totalTokos += tokos
-                totalMayrGumar += mayrGumar
-                totalYndameny += yndameny
-            
-                result.push(calcData)
-                vark = vark - mayrGumar
-            } else {
-                let tokos = Math.round(vark * (percent / 100) / 12)
-                let yndameny = Math.round(money * (percent / 100) / 12 / (1 - 1 / (1 + (percent / 100) / 12) ** toMonth))
-                let mayrGumar = Math.round(yndameny - tokos)
-                let mnacord = Math.round(vark - mayrGumar)
-                yndameny += mnacord
-                mayrGumar = mayrGumar + mnacord
-                mnacord = 0
+                    totalTokos += tokos
+                    totalMayrGumar += mayrGumar
+                    totalYndameny += yndameny
 
-                calcData.mnacord = mnacord
-                calcData.tokos = tokos
-                calcData.mayrGumar = mayrGumar
-                calcData.marvoxGumar = yndameny
+                    result.push(calcData)
+                    vark = vark - mayrGumar
+                } else {
+                    let tokos = Math.round(vark * (percent / 100) / 12)
+                    let yndameny = Math.round(money * (percent / 100) / 12 / (1 - 1 / (1 + (percent / 100) / 12) ** toMonth))
+                    let mayrGumar = Math.round(yndameny - tokos)
+                    let mnacord = Math.round(vark - mayrGumar)
+                    yndameny += mnacord
+                    mayrGumar = mayrGumar + mnacord
+                    mnacord = 0
 
-                totalTokos += tokos
-                totalMayrGumar += mayrGumar
-                totalYndameny += yndameny
-            
-                result.push(calcData)
-                vark = vark - mayrGumar
+                    calcData.mnacord = mnacord
+                    calcData.tokos = tokos
+                    calcData.mayrGumar = mayrGumar
+                    calcData.marvoxGumar = yndameny
+
+                    totalTokos += tokos
+                    totalMayrGumar += mayrGumar
+                    totalYndameny += yndameny
+
+                    result.push(calcData)
+                    vark = vark - mayrGumar
+                }
+
             }
-            
-        }
-        
 
-        setLoanList(result)
-        setTotalList({
-            totalTokos,
-            totalMayrGumar,
-            totalYndameny
-        })
+
+            setLoanList(result)
+            setTotalList({
+                totalTokos,
+                totalMayrGumar,
+                totalYndameny
+            })
+        } else {
+            setCalculateErr(t("loan.calculateErr"))
+        }
+
     }, [money, percent, month, loanList,selectedOption])
 
     const styles = {
@@ -152,7 +162,7 @@ function LoanCalculator() {
 
                     <div className={s.fieldBlock}>
                         <h3>{t("loan.rate")}</h3>
-                        <input type="number" placeholder={t("loan.rate") + " (0 - 100)"} min={0} max={100} value={percent} onChange={(e) => {
+                        <input type="number" placeholder={t("loan.rate") + " (0 - 100)%"} min={0} max={100} value={percent} onChange={(e) => {
                             if(+e.target.value <=100){
                                 setPercent(e.target.value)
                             }
@@ -162,11 +172,37 @@ function LoanCalculator() {
 
                     <div className={s.fieldBlock}>
                         <h3>{t("loan.term")}</h3>
-                        <div className={s.montBlock}>
-                            <input type="number" placeholder={t("loan.term")} value={month} onChange={(e) => {
-                                    setMonth(e.target.value)
+                        <div className={s.monthBlock}>
+                            <input type="text" placeholder={t("loan.term")}  value={month} onChange={(e) => {
+                                let currentSymbol = e.target.value
+                                currentSymbol = currentSymbol.split("")
+                                currentSymbol = currentSymbol[currentSymbol.length-1]
+
+                                let reg = new RegExp('^[0-9]+$');
+                                if(selectedOption.value === "year"){
+                                    if(reg.test(currentSymbol) || currentSymbol === undefined) {
+                                        if(+e.target.value <= 20){
+                                            setErr(null)
+                                            setMonth(e.target.value)
+                                        } else {
+                                            setErr(t("loan.yearInfo"))
+                                        }
+                                    }
+                                } else {
+                                    if(reg.test(currentSymbol) || currentSymbol === undefined) {
+                                        if(+e.target.value <= 240){
+                                            setErr(null)
+                                            setMonth(e.target.value)
+                                        } else {
+                                            setErr(t("loan.monthInfo"))
+                                        }
+                                    }
+                                }
+
+
                                 }}
                             />
+                            {err && <div className={s.err}>{err}</div>}
                             <Select 
                                 value={selectedOption}
                                 onChange={setSelectedOption}
@@ -209,11 +245,9 @@ function LoanCalculator() {
                         </div>
                     </div>
                 </div>
-
+                {calculateErr && <div className={s.err}>{calculateErr}</div>}
                 <div className={s.showResult} onClick={handleCalculate}>{t("loan.calculate")}</div>
             </div>
-
-
 
 
             {!!loanList.length && renderTable(loanList,totalList)}

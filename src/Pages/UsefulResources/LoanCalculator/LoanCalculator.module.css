@@ -19,6 +19,9 @@
     flex-direction: column;
     align-items: center;
 }
+.fieldBlock .monthBlock{
+    width: 100%;
+}
 .calculatorBlock input{
     margin-top: 10px;
     background-color: var(--white);
@@ -37,8 +40,10 @@
     font-size: 12px;
 }
 
-.montBlock{
-
+.err{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 5px;
 }
 
 
@@ -93,6 +98,15 @@
     .fieldBlock h3{
         font-size: 14px;
     }
+    .err{
+        font-size: 12px;
+    }
+    .calculatorBlock input{
+        font-size: 14px;
+    }
+    .calculatorBlock input::placeholder{
+        font-size: 10px;
+    }
 }
 @media screen and (max-width: 650px){
     .fieldBlock {
@@ -115,6 +129,9 @@
     }
     .fieldBlock{
         flex-basis: 55%;
+    }
+    .fieldBlock h3{
+        font-size: 14px;
     }
     .fieldBlock input{
         font-size: 12px;

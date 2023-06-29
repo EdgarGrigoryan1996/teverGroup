@@ -5,7 +5,7 @@ import {useTranslation} from "react-i18next";
 import {BsFillTelephoneForwardFill} from "react-icons/bs";
 import {AiOutlineMail} from "react-icons/ai";
 import {ImLocation} from "react-icons/im";
-import {FaFacebookF, FaLinkedinIn} from "react-icons/fa";
+import {FaFacebookF, FaInstagram, FaLinkedinIn} from "react-icons/fa";
 import logo from "../../assets/icons/logo.webp"
 
 function Footer() {
@@ -21,6 +21,7 @@ function Footer() {
                     <div className={s.social}>
                         <div className={s.socialItem}><Link target={"_blank"} to={"https://www.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"}><FaLinkedinIn /></Link></div>
                         <div className={s.socialItem}><Link target={"_blank"} to={"https://ru-ru.facebook.com/"}><FaFacebookF /></Link></div>
+                        <div className={s.socialItem}><Link target={"_blank"} to={"https://www.instagram.com/"}><FaInstagram /></Link></div>
                     </div>
                 </div>
                 <div className={s.quick}>
