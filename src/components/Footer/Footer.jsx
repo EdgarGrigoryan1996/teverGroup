@@ -19,9 +19,9 @@ function Footer() {
                     </div>
 
                     <div className={s.social}>
-                        <div className={s.socialItem}><Link target={"_blank"} to={"https://www.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"}><FaLinkedinIn /></Link></div>
-                        <div className={s.socialItem}><Link target={"_blank"} to={"https://ru-ru.facebook.com/"}><FaFacebookF /></Link></div>
-                        <div className={s.socialItem}><Link target={"_blank"} to={"https://www.instagram.com/"}><FaInstagram /></Link></div>
+                        <div className={s.socialItem}><Link target={"_blank"} to={"https://www.linkedin.com/in/tever-llc-acconting-and-finance-500403234/"}><FaLinkedinIn /></Link></div>
+                        <div className={s.socialItem}><Link target={"_blank"} to={"https://www.facebook.com/TEVER-LLC-103901596096166/"}><FaFacebookF /></Link></div>
+                        <div className={s.socialItem}><Link target={"_blank"} to={"https://instagram.com/tever_llc?igshid=MzRlODBiNWFlZA=="}><FaInstagram /></Link></div>
                     </div>
                 </div>
                 <div className={s.quick}>

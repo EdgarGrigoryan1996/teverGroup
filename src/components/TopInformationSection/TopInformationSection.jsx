@@ -12,13 +12,11 @@ const langOptions = [
     
 ]
 function getStorageLang(options){
-    console.log(localStorage.getItem("lng"))
     const currentStorageLang = localStorage.getItem("lng")
     if(currentStorageLang){
        let test = options.filter((option) => {
             return option.value === currentStorageLang
         })[0]
-        console.log(test)
         return test
     } else {
         return options[0]

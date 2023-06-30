@@ -267,12 +267,12 @@ function SalaryCalculation() {
                     </div>
                 </div>
 
-                <div className={s.salaryInfo}>
-                    {(registeredMethod && payMethod) && <RegisterPayInfo currentSalary={currentSalary} socialPay={socialPay} droshmanish={droshmanish} ekamtahark={ekamtahark} result={result}/>}
-                    {(registeredMethod && !payMethod) && <RegisterNotPay currentSalary={currentSalary} socialPay={socialPay} droshmanish={droshmanish} ekamtahark={ekamtahark} result={result}/>}
-                    {(!registeredMethod && !payMethod) && <CleanNotPayInfo currentSalary={currentSalary} socialPay={socialPay} droshmanish={droshmanish} ekamtahark={ekamtahark} result={result}/>}
-                    {(!registeredMethod && payMethod) && <CleanPayInfo currentSalary={currentSalary} socialPay={socialPay} droshmanish={droshmanish} ekamtahark={ekamtahark} result={result}/>}
-                </div>
+                {/*<div className={s.salaryInfo}>*/}
+                {/*    {(registeredMethod && payMethod) && <RegisterPayInfo currentSalary={currentSalary} socialPay={socialPay} droshmanish={droshmanish} ekamtahark={ekamtahark} result={result}/>}*/}
+                {/*    {(registeredMethod && !payMethod) && <RegisterNotPay currentSalary={currentSalary} socialPay={socialPay} droshmanish={droshmanish} ekamtahark={ekamtahark} result={result}/>}*/}
+                {/*    {(!registeredMethod && !payMethod) && <CleanNotPayInfo currentSalary={currentSalary} socialPay={socialPay} droshmanish={droshmanish} ekamtahark={ekamtahark} result={result}/>}*/}
+                {/*    {(!registeredMethod && payMethod) && <CleanPayInfo currentSalary={currentSalary} socialPay={socialPay} droshmanish={droshmanish} ekamtahark={ekamtahark} result={result}/>}*/}
+                {/*</div>*/}
             </div>
         </section>
     );

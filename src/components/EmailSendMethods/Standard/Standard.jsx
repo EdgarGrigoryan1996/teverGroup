@@ -356,19 +356,19 @@ function Price() {
                     <div className={s.inputBlock + " " + (companyName.err.status === false && s.errorBlock)}><input type="text" value={companyName.text}  placeholder={t("price.companyName")} onChange={(e) => changeValue(e,companyName,setCompanyName)}/>
                         {companyName.err.status === false &&
                             <span title={companyName.err.msg} className={s.errorMessage}>
-                            <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
+                            <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={24}/>
                         </span>}
                     </div>
                     <div className={s.inputBlock + " " + (email.err.status === false && s.errorBlock)}><input type="email" value={email.text} placeholder={t("price.email")} onChange={(e) => changeValue(e,email,setEmail)}/>
                         {email.err.status === false &&
                             <span title={email.err.msg} className={s.errorMessage}>
-                            <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
+                            <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={24}/>
                         </span>}
                     </div>
                     <div className={s.inputBlock + " " + (phone.err.status === false && s.errorBlock)}><input type="number" value={phone.text} placeholder={t("price.phone")} onChange={(e) => changeValue(e,phone,setPhone)}/>
                         {phone.err.status === false &&
                             <span title={phone.err.msg} className={s.errorMessage}>
-                            <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
+                            <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={24}/>
                         </span>}
                     </div>
                     <div className={s.inputBlock + " " + s.selectInputBlock}>
@@ -383,21 +383,21 @@ function Price() {
                     <div className={s.inputBlock + " " + (staffNumber.err.status === false && s.errorBlock)}><input type="number"  placeholder={t("price.staffNumber")} value={staffNumber.text} onChange={(e) => changeValue(e,staffNumber,setStaffNumber)}/>
                         {staffNumber.err.status === false &&
                             <span title={staffNumber.err.msg} className={s.errorMessage}>
-                                <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
+                                <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={24}/>
                             </span>}
 
                     </div>
                     <div className={s.inputBlock + " " + (monthTurnover.err.status === false && s.errorBlock)}><input type="number"  placeholder={t("price.monthTurnover")} value={monthTurnover.text} onChange={(e) => changeValue(e,monthTurnover,setmonthTurnover)}/>
                         {monthTurnover.err.status === false &&
                             <span title={monthTurnover.err.msg} className={s.errorMessage}>
-                                <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
+                                <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={24}/>
                             </span>}
 
                     </div>
                     <div className={s.inputBlock + " " + (montAverage.err.status === false && s.errorBlock)}><input type="number"  placeholder={t("price.monthAverage")} value={montAverage.text} onChange={(e) => changeValue(e,montAverage,setmontAverage)}/>
                         {montAverage.err.status === false &&
                             <span title={montAverage.err.msg} className={s.errorMessage}>
-                                <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
+                                <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={24}/>
                             </span>}
 
                     </div>
@@ -405,7 +405,7 @@ function Price() {
                         {assetsNumber.err.status === false &&
                             <span title={assetsNumber.err.msg} className={s.errorMessage}>
 
-                                    <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={36}/>
+                                    <UseAnimations animation={alertCircle} strokeColor={"#ea3434"} size={24}/>
                                 </span>}
 
                     </div>

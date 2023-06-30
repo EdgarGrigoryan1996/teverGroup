@@ -26,3 +26,21 @@
 .background .businessMessage span{
     color:var(--main-color);
 }
+
+@media screen and (max-width: 700px){
+    .heartbeatWrapper{
+        height: 200px;
+    }
+    .background .businessMessage{
+        font-size: 24px;
+    }
+}
+@media screen and (max-width: 470px){
+    .heartbeatWrapper{
+        height: 150px;
+        margin: 0;
+    }
+    .background .businessMessage{
+        font-size: 18px;
+    }
+}

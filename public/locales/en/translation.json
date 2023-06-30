@@ -100,8 +100,8 @@
         "ekamtahark": "Income Tax",
         "social": "Social Fee",
         "droshmanish": "Stamp Duty",
-        "result": "Clean Balance",
-        "netResult": "Must Register",
+        "result": "NET",
+        "netResult": "GROSS",
         "grossPlaceholder": "Registered salary",
         "netPlaceholder": "NET salary"
     },

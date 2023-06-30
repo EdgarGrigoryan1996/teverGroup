@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import g from "../../../globalStyles.module.css";
 import s from "./LoanCalculator.module.css"
 import {useTranslation} from "react-i18next";
@@ -29,7 +29,6 @@ function LoanCalculator() {
 
         let index = getSelectedOptionIndex(options,selectedValue);
 
-        console.log(index)
         setSelectedOption(options[index])
     },[window.localStorage.lng,t])
     useEffect(() => {
@@ -173,32 +172,33 @@ function LoanCalculator() {
                     <div className={s.fieldBlock}>
                         <h3>{t("loan.term")}</h3>
                         <div className={s.monthBlock}>
-                            <input type="text" placeholder={t("loan.term")}  value={month} onChange={(e) => {
-                                let currentSymbol = e.target.value
-                                currentSymbol = currentSymbol.split("")
-                                currentSymbol = currentSymbol[currentSymbol.length-1]
+                            <input type="text" placeholder={t("loan.term")} min={1}  value={month} onChange={(e) => {
+                                if(e.target.value > 0 || e.target.value === ""){
+                                    let currentSymbol = e.target.value
+                                    currentSymbol = currentSymbol.split("")
+                                    currentSymbol = currentSymbol[currentSymbol.length-1]
 
-                                let reg = new RegExp('^[0-9]+$');
-                                if(selectedOption.value === "year"){
-                                    if(reg.test(currentSymbol) || currentSymbol === undefined) {
-                                        if(+e.target.value <= 20){
-                                            setErr(null)
-                                            setMonth(e.target.value)
-                                        } else {
-                                            setErr(t("loan.yearInfo"))
+                                    let reg = new RegExp('^[0-9]+$');
+                                    if(selectedOption.value === "year"){
+                                        if(reg.test(currentSymbol) || currentSymbol === undefined) {
+                                            if(+e.target.value <= 20){
+                                                setErr(null)
+                                                setMonth(e.target.value)
+                                            } else {
+                                                setErr(t("loan.yearInfo"))
+                                            }
                                         }
-                                    }
-                                } else {
-                                    if(reg.test(currentSymbol) || currentSymbol === undefined) {
-                                        if(+e.target.value <= 240){
-                                            setErr(null)
-                                            setMonth(e.target.value)
-                                        } else {
-                                            setErr(t("loan.monthInfo"))
+                                    } else {
+                                        if(reg.test(currentSymbol) || currentSymbol === undefined) {
+                                            if(+e.target.value <= 240){
+                                                setErr(null)
+                                                setMonth(e.target.value)
+                                            } else {
+                                                setErr(t("loan.monthInfo"))
+                                            }
                                         }
                                     }
                                 }
-
 
                                 }}
                             />

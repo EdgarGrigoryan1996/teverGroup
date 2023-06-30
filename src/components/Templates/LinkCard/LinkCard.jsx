@@ -1,6 +1,5 @@
 import React from 'react';
 import s from "./LinkCard.module.css";
-import {BsBook} from "react-icons/bs";
 import {Link} from "react-router-dom";
 
 function LinkCard(props) {
@@ -9,7 +8,7 @@ function LinkCard(props) {
             <div className={s.card}>
                 <div className={s.cardLogo}>{props.cardIcon}</div>
                 <div className={s.cardTitle}>{props.cardTitle}</div>
-                <div className={s.cardDescription}><p>{props.cardDescription}</p></div>
+                {/*<div className={s.cardDescription}><p>{props.cardDescription}</p></div>*/}
             </div>
         </Link>
     );
