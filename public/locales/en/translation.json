@@ -100,10 +100,10 @@
         "ekamtahark": "Income Tax",
         "social": "Social Fee",
         "droshmanish": "Stamp Duty",
-        "result": "NET",
-        "netResult": "GROSS",
-        "grossPlaceholder": "Registered salary",
-        "netPlaceholder": "NET salary"
+        "result": "Net",
+        "netResult": "Gross",
+        "grossPlaceholder": "Gross salary",
+        "netPlaceholder": "Net salary"
     },
     "loan": {
         "loanAmount": "Loan Amount",

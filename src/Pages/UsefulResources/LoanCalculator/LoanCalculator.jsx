@@ -203,7 +203,8 @@ function LoanCalculator() {
                                 }}
                             />
                             {err && <div className={s.err}>{err}</div>}
-                            <Select 
+                            <Select
+                                isSearchable={false}
                                 value={selectedOption}
                                 onChange={setSelectedOption}
                                 options={options}
