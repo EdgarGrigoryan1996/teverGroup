@@ -54,7 +54,7 @@ function App() {
         "tax": {
             "title":  t("tax.title"),
             "description":t("tax.description"),
-            "description2":t("tax.description2"),
+            // "description2":t("tax.description2"),
             "offer":t("tax.offer"),
             "items": [
                 {
@@ -71,8 +71,8 @@ function App() {
         "planning": {
             "title":  t("planning.title"),
             "description":t("planning.description"),
-            "description2":t("planning.description2"),
-            "description3":t("planning.description3"),
+            // "description2":t("planning.description2"),
+            // "description3":t("planning.description3"),
             "offer":t("planning.offer"),
             "items": [
                 {

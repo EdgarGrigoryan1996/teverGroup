@@ -15,8 +15,8 @@ function LoanCalculator() {
     const [totalList, setTotalList] = useState({})
 
     const options = [
-        { value: 'year', label: t("loan.year") },
         { value: 'month', label: t("loan.month") },
+        { value: 'year', label: t("loan.year") },
     ]
 
     const [selectedOption, setSelectedOption] = useState(options[0]);
