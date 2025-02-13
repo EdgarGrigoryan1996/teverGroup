@@ -76,8 +76,8 @@ const TopInformationSection = () => {
     return (
         <div className={s.informationBlock}>
             <div className={s.contacts}>
-                <div><span><MdEmail/></span>info@tevergroup.am</div>
-                <div><span><AiFillPhone /></span>+ 374(93) 25 33 33</div>
+                <div><span><MdEmail/></span><a href="mailto:info@tevergroup.am?subject=&body=">info@tevergroup.am</a></div>
+                <div><span><AiFillPhone /></span><a href="tel:+37455233311">+ 374 (55) 23 33 11</a></div>
             </div>
             <div className={s.language}>
 

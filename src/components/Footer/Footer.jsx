@@ -53,14 +53,14 @@ function Footer() {
                         <div className={s.infoItem}>
                             <div><BsFillTelephoneForwardFill /></div>
                             <div>
-                                <h4>+ 374 (93) 25 33 33</h4>
+                                <h4><a href="tel:+37455233311">+ 374 (55) 23 33 11</a></h4>
                             </div>
                         </div>
                         <div className={s.infoItem}>
                             <div><AiOutlineMail /></div>
                             <div>
 
-                                <h4>info@tevergroup.am</h4>
+                                <h4><a href="mailto:info@tevergroup.am?subject=&body=">info@tevergroup.am</a></h4>
                             </div>
                         </div>
                         <div className={s.infoItem}>
